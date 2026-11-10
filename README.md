@@ -26,6 +26,12 @@ SwedPos desktop (server PC)                         SwedPos Cloud (Django)
   `python tools/compile_messages.py`. The compiled `.mo` files are committed.
 - Restaurants, owners and sync keys are managed in `/admin/`. The key is shown once and stored only as a hash.
 
+## Run it in VS Code
+
+File > Open Folder > the `website` folder (or the `SwedPos.code-workspace` in the desktop folder, which shows both projects).
+**F5** > "Django: runserver" then open http://127.0.0.1:8000. Terminal > Run Task: migrate, seed_demo, test, createsuperuser, texts.
+Where is what: [docs/PROJECT_MAP.md](docs/PROJECT_MAP.md). To continue in a new chat: [HANDOFF.md](HANDOFF.md).
+
 ## Local setup
 
 ```bash

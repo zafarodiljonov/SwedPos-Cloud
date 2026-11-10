@@ -1,0 +1,55 @@
+{
+  // Terminal > Run Task... shows these. Every Django command runs with PYTHONUTF8=1 (Cyrillic output on Windows).
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "runserver (127.0.0.1:8000)",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": ["manage.py", "runserver", "127.0.0.1:8000"],
+      "options": { "env": { "PYTHONUTF8": "1" } },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "migrate",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": ["manage.py", "migrate"],
+      "options": { "env": { "PYTHONUTF8": "1" } },
+      "problemMatcher": []
+    },
+    {
+      "label": "seed_demo (demo restaurant, 60 days up to today)",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": ["manage.py", "seed_demo"],
+      "options": { "env": { "PYTHONUTF8": "1" } },
+      "problemMatcher": []
+    },
+    {
+      "label": "test (all tests)",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": ["manage.py", "test", "--settings=config.settings.test"],
+      "options": { "env": { "PYTHONUTF8": "1" } },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "texts: rebuild uz/ru from the desktop's Loc.cs",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe tools/make_texts.py ../src/SwedPos.App/Loc.cs; ${workspaceFolder}/.venv/Scripts/python.exe tools/compile_messages.py",
+      "options": { "env": { "PYTHONUTF8": "1" } },
+      "problemMatcher": []
+    },
+    {
+      "label": "createsuperuser (your admin login: phone + password)",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": ["manage.py", "createsuperuser"],
+      "options": { "env": { "PYTHONUTF8": "1" } },
+      "problemMatcher": []
+    }
+  ]
+}
