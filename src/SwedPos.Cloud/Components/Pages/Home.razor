@@ -1,0 +1,21 @@
+@page "/"
+@inject CloudAccounts Accounts
+@inject NavigationManager Nav
+
+@* Sends people where they belong: the login, or the first restaurant they may see. *@
+
+@code {
+    [CascadingParameter] private HttpContext? Http { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var lang = Texts.Normalize(Http?.Request.Cookies["lang"]);
+        if (!int.TryParse(Http?.User.FindFirstValue(ClaimTypes.NameIdentifier), out var accountId))
+        {
+            Nav.NavigateTo($"/{lang}/login");
+            return;
+        }
+        var restaurants = await Accounts.RestaurantsForAsync(accountId);
+        Nav.NavigateTo(restaurants.Count == 0 ? $"/{lang}/login?none=1" : $"/{lang}/r/{restaurants[0].Id}/overview");
+    }
+}

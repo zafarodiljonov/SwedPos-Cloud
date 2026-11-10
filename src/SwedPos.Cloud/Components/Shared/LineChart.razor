@@ -1,0 +1,62 @@
+@using System.Globalization
+@* Revenue over time as SVG: brass line and area for this period, dashed grey line for the previous one; hover shows the values. *@
+
+@if (Points.Count == 0)
+{
+    <p class="dim">@Texts.Get(Lang, "an_no_data")</p>
+}
+else
+{
+    <svg class="chart" viewBox="0 0 @W @H" preserveAspectRatio="xMidYMid meet" role="img">
+        @foreach (var (value, y) in Grid())
+        {
+            <line class="grid" x1="@F(Left)" x2="@F(W - Right)" y1="@F(y)" y2="@F(y)" />
+            @Txt(Left - 8, y + 4, "end", Fmt.Short(value, Lang))
+        }
+        @if (Points.Any(p => p.Previous is not null))
+        {
+            <polyline class="prev" points="@Path(p => p.Previous ?? 0)" />
+        }
+        <polygon class="area" points="@F(X(0)),@F(Bottom) @Path(p => p.Value) @F(X(Points.Count - 1)),@F(Bottom)" />
+        <polyline class="line" points="@Path(p => p.Value)" />
+        @for (var i = 0; i < Points.Count; i++)
+        {
+            var p = Points[i];
+            <g class="pt">
+                <rect class="hit" x="@F(X(i) - Slot / 2)" y="@F(Top)" width="@F(Slot)" height="@F(Bottom - Top)" />
+                <line class="guide" x1="@F(X(i))" x2="@F(X(i))" y1="@F(Top)" y2="@F(Bottom)" />
+                <rect class="dot" x="@F(X(i) - 4)" y="@F(Y(p.Value) - 4)" width="8" height="8" />
+                <title>@(p.Tooltip ?? p.Label + "\n" + Fmt.Money(p.Value))</title>
+            </g>
+        }
+        @for (var i = 0; i < Points.Count; i += Every)
+        {
+            @Txt(X(i), H - 6, "middle", Points[i].Label)
+        }
+    </svg>
+}
+
+@code {
+    [Parameter] public IReadOnlyList<Point> Points { get; set; } = Array.Empty<Point>();
+    [Parameter] public string Lang { get; set; } = "uz";
+
+    private const double W = 1000, H = 300, Left = 70, Right = 14, Top = 12, Bottom = 270;
+    private decimal _top = 1, _step = 1;
+
+    protected override void OnParametersSet()
+    {
+        var max = Points.Count == 0 ? 0 : Points.Max(p => Math.Max(p.Value, p.Previous ?? 0));
+        (_top, _step) = ChartMath.NiceScale(max);
+    }
+
+    private double Slot => Points.Count <= 1 ? W - Left - Right : (W - Left - Right) / (Points.Count - 1);
+    private int Every => Math.Max(1, (int)Math.Ceiling(Points.Count / 10.0));
+    private double X(int i) => Points.Count <= 1 ? (Left + W - Right) / 2 : Left + i * (W - Left - Right) / (Points.Count - 1);
+    private double Y(decimal v) => Bottom - (double)(v / _top) * (Bottom - Top);
+    private string Path(Func<Point, decimal> value) => string.Join(" ", Points.Select((p, i) => F(X(i)) + "," + F(Y(value(p)))));
+    private IEnumerable<(decimal Value, double Y)> Grid() { for (var v = 0m; v <= _top; v += _step) yield return (v, Y(v)); }
+    private static MarkupString Txt(double x, double y, string anchor, string content) =>
+        new($"<text class=\"axis\" x=\"{F(x)}\" y=\"{F(y)}\" text-anchor=\"{anchor}\">{System.Net.WebUtility.HtmlEncode(content)}</text>");
+
+    private static string F(double v) => v.ToString("0.#", CultureInfo.InvariantCulture);
+}

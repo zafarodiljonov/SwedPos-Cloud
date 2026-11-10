@@ -1,0 +1,75 @@
+@page "/{Lang}/login"
+@inject CloudAccounts Accounts
+@inject NavigationManager Nav
+@inject DemoMode Demo
+
+<PageTitle>@T("web_login_title") · SwedPos Cloud</PageTitle>
+
+<div class="login-page">
+    <div class="login-side">
+        <div class="brand"><span class="brand-mark"></span>SWEDPOS <b>CLOUD</b></div>
+        <h1>@T("web_tagline")</h1>
+        <ul class="login-points">
+            <li>@T("an_page_overview") · @T("an_page_sales") · @T("an_page_payments")</li>
+            <li>@T("an_page_waiters") · @T("an_page_payroll")</li>
+            <li>@T("an_page_products") · @T("an_page_control")</li>
+        </ul>
+        <p class="dim">@T("web_live_note")</p>
+    </div>
+
+    <div class="login-box">
+        <div class="lang-switch">
+            <a class="@(L == "uz" ? "on" : "")" href="/uz/login">UZ</a><a class="@(L == "ru" ? "on" : "")" href="/ru/login">RU</a>
+        </div>
+        <h2>@T("web_login_title")</h2>
+
+        @if (Demo.IsOn)
+        {
+            <p class="msg">Demo: <b>@Demo.Phone</b> / <b>@Demo.Password</b> · <a class="link" href="/demo?lang=@L" data-enhance-nav="false">@T("web_try_demo") →</a></p>
+        }
+        @if (None)
+        {
+            <p class="msg error">@T("web_no_restaurants")</p>
+        }
+
+        <EditForm Model="Input" FormName="login" OnSubmit="LoginAsync" method="post">
+            <label for="phone">@T("web_phone")</label>
+            <InputText id="phone" @bind-Value="Input.Phone" placeholder="+998 90 123 45 67" autocomplete="username" inputmode="tel" />
+            <label for="password">@T("web_password")</label>
+            <InputText id="password" type="password" @bind-Value="Input.Password" autocomplete="current-password" />
+            @if (_failed)
+            {
+                <p class="msg error">@T("web_bad_login")</p>
+            }
+            <button type="submit" class="btn primary wide">@T("web_login")</button>
+        </EditForm>
+        <p class="dim small">🔒 @T("web_secure")</p>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Lang { get; set; } = "uz";
+    [SupplyParameterFromQuery(Name = "none")] public int? NoneFlag { get; set; }
+    [SupplyParameterFromForm] private LoginInput Input { get; set; } = new();
+    [CascadingParameter] private HttpContext? Http { get; set; }
+
+    private bool _failed;
+    private string L => Texts.Normalize(Lang);
+    private bool None => NoneFlag == 1;
+    private string T(string key) => Texts.Get(L, key);
+
+    private async Task LoginAsync()
+    {
+        var account = await Accounts.LoginAsync(Input.Phone ?? "", Input.Password ?? "");
+        if (account is null || Http is null) { _failed = true; return; }
+        await SignIn.RunAsync(Http, account);
+        Http.Response.Cookies.Append("lang", L, new CookieOptions { MaxAge = TimeSpan.FromDays(365), HttpOnly = true, SameSite = SameSiteMode.Lax });
+        Nav.NavigateTo("/");
+    }
+
+    private sealed class LoginInput
+    {
+        public string? Phone { get; set; }
+        public string? Password { get; set; }
+    }
+}

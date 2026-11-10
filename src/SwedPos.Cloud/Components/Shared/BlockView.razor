@@ -1,0 +1,145 @@
+@* Draws one report block (tiles, cards, charts, tables), the same way the desktop app does. *@
+
+@switch (Block)
+{
+    case TilesBlock tiles:
+        <div class="tiles" style="--n:@tiles.Tiles.Count">
+            @foreach (var t in tiles.Tiles)
+            {
+                <div class="tile">
+                    <div class="label">@t.Label</div>
+                    <div class="value @(t.Accent ? "accent" : "")">@t.Value</div>
+                    @if (t.Change is { } c)
+                    {
+                        var good = c == 0 ? (bool?)null : (c > 0) == t.HigherIsBetter;
+                        <div class="change @(good is null ? "" : good.Value ? "good" : "bad")">@(c > 0 ? "▲ " : c < 0 ? "▼ " : "")@Fmt.Percent(Math.Abs(c)) @T("an_vs_previous")</div>
+                    }
+                    else
+                    {
+                        <div class="note">@(t.Note ?? "—")</div>
+                    }
+                </div>
+            }
+        </div>
+        break;
+
+    case ColumnsBlock cols:
+        <div class="columns" style="--n:@cols.Items.Count">
+            @foreach (var item in cols.Items)
+            {
+                <BlockView Block="item" Lang="@Lang" OnDrill="OnDrill" OnMonth="OnMonth" />
+            }
+        </div>
+        break;
+
+    case CardBlock card:
+        <section class="card">
+            <header>
+                <h2>@card.Title</h2>
+                @if (card.Legend is not null)
+                {
+                    <div class="legend">
+                        @foreach (var (text, dashed) in card.Legend)
+                        {
+                            <span class="@(dashed ? "dashed" : "solid")">@text</span>
+                        }
+                    </div>
+                }
+                else if (card.Note is not null)
+                {
+                    <span class="dim small">@card.Note</span>
+                }
+            </header>
+            <div class="card-body">
+                <BlockView Block="card.Content" Lang="@Lang" OnDrill="OnDrill" OnMonth="OnMonth" />
+            </div>
+        </section>
+        break;
+
+    case LineBlock line:
+        <LineChart Points="line.Points" Lang="@Lang" />
+        break;
+
+    case BarBlock bar:
+        <BarChart Points="bar.Points" Lang="@Lang" />
+        break;
+
+    case HeatBlock heat:
+        <HeatMap Block="heat" />
+        break;
+
+    case SharesBlock shares:
+        var parts = shares.Parts.Where(p => p.Amount > 0).ToList();
+        if (parts.Count == 0)
+        {
+            <p class="dim">@T("an_no_data")</p>
+        }
+        else
+        {
+            <div class="sharebar">
+                @for (var i = 0; i < parts.Count; i++)
+                {
+                    <span style="flex:@Math.Max(parts[i].Percent, 0.5m).ToString(System.Globalization.CultureInfo.InvariantCulture);background:var(--s@(i % 6))" title="@parts[i].Label: @Fmt.Percent(parts[i].Percent)"></span>
+                }
+            </div>
+            <ul class="share-legend">
+                @for (var i = 0; i < parts.Count; i++)
+                {
+                    <li><i style="background:var(--s@(i % 6))"></i><span class="n">@parts[i].Label</span><b>@Fmt.Money(parts[i].Amount)</b><span class="p">@Fmt.Percent(parts[i].Percent)</span></li>
+                }
+            </ul>
+        }
+        break;
+
+    case BarsBlock bars:
+        if (bars.Rows.Count == 0)
+        {
+            <p class="dim">@T("an_no_data")</p>
+        }
+        else
+        {
+            var top = bars.Rows.Max(r => r.Value);
+            <div class="hbars">
+                @for (var i = 0; i < Math.Min(10, bars.Rows.Count); i++)
+                {
+                    var r = bars.Rows[i];
+                    var w = top <= 0 ? 0 : Math.Max(0, r.Value / top * 100);
+                    <div class="hbar">
+                        <span class="n" title="@r.Label">@r.Label</span>
+                        <span class="track"><span class="fill @(i == 0 ? "first" : "")" style="width:@w.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)%"></span></span>
+                        <b>@r.Text</b>
+                    </div>
+                }
+            </div>
+        }
+        break;
+
+    case TableBlock table:
+        <DataTable Block="table" OnDrill="OnDrill" Lang="@Lang" />
+        break;
+
+    case ChipsBlock chips:
+        <div class="chips">@foreach (var c in chips.Items) { <span>@c</span> }</div>
+        break;
+
+    case MonthNavBlock nav:
+        <div class="month-nav">
+            <button class="btn" title="@T("web_month_prev")" @onclick="() => OnMonth.InvokeAsync(-1)">‹</button>
+            <span class="month">@nav.Label</span>
+            <button class="btn" title="@T("web_month_next")" @onclick="() => OnMonth.InvokeAsync(1)">›</button>
+            <span class="dim small">@nav.Note</span>
+        </div>
+        break;
+
+    case EmptyBlock:
+        break;
+}
+
+@code {
+    [Parameter] public Block Block { get; set; } = new EmptyBlock();
+    [Parameter] public string Lang { get; set; } = "uz";
+    [Parameter] public EventCallback<(string Kind, int Key)> OnDrill { get; set; }
+    [Parameter] public EventCallback<int> OnMonth { get; set; }
+
+    private string T(string key) => Texts.Get(Lang, key);
+}
