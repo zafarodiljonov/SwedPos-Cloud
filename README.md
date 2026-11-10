@@ -30,7 +30,7 @@ SwedPos desktop (server PC)                         SwedPos Cloud (Django)
 
 File > Open Folder > the `website` folder (or the `SwedPos.code-workspace` in the desktop folder, which shows both projects).
 **F5** > "Django: runserver" then open http://127.0.0.1:8000. Terminal > Run Task: migrate, seed_demo, test, createsuperuser, texts.
-Where is what: [docs/PROJECT_MAP.md](docs/PROJECT_MAP.md). To continue in a new chat: [HANDOFF.md](HANDOFF.md).
+Where is what: [docs/PROJECT_MAP.md](docs/PROJECT_MAP.md). Managing everything (git, releases, Claude in VS Code): the desktop's [docs/MANAGE_YOURSELF.md](../docs/MANAGE_YOURSELF.md). To continue in a new chat: [HANDOFF.md](HANDOFF.md).
 
 ## Local setup
 
