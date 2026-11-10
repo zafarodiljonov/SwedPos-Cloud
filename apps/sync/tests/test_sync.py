@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from django.conf import settings
 from django.test import TestCase
 
 from apps.accounts.models import User, normalize_phone
@@ -69,7 +70,7 @@ class PagesTests(TestCase):
         self.assertRedirects(self.client.get("/"), f"/r/{self.restaurant.pk}/overview/", fetch_redirect_response=False)
         week = "?from=2026-11-02&to=2026-11-08"
         for lang in ("uz", "ru"):
-            self.client.cookies["django_language"] = lang
+            self.client.cookies[settings.LANGUAGE_COOKIE_NAME] = lang
             for page in ("overview", "sales", "payments", "waiters", "payroll", "tables", "products", "customers", "control", "stock"):
                 with self.subTest(lang=lang, page=page):
                     response = self.client.get(f"/r/{self.restaurant.pk}/{page}/{week}&month=2026-11-01")
@@ -94,4 +95,4 @@ class PagesTests(TestCase):
     def test_language_switch_stays_on_this_site(self):
         response = self.client.get("/lang/ru/?next=https://evil.example/")
         self.assertRedirects(response, "/", fetch_redirect_response=False)
-        self.assertEqual(response.cookies["django_language"].value, "ru")
+        self.assertEqual(response.cookies[settings.LANGUAGE_COOKIE_NAME].value, "ru")

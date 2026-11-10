@@ -1,13 +1,13 @@
 {
-  // Press F5 to run the website with the debugger (breakpoints work in any .py file), then open http://127.0.0.1:8000
+  // Press F5 to run the website with the debugger (breakpoints work in any .py file), then open http://127.0.0.1:8100
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Django: runserver (127.0.0.1:8000)",
+      "name": "Django: runserver (127.0.0.1:8100)",
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/manage.py",
-      "args": ["runserver", "127.0.0.1:8000"],
+      "args": ["runserver", "127.0.0.1:8100"],
       "django": true,
       "env": { "PYTHONUTF8": "1" },
       "python": "${workspaceFolder}/.venv/Scripts/python.exe",

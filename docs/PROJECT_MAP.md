@@ -45,6 +45,6 @@ The owner website for SwedPos restaurants (Python Django + PostgreSQL). Read-onl
 4. Regenerate the comparison data and run the tests.
 
 ## Run and debug in VS Code
-- **F5** (Run and Debug > "Django: runserver") then open http://127.0.0.1:8000. Terminal > Run Task: **migrate**, **seed_demo**, **test**, **createsuperuser**, **texts: rebuild**.
-- From a terminal: `.venv\Scripts\activate`, `python manage.py runserver`.
+- **F5** (Run and Debug > "Django: runserver") then open http://127.0.0.1:8100. Terminal > Run Task: **migrate**, **seed_demo**, **test**, **createsuperuser**, **texts: rebuild**.
+- From a terminal: `.venv\Scripts\python.exe manage.py runserver 8100` (port 8100, so it never meets your other Django projects on port 8000).
 - Login: `+998 90 000 00 00` / `demo12345` after `seed_demo`, or your own superuser.

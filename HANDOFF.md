@@ -10,7 +10,7 @@ I'm continuing work on **SwedPos Cloud**, the owner website for my restaurant PO
 
 ### Hard rules
 1. **Every Django command runs as** `PYTHONUTF8=1 ./.venv/Scripts/python.exe manage.py <cmd>` (Windows cp1252 crashes on Cyrillic otherwise). VS Code tasks already do this.
-2. **I run the dev server myself** in VS Code at `127.0.0.1:8000` (F5 or `python manage.py runserver`). Check port 8000 before starting one; stop yours when done.
+2. **I run the dev server myself** in VS Code at `127.0.0.1:8100` (F5 or `python manage.py runserver`). Check port 8100 before starting one; stop yours when done.
 3. **Never modify my other projects** `erp_wms`, `homnet`, `ind_ref_pro` (reading for reference is fine; this project is set up like `erp_wms`: settings split, `.env`, gunicorn init script, WhiteNoise).
 4. **Passwords/tokens:** never ask me to paste database passwords, GitHub tokens or account files in chat; do not open `djangoeurope_account.txt` or the `*_gittoken.txt` files on my Desktop.
 5. **Numbers must equal the restaurant's.** `apps/analytics/services.py` is a port of the desktop's `AnalyticsService.cs`; `apps/analytics/tests/test_golden.py` compares every page with the desktop's own output. When the desktop's analytics or `CloudSync.cs` change: regenerate the fixtures with `tools/CloudFixtures` (desktop repo), copy them here, run tests. Rounding is C#'s (halves to even).

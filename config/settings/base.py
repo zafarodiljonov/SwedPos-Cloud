@@ -87,6 +87,12 @@ LOGIN_REDIRECT_URL = "reports:home"
 LOGOUT_REDIRECT_URL = "login"
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30   # stay logged in for 30 days
 
+# Browsers share cookies between ports of the same address (127.0.0.1:8000 and 127.0.0.1:8100 are one "site" for cookies).
+# Own cookie names keep SwedPos Cloud from logging you out of (or into) your other local Django projects.
+SESSION_COOKIE_NAME = "swedpos_sessionid"
+CSRF_COOKIE_NAME = "swedpos_csrftoken"
+LANGUAGE_COOKIE_NAME = "swedpos_lang"
+
 # --- Internationalization ---------------------------------------------------
 # Texts are keyed like the desktop app ("an_revenue") and translated in locale/uz and locale/ru,
 # generated from the desktop's Loc.cs so the website uses exactly the same words.

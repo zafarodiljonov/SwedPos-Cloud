@@ -10,7 +10,7 @@ class PhoneLoginForm(AuthenticationForm):
 
     username = forms.CharField(label=_("web_phone"), max_length=30,
                                widget=forms.TextInput(attrs={"autofocus": True, "inputmode": "tel", "placeholder": "+998 90 123 45 67",
-                                                             "autocomplete": "username"}))
+                                                             "autocomplete": "tel", "data-lpignore": "true"}))
     password = forms.CharField(label=_("web_password"), strip=False,
                                widget=forms.PasswordInput(attrs={"autocomplete": "current-password"}))
 
