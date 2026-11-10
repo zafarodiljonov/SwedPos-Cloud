@@ -1,0 +1,17 @@
+{% load i18n reports %}
+{% if table.rows %}
+<div class="table-wrap">
+  <table class="report"{% if table.drill %} data-drill="{{ table.drill }}"{% endif %}>
+    <thead><tr>{% for caption, kind in table.columns %}<th class="{% if kind|numeric %}num{% endif %}" data-numeric="{% if kind|numeric %}1{% endif %}">{{ caption }}</th>{% endfor %}</tr></thead>
+    <tbody>
+      {% for row, key in table|rows_with_keys %}
+        <tr{% if table.drill and key is not None %} class="click" data-key="{{ key }}"{% endif %}>
+          {% for col, value in row|columns_with_values:table %}<td class="{% if col.1|numeric %}num{% endif %}" data-v="{% sort_value value col.1 %}">{% show value col.1 %}</td>{% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<p class="dim">{% translate "an_no_data" %}</p>
+{% endif %}

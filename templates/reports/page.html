@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ title }} · {{ restaurant.name }}{% endblock %}
+{% block body %}
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="{% url 'reports:home' %}"><span class="brand-mark"></span>SWEDPOS <b>CLOUD</b></a>
+    <div class="restaurant">
+      {% if restaurants|length > 1 %}
+        <select onchange="location.href='/r/' + this.value + '/{{ page }}/'">
+          {% for r in restaurants %}<option value="{{ r.pk }}" {% if r.pk == restaurant.pk %}selected{% endif %}>{{ r.name }}</option>{% endfor %}
+        </select>
+      {% else %}
+        <span class="name">{{ restaurant.name }}</span>
+      {% endif %}
+      <span class="sync {% if sync_fresh %}ok{% else %}stale{% endif %}" title="{% translate 'web_live_note' %}">●
+        {% if restaurant.last_sync_at %}{% translate "web_last_sync" %}: {{ restaurant.last_sync_at|date:"d.m.Y H:i" }}{% else %}{% translate "web_never_synced" %}{% endif %}
+      </span>
+    </div>
+    <div class="top-actions">
+      <a class="lang {% if LANGUAGE_CODE == 'uz' %}on{% endif %}" href="{% url 'reports:language' 'uz' %}?next={{ request.get_full_path|urlencode }}">UZ</a><a class="lang {% if LANGUAGE_CODE == 'ru' %}on{% endif %}" href="{% url 'reports:language' 'ru' %}?next={{ request.get_full_path|urlencode }}">RU</a>
+      <span class="who">{{ user.full_name|default:user.phone }}</span>
+      {% if user.is_staff %}<a class="btn ghost" href="{% url 'admin:index' %}">{% translate "web_admin" %}</a>{% endif %}
+      <form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="btn ghost">{% translate "web_logout" %}</button></form>
+    </div>
+  </header>
+
+  <nav class="pages">
+    {% for key, label, icon in pages %}
+      <a class="{% if key == page %}on{% endif %}" href="{% url 'reports:page' restaurant.pk key %}?{{ query }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{ icon }}"/></svg>{{ label }}
+      </a>
+    {% endfor %}
+  </nav>
+
+  <main class="content">
+    {% if page != "payroll" %}
+    <form class="filters" method="get">
+      <div class="presets">
+        {% for key, label, url in presets %}<a class="{% if key == preset %}on{% endif %}" href="{{ url }}{% if f.hall_id %}&hall={{ f.hall_id }}{% endif %}{% if f.waiter_id %}&waiter={{ f.waiter_id }}{% endif %}{% if state.type %}&type={{ state.type }}{% endif %}">{{ label }}</a>{% endfor %}
+      </div>
+      <div class="dates">
+        <input type="date" name="from" value="{{ f.from_|date:'Y-m-d' }}">
+        <span>—</span>
+        <input type="date" name="to" value="{{ f.to|date:'Y-m-d' }}">
+      </div>
+      <div class="selects">
+        <select name="hall" onchange="this.form.submit()">
+          <option value="">{% translate "an_all_halls" %}</option>
+          {% for sid, name in halls %}<option value="{{ sid }}" {% if sid == f.hall_id %}selected{% endif %}>{{ name }}</option>{% endfor %}
+        </select>
+        <select name="waiter" onchange="this.form.submit()">
+          <option value="">{% translate "an_all_waiters" %}</option>
+          {% for sid, name in waiters %}<option value="{{ sid }}" {% if sid == f.waiter_id %}selected{% endif %}>{{ name }}</option>{% endfor %}
+        </select>
+        <select name="type" onchange="this.form.submit()">
+          <option value="">{% translate "an_all_types" %}</option>
+          <option value="dinein" {% if state.type == "dinein" %}selected{% endif %}>{% translate "report_dine_in" %}</option>
+          <option value="takeaway" {% if state.type == "takeaway" %}selected{% endif %}>{% translate "order_type_takeaway" %}</option>
+          <option value="delivery" {% if state.type == "delivery" %}selected{% endif %}>{% translate "order_type_delivery" %}</option>
+        </select>
+        <button class="btn" type="submit">{% translate "web_apply" %}</button>
+      </div>
+    </form>
+    {% endif %}
+
+    <div class="page-head">
+      <div>
+        <h1>{{ title }}</h1>
+        <p class="dim">{{ hint }}</p>
+      </div>
+      <div class="page-side">
+        <span class="dim">{{ period }}</span>
+        <a class="btn ghost" href="{{ export_url }}">⭳ {% translate "report_export" %}</a>
+      </div>
+    </div>
+
+    <div class="blocks" data-detail-base="{% url 'reports:page' restaurant.pk page %}" data-query="{{ query }}" data-rid="{{ restaurant.pk }}">
+      {% for block in blocks %}{% include "reports/block.html" %}{% endfor %}
+      <div id="detail"></div>
+    </div>
+  </main>
+</div>
+{% endblock %}

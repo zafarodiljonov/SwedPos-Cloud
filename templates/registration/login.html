@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "web_login_title" %} · SwedPos Cloud{% endblock %}
+{% block body %}
+<div class="login-page">
+  <div class="login-side">
+    <div class="brand"><span class="brand-mark"></span>SWEDPOS <b>CLOUD</b></div>
+    <h1>{% translate "web_tagline" %}</h1>
+    <ul class="login-points">
+      <li>{% translate "an_page_overview" %} · {% translate "an_page_sales" %} · {% translate "an_page_payments" %}</li>
+      <li>{% translate "an_page_waiters" %} · {% translate "an_page_payroll" %}</li>
+      <li>{% translate "an_page_products" %} · {% translate "an_page_control" %}</li>
+    </ul>
+    <p class="dim">{% translate "web_live_note" %}</p>
+  </div>
+  <div class="login-box">
+    <div class="lang-switch">
+      <a class="{% if LANGUAGE_CODE == 'uz' %}on{% endif %}" href="{% url 'reports:language' 'uz' %}?next={{ request.get_full_path|urlencode }}">UZ</a><a class="{% if LANGUAGE_CODE == 'ru' %}on{% endif %}" href="{% url 'reports:language' 'ru' %}?next={{ request.get_full_path|urlencode }}">RU</a>
+    </div>
+    <h2>{% translate "web_login_title" %}</h2>
+    {% if demo_available %}<p class="msg"><a class="link" href="{% url 'reports:demo' %}">{% translate "web_try_demo" %} →</a></p>{% endif %}
+    <form method="post">
+      {% csrf_token %}
+      <label for="id_username">{{ form.username.label }}</label>
+      {{ form.username }}
+      <label for="id_password">{{ form.password.label }}</label>
+      {{ form.password }}
+      {% if form.errors %}<p class="msg error">{% translate "web_bad_login" %}</p>{% endif %}
+      <input type="hidden" name="next" value="{{ next }}">
+      <button type="submit" class="btn primary wide">{% translate "web_login" %}</button>
+    </form>
+    <p class="dim small">🔒 {% translate "web_secure" %}</p>
+  </div>
+</div>
+{% endblock %}

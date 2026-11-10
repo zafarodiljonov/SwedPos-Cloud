@@ -1,0 +1,62 @@
+{% load i18n reports %}{% with k=block.kind %}
+{% if k == "tiles" %}
+  <div class="tiles" style="--n:{{ block.tiles|length }}">
+    {% for t in block.tiles %}
+      <div class="tile">
+        <div class="label">{{ t.label }}</div>
+        <div class="value{% if t.accent %} accent{% endif %}">{{ t.value }}</div>
+        {% if t.change_text %}
+          <div class="change{% if t.good is True %} good{% elif t.good is False %} bad{% endif %}">{{ t.change_text }} {% translate "an_vs_previous" %}</div>
+        {% else %}
+          <div class="note">{{ t.note|default:"—" }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% elif k == "columns" %}
+  <div class="columns" style="--n:{{ block.items|length }}">
+    {% for item in block.items %}{% include "reports/block.html" with block=item %}{% endfor %}
+  </div>
+{% elif k == "card" %}
+  <section class="card">
+    <header>
+      <h2>{{ block.title }}</h2>
+      {% if block.legend %}
+        <div class="legend">{% for text, dashed in block.legend %}<span class="{% if dashed %}dashed{% else %}solid{% endif %}">{{ text }}</span>{% endfor %}</div>
+      {% elif block.note %}<span class="dim small">{{ block.note }}</span>{% endif %}
+    </header>
+    <div class="card-body">{% include "reports/block.html" with block=block.content %}</div>
+  </section>
+{% elif k == "line" or k == "bar" %}
+  {% if block.points %}{% chart block %}{% else %}<p class="dim">{% translate "an_no_data" %}</p>{% endif %}
+{% elif k == "heat" %}
+  <div class="heat">
+    {% for row in block.rows %}
+      <span class="day">{{ row.day }}</span>
+      {% for c in row.cells %}<span class="cell{% if c.alpha is None %} empty{% endif %}"{% if c.alpha is not None %} style="background:rgba(214,163,58,{{ c.alpha|stringformat:'.2f' }})"{% endif %} title="{{ c.tip }}"></span>{% endfor %}
+    {% endfor %}
+    <span></span>{% for h in block.hours %}<span class="hour">{{ h }}</span>{% endfor %}
+  </div>
+{% elif k == "shares" %}
+  {% share block.parts as parts %}
+  {% if parts %}
+    <div class="sharebar">{% for i, label, amount, pct, flex in parts %}<span style="flex:{{ flex|stringformat:'.2f' }};background:var(--s{{ i }})" title="{{ label }}: {{ pct }}"></span>{% endfor %}</div>
+    <ul class="share-legend">{% for i, label, amount, pct, flex in parts %}<li><i style="background:var(--s{{ i }})"></i><span class="n">{{ label }}</span><b>{{ amount }}</b><span class="p">{{ pct }}</span></li>{% endfor %}</ul>
+  {% else %}<p class="dim">{% translate "an_no_data" %}</p>{% endif %}
+{% elif k == "bars" %}
+  {% if block.rows %}
+    <div class="hbars">{% for r in block.rows %}<div class="hbar"><span class="n" title="{{ r.label }}">{{ r.label }}</span><span class="track"><span class="fill{% if forloop.first %} first{% endif %}" style="width:{{ r.width|stringformat:'.1f' }}%"></span></span><b>{{ r.text }}</b></div>{% endfor %}</div>
+  {% else %}<p class="dim">{% translate "an_no_data" %}</p>{% endif %}
+{% elif k == "table" %}
+  {% include "reports/table.html" with table=block.table %}
+{% elif k == "chips" %}
+  <div class="chips">{% for c in block.items %}<span>{{ c }}</span>{% endfor %}</div>
+{% elif k == "month_nav" %}
+  <div class="month-nav">
+    <a class="btn" title="{% translate 'web_month_prev' %}" href="?month={{ block.prev }}">‹</a>
+    <span class="month">{{ block.label }}</span>
+    <a class="btn" title="{% translate 'web_month_next' %}" href="?month={{ block.next }}">›</a>
+    <span class="dim small">{{ block.note }}</span>
+  </div>
+{% endif %}
+{% endwith %}

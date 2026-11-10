@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body %}
+<div class="login-page single">
+  <div class="login-box">
+    <div class="brand"><span class="brand-mark"></span>SWEDPOS <b>CLOUD</b></div>
+    <p class="msg error">{% translate "web_no_restaurants" %}</p>
+    <form method="post" action="{% url 'logout' %}">{% csrf_token %}<button class="btn">{% translate "web_logout" %}</button></form>
+  </div>
+</div>
+{% endblock %}
