@@ -15,5 +15,6 @@ urlpatterns = [
     path("api/sync", sync_views.sync),
     path("login/", auth_views.LoginView.as_view(authentication_form=PhoneLoginForm, redirect_authenticated_user=True), name="login"),
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+    path("help/", include("apps.help.urls")),
     path("", include("apps.reports.urls")),
 ]

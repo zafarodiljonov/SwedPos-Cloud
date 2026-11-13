@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "apps.sync",
     "apps.analytics",
     "apps.reports",
+    "apps.help",
 ]
 
 MIDDLEWARE = [

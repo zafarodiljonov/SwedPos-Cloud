@@ -183,3 +183,26 @@ table.report tr.picked { background: rgba(214, 163, 58, .14); }
   .page-side { flex-wrap: wrap; white-space: normal; }
   .chart .axis, .columns .chart .axis { font-size: 26px; }
 }
+
+/* ---- help center ---- */
+.helpwrap { min-height: 100vh; display: flex; flex-direction: column; }
+.helpbody { display: grid; grid-template-columns: 320px 1fr; flex: 1; }
+.helpside { background: var(--panel); border-right: 1px solid var(--line); padding: 14px; overflow-y: auto; }
+.helpside input { width: 100%; box-sizing: border-box; margin-bottom: 10px; }
+.helptabs { display: flex; gap: 4px; margin-bottom: 8px; }
+.helptabs a { flex: 1; text-align: center; padding: 7px 4px; font-size: 13px; background: var(--raised); color: var(--dim); text-decoration: none; }
+.helptabs a.on { background: var(--accent); color: #17191B; font-weight: 600; }
+.helpside .cat { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; margin: 14px 0 4px; padding: 0 8px; }
+.helpside .topic { display: block; padding: 7px 8px; color: var(--text); text-decoration: none; }
+.helpside .topic:hover, .helpside .topic.on { background: var(--raised); }
+.helpmain { padding: 24px 32px 48px; max-width: 840px; line-height: 1.6; }
+.helpmain h1 { font-size: 24px; margin: 0 0 8px; }
+.helpmain h2 { font-size: 16px; color: var(--accent); margin: 24px 0 6px; }
+.helpmain li { margin: 5px 0; }
+.helpmain code { background: var(--raised); padding: 1px 5px; }
+.helpmain .note { border-left: 3px solid var(--accent); background: var(--raised); padding: 10px 14px; margin: 14px 0; }
+.helpmain dt { font-weight: 600; margin-top: 16px; }
+.helpmain dd { margin: 2px 0 0; color: var(--dim); }
+.helpmain .big { font-size: 22px; margin: 2px 0 12px; }
+.page-head h1 a.helplink { font-size: 14px; margin-left: 10px; color: var(--dim); text-decoration: none; border: 1px solid var(--line); padding: 0 7px; }
+@media (max-width: 760px) { .helpbody { grid-template-columns: 1fr; } .helpside { border-right: 0; border-bottom: 1px solid var(--line); max-height: 45vh; } .helpmain { padding: 18px 16px 40px; } }

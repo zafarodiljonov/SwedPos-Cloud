@@ -1,0 +1,794 @@
+{
+ "contacts": [
+  {
+   "id": "phone",
+   "label": {
+    "uz": "Yordam telefoni",
+    "ru": "Телефон поддержки"
+   },
+   "value": ""
+  },
+  {
+   "id": "telegram",
+   "label": {
+    "uz": "Telegram",
+    "ru": "Telegram"
+   },
+   "value": ""
+  },
+  {
+   "id": "hours",
+   "label": {
+    "uz": "Ish vaqti",
+    "ru": "Время работы"
+   },
+   "value": ""
+  }
+ ],
+ "categories": [
+  {
+   "id": "start",
+   "title": {
+    "uz": "Boshlash",
+    "ru": "Начало работы"
+   }
+  },
+  {
+   "id": "orders",
+   "title": {
+    "uz": "Buyurtma va to'lov",
+    "ru": "Заказы и оплата"
+   }
+  },
+  {
+   "id": "kitchen",
+   "title": {
+    "uz": "Oshxona va printerlar",
+    "ru": "Кухня и принтеры"
+   }
+  },
+  {
+   "id": "shift",
+   "title": {
+    "uz": "Smena va kassa",
+    "ru": "Смена и касса"
+   }
+  },
+  {
+   "id": "menu",
+   "title": {
+    "uz": "Menyu, ombor, stollar",
+    "ru": "Меню, склад, столы"
+   }
+  },
+  {
+   "id": "staff",
+   "title": {
+    "uz": "Xodimlar va foizlar",
+    "ru": "Сотрудники и проценты"
+   }
+  },
+  {
+   "id": "analytics",
+   "title": {
+    "uz": "Hisobotlar (tahlil)",
+    "ru": "Отчёты (аналитика)"
+   }
+  },
+  {
+   "id": "system",
+   "title": {
+    "uz": "Tizim: zaxira, yangilanish, tarmoq",
+    "ru": "Система: копии, обновления, сеть"
+   }
+  },
+  {
+   "id": "problems",
+   "title": {
+    "uz": "Muammolar va yechimlar",
+    "ru": "Проблемы и решения"
+   }
+  }
+ ],
+ "topics": [
+  {
+   "id": "what_is",
+   "category": "start",
+   "audience": "both",
+   "title": {
+    "uz": "SwedPos nima?",
+    "ru": "Что такое SwedPos?"
+   },
+   "body": {
+    "uz": "**SwedPos** — restoran uchun kassa va boshqaruv dasturi: buyurtma olish, oshxonaga yuborish, to'lov, smena, ombor, xodimlar va hisobotlar bir joyda.\n\n## Asosiy imkoniyatlar\n- **Zal** — stollar, buyurtma olish, hisob chiqarish.\n- **Oshxona** — buyurtmalar oshxona ekraniga va printerga avtomatik tushadi.\n- **To'lov** — naqd, karta, o'tkazma yoki bo'lib to'lash; chek chop etiladi.\n- **Smena** — kassa ochish/yopish, naqd pulni tekshirish.\n- **Menyu, ombor, retseptlar** — taom tannarxi va qoldiq avtomatik hisoblanadi.\n- **Xodimlar** — har biriga PIN-kod va ruxsatlar; ofitsiant foizi.\n- **Hisobotlar** — tushum, foyda, ofitsiantlar, to'lovlar va boshqalar.\n- **SwedPos Cloud** — egasi uchun veb-sayt: telefonda ham hisobotlarni ko'rish.\n\n## Internet kerakmi?\n**Yo'q.** Dastur restoran ichidagi tarmoqda (LAN) internetsiz ishlaydi. Internet faqat egasi uchun veb-saytga ma'lumot yuborishda kerak; yo'q bo'lsa, keyin o'zi yetkazadi.\n\n## Ma'lumotlar qayerda?\nHamma ma'lumot **server kompyuterdagi** bazada saqlanadi (kassa kompyuteri). Boshqa kompyuterlar (ofitsiantlar, oshxona) unga ulanadi.\n\n> Qo'llanmadagi har bir bo'limni chapdagi ro'yxatdan oching. Savol qolsa, «Yordam markazi» sahifasidagi telefon orqali bog'laning.",
+    "ru": "**SwedPos** — программа для кассы и управления рестораном: приём заказов, отправка на кухню, оплата, смена, склад, сотрудники и отчёты в одном месте.\n\n## Основные возможности\n- **Зал** — столы, приём заказов, печать счёта.\n- **Кухня** — заказы автоматически попадают на экран и принтер кухни.\n- **Оплата** — наличные, карта, перевод или раздельно; печатается чек.\n- **Смена** — открытие/закрытие кассы, проверка наличных.\n- **Меню, склад, рецепты** — себестоимость блюда и остатки считаются автоматически.\n- **Сотрудники** — у каждого свой PIN-код и права; процент официанта.\n- **Отчёты** — выручка, прибыль, официанты, оплаты и другое.\n- **SwedPos Cloud** — сайт для владельца: отчёты можно смотреть и с телефона.\n\n## Нужен ли интернет?\n**Нет.** Программа работает без интернета в сети ресторана (LAN). Интернет нужен только для отправки данных на сайт владельца; если его нет, данные отправятся позже сами.\n\n## Где хранятся данные?\nВсе данные хранятся в базе на **серверном компьютере** (компьютер кассы). Остальные компьютеры (официанты, кухня) подключаются к нему.\n\n> Открывайте разделы в списке слева. Если остались вопросы, позвоните по телефону на странице «Центр помощи»."
+   }
+  },
+  {
+   "id": "login_roles",
+   "category": "start",
+   "audience": "app",
+   "title": {
+    "uz": "Kirish (PIN-kod) va rollar",
+    "ru": "Вход (PIN-код) и роли"
+   },
+   "body": {
+    "uz": "## Kirish\nDastur ochilganda **PIN-kod** (4 raqam) so'raladi. Har bir xodimning o'z PIN-kodi bor. Boshqa odamning PIN-kodi bilan kirmang: buyurtma va to'lovlar shu odam nomiga yoziladi.\n\n## Rollar\nRol — xodim nima qila olishining to'plami:\n- **Egasi / Admin** — hamma narsa.\n- **Ofitsiant** — buyurtma olish.\n- **Kassir** — buyurtma, to'lov, chegirma, smena.\n- **Kuryer** — yetkazib berish.\n- **Call-markaz** — telefon buyurtmalari va yetkazish.\n- **Oshpaz** — oshxona ekrani.\n- **Buxgalter** — hisobotlar, ombor, foydani ko'rish.\n\nHar bir rol faqat o'ziga ruxsat berilgan bo'limlarni ko'radi: chapdagi menyu shunga qarab o'zgaradi. Ruxsatlarni egasi «Xodimlar → Rollar» bo'limida o'zgartiradi.\n\n## Chiqish\nYuqori o'ng burchakdagi **Chiqish** tugmasi. Kassadan uzoqlashganda chiqib ketishni odat qiling.\n\n> **PIN unutilsa:** boshqa Egasi yoki Admin «Xodimlar» bo'limida yangi PIN o'rnatadi.",
+    "ru": "## Вход\nПри запуске программа просит **PIN-код** (4 цифры). У каждого сотрудника свой PIN. Не входите чужим PIN-кодом: заказы и оплаты записываются на этого человека.\n\n## Роли\nРоль — набор того, что сотрудник может делать:\n- **Владелец / Админ** — всё.\n- **Официант** — приём заказов.\n- **Кассир** — заказы, оплата, скидки, смена.\n- **Курьер** — доставка.\n- **Колл-центр** — телефонные заказы и доставка.\n- **Повар** — экран кухни.\n- **Бухгалтер** — отчёты, склад, просмотр прибыли.\n\nКаждая роль видит только разрешённые разделы: меню слева меняется соответственно. Права меняет владелец в «Сотрудники → Роли».\n\n## Выход\nКнопка **Выход** в правом верхнем углу. Привыкайте выходить, отходя от кассы.\n\n> **Если забыли PIN:** другой Владелец или Админ задаёт новый PIN в разделе «Сотрудники»."
+   }
+  },
+  {
+   "id": "server_terminal",
+   "category": "start",
+   "audience": "app",
+   "title": {
+    "uz": "Server va terminal kompyuterlar",
+    "ru": "Серверный и терминальные компьютеры"
+   },
+   "body": {
+    "uz": "Restoranda bitta **server** va bir nechta **terminal** bo'ladi.\n\n- **Server** — kassa kompyuteri (monoblok). Barcha ma'lumotlar bazasi shu yerda. U **doim yoqilgan** bo'lishi kerak. Oshxona printerlarini ham odatda shu kompyuter chop etadi.\n- **Terminal** — ofitsiant, oshxona, call-markaz kompyuterlari. Ularda baza yo'q: ular serverga **tarmoq orqali** ulanadi.\n\n## Terminalni ulash\nDasturni birinchi ochganda **Terminal** ni tanlang va kiriting:\n1. **Server IP manzili** (masalan, 192.168.1.10) — server kompyuterdagi *Sozlamalar → Boshqa kompyuterlarni ulash* kartasida yozilgan.\n2. **Port** va **baza paroli** — o'sha kartada.\n\n## Muhim qoidalar\n- Server o'chiq bo'lsa, terminallar ishlamaydi. Kassa kompyuterini kechasi o'chirmang yoki uxlab qolishini o'chirib qo'ying.\n- Server IP manzili o'zgarmasligi kerak («Tarmoq» bo'limiga qarang).\n- Yangilanish avval **serverga**, keyin terminallarga o'rnatiladi.",
+    "ru": "В ресторане один **сервер** и несколько **терминалов**.\n\n- **Сервер** — компьютер кассы (моноблок). Здесь вся база данных. Он должен быть **всегда включён**. Принтеры кухни обычно тоже печатает этот компьютер.\n- **Терминал** — компьютеры официантов, кухни, колл-центра. База на них не хранится: они подключаются к серверу **по сети**.\n\n## Как подключить терминал\nПри первом запуске выберите **Терминал** и введите:\n1. **IP-адрес сервера** (например, 192.168.1.10) — он написан на сервере в *Настройки → Подключение других компьютеров*.\n2. **Порт** и **пароль базы** — там же.\n\n## Важные правила\n- Если сервер выключен, терминалы не работают. Не выключайте кассовый компьютер на ночь или отключите режим сна.\n- IP-адрес сервера не должен меняться (см. раздел «Сеть»).\n- Обновление ставится сначала на **сервер**, потом на терминалы."
+   }
+  },
+  {
+   "id": "web_start",
+   "category": "start",
+   "audience": "web",
+   "title": {
+    "uz": "Saytga kirish va ishlatish",
+    "ru": "Вход на сайт и работа с ним"
+   },
+   "body": {
+    "uz": "**SwedPos Cloud** — restoran hisobotlarini ko'rish uchun sayt.\n\n## Kirish\n1. Sayt manzilini oching (egasiga berilgan).\n2. **Telefon raqami** (+998 bilan) va **parol**ni kiriting → **Kirish**.\n3. Tepada **UZ / RU** tugmalari bilan tilni almashtiring.\n\n## Sahifalar\nChapdagi ro'yxatda: Umumiy ko'rinish, Sotuvlar, To'lovlar, Ofitsiantlar, Ish haqi (foiz), Stollar va zallar, Taomlar, Mijozlar, Nazorat, Ombor. Har bir sahifaning tepasida **davr va filtrlar**, o'ng tomonda **Excelga saqlash**.\n\n## «Oxirgi ma'lumot» nima?\nTepada restoran nomi yonida yashil nuqta va vaqt: restoran serveridan ma'lumot oxirgi marta qachon kelgani. 10 daqiqadan eski bo'lsa, nuqta kulrang: server kompyuter o'chiq yoki internet yo'q.\n\n## Telefondan\nSayt telefonda ham qulay: sahifalar tepada gorizontal ro'yxat bo'lib siljiydi.\n\n## Bir nechta restoran\nSizga bir nechta restoran berilgan bo'lsa, tepadagi ro'yxatdan tanlaysiz.\n\n> Raqamlarning ma'nosini bilmoqchi bo'lsangiz, tegishli «Yordam» maqolasini oching: har bir hisobot haqida alohida tushuntirish bor.",
+    "ru": "**SwedPos Cloud** — сайт для просмотра отчётов ресторана.\n\n## Вход\n1. Откройте адрес сайта (его выдали владельцу).\n2. Введите **номер телефона** (с +998) и **пароль** → **Войти**.\n3. Вверху кнопками **UZ / RU** меняется язык.\n\n## Страницы\nВ списке слева: Обзор, Продажи, Оплаты, Официанты, Зарплата (процент), Столы и залы, Блюда, Клиенты, Контроль, Склад. Вверху каждой страницы **период и фильтры**, справа **Сохранить в Excel**.\n\n## Что такое «Последние данные»?\nВверху рядом с названием ресторана зелёная точка и время: когда в последний раз пришли данные с сервера ресторана. Если прошло больше 10 минут, точка серая: серверный компьютер выключен или нет интернета.\n\n## С телефона\nСайт удобен и на телефоне: страницы прокручиваются горизонтальным списком сверху.\n\n## Несколько ресторанов\nЕсли вам выдали несколько ресторанов, выберите нужный в списке вверху.\n\n> Чтобы узнать смысл цифр, откройте соответствующую статью «Помощи»: по каждому отчёту есть отдельное объяснение."
+   }
+  },
+  {
+   "id": "take_order",
+   "category": "orders",
+   "audience": "app",
+   "title": {
+    "uz": "Buyurtma olish",
+    "ru": "Приём заказа"
+   },
+   "body": {
+    "uz": "1. Chapdagi menyudan **Buyurtmalar** (Zal) ni oching. Stollar kartochkalar ko'rinishida.\n2. Kerakli **stolni** bosing. Band stollar rangli, taomi tayyor stol yashil.\n3. Taomlar kategoriyalar bo'yicha: kategoriyani, keyin taomni bosing. Har bosish **bitta porsiya** qo'shadi. Chap tomondagi hisobda **+ / −** tugmalari bilan sonini o'zgartiring.\n4. **Mehmonlar soni** — tepadagi **+ / −** (ixtiyoriy, lekin hisobotlarda «bir mehmonga» uchun foydali).\n5. **Izoh** (qalamcha belgisi) — oshxonaga yozuv: «piyozsiz», «achchiq emas». Tayyor izohlarni bosib tanlash mumkin. Izohni faqat oshxonaga yuborishdan **oldin** yozish mumkin.\n6. **Oshxonaga** tugmasi — yangi taomlarni oshxona ekraniga va printerga yuboradi. Oshxonaga yuborilgan taomlarning yonida ✓ belgisi chiqadi.\n7. Mehmon yana buyurtma bersa — taom qo'shing va yana **Oshxonaga** ni bosing: faqat yangilari yuboriladi.\n8. **Hisob** tugmasi — mehmonga to'lovdan oldin hisobni chop etadi.\n\n## Nima yuboriladi\nOshxonaga faqat **hali yuborilmagan** taomlar ketadi, shuning uchun ikkinchi marta bosish dublikat bermaydi.\n\n> **Maslahat:** oshxona taomni tayyorlab bo'lgach, stol kartochkasida va yuqorida ovoz bilan «Stol tayyor» xabari chiqadi.",
+    "ru": "1. В меню слева откройте **Заказы** (Зал). Столы показаны карточками.\n2. Нажмите нужный **стол**. Занятые столы выделены цветом, стол с готовой едой — зелёным.\n3. Блюда по категориям: нажмите категорию, затем блюдо. Каждое нажатие добавляет **одну порцию**. В счёте слева меняйте количество кнопками **+ / −**.\n4. **Число гостей** — кнопки **+ / −** сверху (необязательно, но полезно для отчётов «на гостя»).\n5. **Комментарий** (значок карандаша) — пожелание кухне: «без лука», «не острое». Можно выбрать готовые комментарии. Комментарий можно писать только **до** отправки на кухню.\n6. Кнопка **На кухню** — отправляет новые блюда на экран и принтер кухни. У отправленных блюд появляется отметка ✓.\n7. Если гость заказал ещё — добавьте блюдо и снова нажмите **На кухню**: отправятся только новые.\n8. Кнопка **Счёт** — печатает гостю счёт перед оплатой.\n\n## Что отправляется\nНа кухню уходят только **ещё не отправленные** блюда, поэтому повторное нажатие дубликатов не создаёт.\n\n> **Совет:** когда кухня приготовит блюдо, на карточке стола и вверху появится звуковое сообщение «Стол готов»."
+   }
+  },
+  {
+   "id": "change_cancel",
+   "category": "orders",
+   "audience": "app",
+   "title": {
+    "uz": "O'zgartirish va bekor qilish",
+    "ru": "Изменение и отмена"
+   },
+   "body": {
+    "uz": "## Oshxonaga yuborishdan oldin\nTaomni **−** bilan kamaytiring yoki olib tashlang. Cheklov yo'q.\n\n## Oshxonaga yuborilgandan keyin\nTaom allaqachon oshxonada. Shuning uchun:\n- Kamaytirish yoki bekor qilish uchun xodimda **Bekor qilish ruxsati** bo'lishi kerak (odatda kassir, admin, egasi). Ofitsiantda yo'q bo'lsa, dastur «Ruxsat kerak» deydi — kassirni chaqiring.\n- Taom hali tayyor bo'lmagan bo'lsa, oshxona ekranida qizil **bekor** xabari chiqadi va printer «BEKOR» chekini chop etadi — oshpaz taomni to'xtatadi.\n- Tayyor bo'lgan taomni kamaytirish oshxonaga xabar bermaydi.\n\n## Butun buyurtmani bekor qilish\n**Bekor qilish** tugmasi. Dastur **sababini** so'raydi («Mehmon ketdi», «Xato buyurtma», «Uzoq kutildi»...) — tanlang yoki yozing. Sabab, kim va qachon bekor qilgani **Nazorat** hisobotida saqlanadi.\n\n## To'langan buyurtmani o'zgartirish\nTo'langan hisobni dasturda o'zgartirib bo'lmaydi: pul va ombor hisobi buziladi. Xato bo'lsa, egasiga xabar bering.\n\n> **Nima uchun sabab so'raladi:** bekor qilishlar eng ko'p firibgarlik joyi. Sabab yozib borilsa, egasi hisobotda ko'ra oladi.",
+    "ru": "## До отправки на кухню\nУменьшайте блюдо кнопкой **−** или удаляйте. Ограничений нет.\n\n## После отправки на кухню\nБлюдо уже на кухне. Поэтому:\n- Чтобы уменьшить или отменить, у сотрудника должно быть **право отмены** (обычно кассир, админ, владелец). Если у официанта его нет, программа скажет «Нужно разрешение» — позовите кассира.\n- Если блюдо ещё не готово, на экране кухни появится красное сообщение об **отмене**, а принтер напечатает чек «ОТМЕНА» — повар остановит приготовление.\n- Уменьшение уже готового блюда кухню не уведомляет.\n\n## Отмена всего заказа\nКнопка **Отменить**. Программа спросит **причину** («Гость ушёл», «Ошибочный заказ», «Долгое ожидание»...) — выберите или напишите. Причина, кто и когда отменил сохраняются в отчёте **Контроль**.\n\n## Изменение оплаченного заказа\nОплаченный счёт в программе изменить нельзя: нарушится учёт денег и склада. При ошибке сообщите владельцу.\n\n> **Зачем спрашивают причину:** отмены — самое частое место для мошенничества. Если причины записываются, владелец увидит их в отчёте."
+   }
+  },
+  {
+   "id": "pay",
+   "category": "orders",
+   "audience": "app",
+   "title": {
+    "uz": "To'lov",
+    "ru": "Оплата"
+   },
+   "body": {
+    "uz": "To'lov uchun **smena ochiq** bo'lishi kerak (qarang: «Smena»). Ochiq emas bo'lsa, dastur «Avval smenani oching» deydi.\n\n1. Buyurtmada **To'lov** tugmasini bosing. Oyna to'lanadigan summani ko'rsatadi.\n2. Usulni tanlang:\n   - **Naqd** — mehmon bergan pulni yozing yoki tez tugmalarni bosing («Aniq», «50 000», «100 000»). Qaytim ko'rinadi.\n   - **Karta** — terminalda to'lov o'tganini tekshirib, tasdiqlang.\n   - **O'tkazma** — Click, Payme, Uzum yoki boshqa QR/ilova orqali. Pul tushganini tekshirib, tasdiqlang.\n   - **Bo'lib** — hisob bir nechta usulda: masalan, **Naqd** 100 000 va **Karta** 35 000. **Qolgani** tugmasi qolgan summani o'zi yozadi. Yig'indi hisob summasiga **aniq teng** bo'lishi kerak, aks holda tasdiqlab bo'lmaydi.\n3. **To'lovni tasdiqlash** — buyurtma yopiladi, chek chop etiladi, xomashyo ombordan yechiladi.\n\n## Chek\nBo'lib to'langanda cheking pastida har bir qism alohida chiqadi. Chek printeri sozlanmagan bo'lsa, to'lov baribir saqlanadi, faqat chek chiqmaydi.\n\n## Xato qilsam?\nTasdiqlashdan oldin oynani yoping — hech narsa saqlanmaydi. Tasdiqlangan to'lovni o'zgartirib bo'lmaydi: egasiga murojaat qiling.\n\n> **Eslatma:** ofitsiant foizi to'lov paytida hisoblanib, qotiriladi (qarang: «Ofitsiant foizi»).",
+    "ru": "Для оплаты должна быть **открыта смена** (см. «Смена»). Если нет, программа скажет «Сначала откройте смену».\n\n1. В заказе нажмите **Оплата**. Окно покажет сумму к оплате.\n2. Выберите способ:\n   - **Наличные** — впишите деньги, полученные от гостя, или нажмите быстрые кнопки («Точно», «50 000», «100 000»). Будет видна сдача.\n   - **Карта** — убедитесь на терминале, что оплата прошла, и подтвердите.\n   - **Перевод** — Click, Payme, Uzum или другой QR/приложение. Убедитесь, что деньги поступили, и подтвердите.\n   - **Разделить** — счёт несколькими способами: например, **Наличные** 100 000 и **Карта** 35 000. Кнопка **Остаток** сама вписывает недостающую сумму. Сумма должна **точно совпасть** со счётом, иначе подтвердить нельзя.\n3. **Подтвердить оплату** — заказ закрывается, печатается чек, сырьё списывается со склада.\n\n## Чек\nПри раздельной оплате внизу чека каждая часть показана отдельно. Если принтер чеков не настроен, оплата всё равно сохранится, просто чек не напечатается.\n\n## Что если ошибся?\nДо подтверждения закройте окно — ничего не сохранится. Подтверждённую оплату изменить нельзя: обратитесь к владельцу.\n\n> **Заметка:** процент официанта считается и фиксируется в момент оплаты (см. «Процент официанта»)."
+   }
+  },
+  {
+   "id": "discount",
+   "category": "orders",
+   "audience": "app",
+   "title": {
+    "uz": "Chegirma",
+    "ru": "Скидка"
+   },
+   "body": {
+    "uz": "1. Buyurtmada pastdagi **Chegirma, %** maydoniga foizni yozing (masalan, 10) va yonidagi ✓ tugmasini bosing.\n2. Chegirma **faqat taomlarga** qo'llanadi, yetkazib berish haqiga emas.\n3. Jami summa darhol o'zgaradi; chekda «Chegirma 10 %» qatori chiqadi.\n\n## Kim bera oladi?\nFaqat **Chegirma berish ruxsati** bor xodim (odatda kassir, admin, egasi). Ruxsat yo'q bo'lsa, maydon ko'rinmaydi.\n\n## Nazorat\nBarcha chegirmalar hisobotlarda xodimlar bo'yicha ko'rinadi («Nazorat» sahifasi, «Umumiy ko'rinish»dagi «Chegirmalar»). Ofitsiant foizi chegirmadan **keyingi** summadan hisoblanadi.\n\n> **Maslahat:** chegirmalar sababini yozib qo'yish uchun dasturda alohida maydon yo'q — doimiy chegirma kerak bo'lsa, qaror egasida bo'lsin.",
+    "ru": "1. В заказе впишите процент в поле **Скидка, %** внизу (например, 10) и нажмите ✓ рядом.\n2. Скидка применяется **только к блюдам**, но не к плате за доставку.\n3. Итог меняется сразу; в чеке появится строка «Скидка 10 %».\n\n## Кто может давать\nТолько сотрудник с **правом давать скидки** (обычно кассир, админ, владелец). Если права нет, поле не показывается.\n\n## Контроль\nВсе скидки видны в отчётах по сотрудникам (страница «Контроль», «Скидки» в «Обзоре»). Процент официанта считается с суммы **после** скидки.\n\n> **Совет:** отдельного поля для причины скидки в программе нет — если нужна постоянная скидка, решение оставьте за владельцем."
+   }
+  },
+  {
+   "id": "phone_delivery",
+   "category": "orders",
+   "audience": "app",
+   "title": {
+    "uz": "Telefon buyurtmalari va yetkazib berish",
+    "ru": "Телефонные заказы и доставка"
+   },
+   "body": {
+    "uz": "## Call-markaz (telefon buyurtmasi)\n1. **Call-markaz** bo'limini oching.\n2. Mijozning **telefon raqamini** yozing: dastur mijozni topadi (ismi va oxirgi manzili chiqadi) yoki yangisini yaratadi.\n3. Turini tanlang: **Yetkazib berish** yoki **Olib ketish**. Yetkazishda manzil va yetkazish haqini yozing.\n4. Taomlarni qo'shing va **Oshxonaga** ni bosing.\n\n## Yetkazib berish (kuryer)\n**Yetkazib berish** bo'limida buyurtmalar holatlari: *tayyorlanmoqda → yo'lda → yetkazildi*. Kuryer tayinlanadi. Buyurtma **mijoz to'lagach** yopiladi: «To'lov» tugmasi (naqd yoki o'tkazma).\n\n## Hisobotlarda\n**Mijozlar va yetkazib berish** sahifasida: yangi va qaytgan mijozlar, eng faol mijozlar, har bir kuryer bo'yicha buyurtmalar. Yetkazib berish haqi tushumga kiradi, lekin **ofitsiant foizi** hisoblanmaydi.\n\n> **Maslahat:** telefon raqamini to'liq yozing (998 bilan). Shunda doimiy mijoz keyingi safar avtomatik topiladi.",
+    "ru": "## Колл-центр (телефонный заказ)\n1. Откройте раздел **Колл-центр**.\n2. Введите **номер телефона** клиента: программа найдёт клиента (покажет имя и последний адрес) или создаст нового.\n3. Выберите тип: **Доставка** или **С собой**. Для доставки укажите адрес и плату за доставку.\n4. Добавьте блюда и нажмите **На кухню**.\n\n## Доставка (курьер)\nВ разделе **Доставка** статусы заказов: *готовится → в пути → доставлен*. Назначается курьер. Заказ закрывается, когда **клиент заплатил**: кнопка «Оплата» (наличные или перевод).\n\n## В отчётах\nНа странице **Клиенты и доставка**: новые и вернувшиеся клиенты, самые активные клиенты, заказы по каждому курьеру. Плата за доставку входит в выручку, но **процент официанта** с неё не начисляется.\n\n> **Совет:** вводите номер телефона полностью (с 998). Тогда постоянный клиент найдётся автоматически в следующий раз."
+   }
+  },
+  {
+   "id": "kitchen_screen",
+   "category": "kitchen",
+   "audience": "app",
+   "title": {
+    "uz": "Oshxona ekrani",
+    "ru": "Экран кухни"
+   },
+   "body": {
+    "uz": "Oshxona ekrani — oshpazlar uchun: yangi buyurtmalar kartochkalar ko'rinishida.\n\n## Oshxona kompyuteri (televizor)\nOshxonadagi kompyuter yoki televizorga ulangan kompyuterda **Sozlamalar → Shu kompyuter → «Shu kompyuter — oshxona ekrani»** belgisini qo'ying. Dastur keyingi safar to'g'ridan-to'g'ri oshxona ekranida ochiladi, PIN so'ramaydi. Chiqish uchun **«Chiqish (PIN)»**.\n\n## Oshpaz nima qiladi\n- Har bir kartochka — bitta stol buyurtmasi, vaqti bilan.\n- Taom tayyor bo'lsa, uning yonidagi **✓** ni bosing. Butun buyurtma tayyor bo'lsa, kartochkaning raqamini (1–9) klaviaturada bosish mumkin.\n- Ofitsiantning izohlari («piyozsiz») taom tagida ko'rinadi.\n- **Bekor qilish xabarlari** qizil kartochka bilan chiqadi: «Stol 5: Osh × 1 bekor». Ko'rib chiqqach, tasdiqlang.\n\n## Televizor pulti\nPult bilan bosib bo'lmaydi: sichqoncha, havo sichqonchasi yoki sensorli ekran ishlating.\n\n> **Oshxona ekrani va printer birga ishlaydi:** ekran oshpaz uchun, printer — zaxira (ekran o'chiq bo'lsa ham chek chiqadi).",
+    "ru": "Экран кухни — для поваров: новые заказы в виде карточек.\n\n## Компьютер кухни (телевизор)\nНа компьютере на кухне или подключённом к телевизору откройте **Настройки → Этот компьютер → «Этот компьютер — экран кухни»** и поставьте галочку. Программа в следующий раз откроется сразу на экране кухни, без PIN. Выход — **«Выход (PIN)»**.\n\n## Что делает повар\n- Каждая карточка — заказ одного стола, со временем.\n- Когда блюдо готово, нажмите **✓** рядом с ним. Когда готов весь заказ, можно нажать номер карточки (1–9) на клавиатуре.\n- Комментарии официанта («без лука») видны под блюдом.\n- **Сообщения об отмене** приходят красной карточкой: «Стол 5: Плов × 1 отмена». Прочитав, подтвердите.\n\n## Пульт телевизора\nПультом нажимать нельзя: используйте мышь, аэромышь или сенсорный экран.\n\n> **Экран кухни и принтер работают вместе:** экран для повара, принтер — запасной вариант (чек выйдет даже при выключенном экране)."
+   }
+  },
+  {
+   "id": "kitchen_printers",
+   "category": "kitchen",
+   "audience": "app",
+   "title": {
+    "uz": "Oshxona printerlari",
+    "ru": "Принтеры кухни"
+   },
+   "body": {
+    "uz": "Har bir buyurtma **ro'yxatdagi barcha** oshxona printerlarida bir xil chop etiladi (masalan, «Asosiy oshxona» va «Salat oshxonasi»). Printerlar sonining chegarasi yo'q.\n\n## Qo'shish (bir marta, butun restoran uchun)\n1. **Sozlamalar → Oshxona printerlari → Qo'shish**.\n2. **Nomi** yozing («Asosiy oshxona»).\n3. Ulanish turi:\n   - **Tarmoq (LAN)** — printerning **IP manzili** va port **9100**. Printer kabel bilan routerga/switchga ulangan bo'ladi.\n   - **Windows printer** — USB printer. Faqat chop etuvchi kompyuterda qo'shiladi.\n4. **Test chop etish** ni bosing: printerdan sinov varaqasi chiqishi kerak.\n5. Xuddi shunday ikkinchi printerni qo'shing.\n\n## Chop etuvchi kompyuter\n**Sozlamalar → Shu kompyuter → «Oshxona cheklarini shu kompyuter chop etadi»** belgisini **server** kompyuterida qo'ying (u doim yoqilgan va tarmoq printerlariga yetadi).\n\n## Nima bo'ladi\n- Bitta printer o'chiq bo'lsa, faqat uning cheklari kutadi; qolgani chiqaveradi. Yoqilganda o'zi chop etadi, takrorlanmaydi.\n- Chop etuvchi kompyuter o'chiq bo'lsa, hamma cheklar kutadi va terminalda ogohlantirish chiqadi.\n- **Navbat** kartasida kutayotgan cheklar, xatolar va **Qayta chop etish** tugmasi bor.\n\n> **Printer IP manzilini bilish:** printerni o'chiring, **Feed** tugmasini bosib turib yoqing — sozlamalar varag'i chiqadi, unda IP yozilgan. IP manzil o'zgarmasligi uchun routerda unga doimiy manzil bering («Tarmoq» bo'limiga qarang).",
+    "ru": "Каждый заказ печатается на **всех** принтерах кухни из списка одинаково (например, «Основная кухня» и «Салатный цех»). Число принтеров не ограничено.\n\n## Добавление (один раз, для всего ресторана)\n1. **Настройки → Принтеры кухни → Добавить**.\n2. Впишите **название** («Основная кухня»).\n3. Тип подключения:\n   - **Сеть (LAN)** — **IP-адрес** принтера и порт **9100**. Принтер подключён кабелем к роутеру/коммутатору.\n   - **Принтер Windows** — USB-принтер. Добавляется только на компьютере, который печатает.\n4. Нажмите **Тест печати**: принтер должен выдать пробный лист.\n5. Так же добавьте второй принтер.\n\n## Компьютер, который печатает\n**Настройки → Этот компьютер → «Кухонные чеки печатает этот компьютер»** — поставьте галочку на **сервере** (он всегда включён и видит сетевые принтеры).\n\n## Что происходит\n- Если один принтер выключен, ждут только его чеки; остальные печатаются. После включения он допечатает сам, без повторов.\n- Если печатающий компьютер выключен, все чеки ждут, на терминале появляется предупреждение.\n- В карточке **Очередь** видны ожидающие чеки, ошибки и кнопка **Напечатать снова**.\n\n> **Как узнать IP принтера:** выключите принтер, включите, удерживая кнопку **Feed** — напечатается страница настроек с IP. Чтобы IP не менялся, задайте ему постоянный адрес в роутере (см. раздел «Сеть»)."
+   }
+  },
+  {
+   "id": "receipt_printer",
+   "category": "kitchen",
+   "audience": "app",
+   "title": {
+    "uz": "Chek printeri (kassa)",
+    "ru": "Принтер чеков (касса)"
+   },
+   "body": {
+    "uz": "Mehmonga beriladigan chek va hisob **kassa kompyuteriga** ulangan printerdan chiqadi (odatda USB).\n\n## Sozlash\n1. Printerni USB bilan ulang va Windows'da o'rnating (drayver bilan). Printerning Windows'dagi nomini eslab qoling.\n2. **Sozlamalar → Chek printeri (kassa)**.\n3. Ulanish turi: **Windows printer** → ro'yxatdan printerni tanlang.\n4. Qog'oz kengligi: **80 mm** (ko'pchilik uchun) yoki 58 mm. Kodirovka: **CP866** (ko'pincha mos keladi).\n5. **Test chop etish** ni bosing. Sinov chekida o'zbekcha va ruscha harflar to'g'ri chiqishi kerak.\n\n## Chek printerining sozlamalari har kompyuter uchun alohida\nHar kompyuterda o'z printeri bo'lishi mumkin: kassada USB chek printeri, boshqa kompyuterda bo'lmasa ham mayli.\n\n## Harflar noto'g'ri chiqsa\nKodirovkani **CP866** dan **CP1251** ga almashtirib ko'ring va qayta test qiling.",
+    "ru": "Чек и счёт для гостя печатаются на принтере, подключённом к **компьютеру кассы** (обычно USB).\n\n## Настройка\n1. Подключите принтер по USB и установите его в Windows (с драйвером). Запомните имя принтера в Windows.\n2. **Настройки → Принтер чеков (касса)**.\n3. Тип подключения: **Принтер Windows** → выберите принтер из списка.\n4. Ширина бумаги: **80 мм** (у большинства) или 58 мм. Кодировка: **CP866** (чаще всего подходит).\n5. Нажмите **Тест печати**. На пробном чеке узбекские и русские буквы должны быть правильными.\n\n## Настройки принтера чеков отдельные для каждого компьютера\nУ каждого компьютера может быть свой принтер: на кассе USB-принтер чеков, на другом компьютере его может не быть.\n\n## Если буквы неправильные\nПопробуйте сменить кодировку с **CP866** на **CP1251** и повторите тест."
+   }
+  },
+  {
+   "id": "shift",
+   "category": "shift",
+   "audience": "app",
+   "title": {
+    "uz": "Smena va kassa",
+    "ru": "Смена и касса"
+   },
+   "body": {
+    "uz": "**Smena** — kassaning ish davri (odatda bir kun). Smena ochiq bo'lmasa, **to'lov qabul qilib bo'lmaydi**.\n\n## Smenani ochish\n1. **Smena** bo'limi → **Smenani ochish**.\n2. **Boshlang'ich kassa** — kassa tortmasidagi naqd pul summasini yozing (masalan, qaytim uchun 300 000).\n3. Smena ochiq: tepada yashil «Smena ochiq» belgisi chiqadi.\n\n## Kassaga pul qo'yish va olish\nKun davomida qaytim uchun pul qo'shilsa yoki biror xarajat uchun olinsa, **Kassaga qo'yish / Kassadan olish** orqali sababi bilan yozing. Bu «bo'lishi kerak» summasini to'g'ri hisoblaydi.\n\n## Smenani yopish\n1. Barcha buyurtmalar to'langan yoki bekor qilingan bo'lishi kerak (ochiq buyurtmalar bilan yopib bo'lmaydi).\n2. **Smenani yopish** → tortmadagi naqd pulni **sanab**, haqiqiy summani yozing.\n3. Dastur ko'rsatadi: bo'lishi kerak, sanaldi va **farq**. Farq nol bo'lmasa, izoh yozing.\n4. Smena hisoboti chop etiladi: tushum, naqd/karta/o'tkazma, chegirmalar, foyda.\n\n## Bo'lishi kerak naqd pul qanday hisoblanadi\n**Boshlang'ich kassa + naqd to'lovlar + kassaga qo'yilganlar − kassadan olinganlar.** Karta va o'tkazma kassaga kirmaydi.\n\n> **Eslatma:** bir vaqtning o'zida faqat **bitta** smena ochiq bo'ladi (butun restoran uchun).",
+    "ru": "**Смена** — рабочий период кассы (обычно один день). Если смена не открыта, **принимать оплату нельзя**.\n\n## Открытие смены\n1. Раздел **Смена** → **Открыть смену**.\n2. **Касса на начало** — впишите сумму наличных в ящике (например, 300 000 для сдачи).\n3. Смена открыта: вверху появится зелёная метка «Смена открыта».\n\n## Внесение и изъятие денег\nЕсли в течение дня в кассу добавили деньги для сдачи или взяли на расход, запишите это с причиной через **Внести в кассу / Изъять из кассы**. Так сумма «должно быть» будет верной.\n\n## Закрытие смены\n1. Все заказы должны быть оплачены или отменены (с открытыми заказами закрыть нельзя).\n2. **Закрыть смену** → **пересчитайте** наличные в ящике и впишите реальную сумму.\n3. Программа покажет: должно быть, пересчитано и **разницу**. Если разница не ноль, напишите примечание.\n4. Печатается отчёт смены: выручка, наличные/карта/перевод, скидки, прибыль.\n\n## Как считается «должно быть»\n**Касса на начало + наличные оплаты + внесённое − изъятое.** Карта и перевод в кассу не попадают.\n\n> **Заметка:** одновременно открыта только **одна** смена (на весь ресторан)."
+   }
+  },
+  {
+   "id": "menu_dishes",
+   "category": "menu",
+   "audience": "app",
+   "title": {
+    "uz": "Menyu va taomlar",
+    "ru": "Меню и блюда"
+   },
+   "body": {
+    "uz": "**Menyu** bo'limi (egasi, admin): chapda kategoriyalar, o'rtada taomlar, o'ngda tanlangan taom.\n\n## Kategoriya\n**+** tugmasi bilan yangi kategoriya (masalan, «Milliy taomlar», «Salatlar», «Ichimliklar»). Nomi o'zbekcha va ruscha yoziladi.\n\n## Taom\n1. Kategoriyani tanlab, **Yangi** ni bosing.\n2. **Nomi** (o'zbekcha va ruscha), **narxi** (so'm).\n3. Fiskal kerak bo'lsa **IKPU kodi** va qadoq kodini kiriting (tasnif.soliq.uz saytidan).\n4. **Saqlash**.\n\n## Nofaol qilish\nVaqtincha sotilmaydigan taomni o'chirmang, **nofaol** qiling: tarixi va hisobotlar saqlanadi, ofitsiantga ko'rinmaydi.\n\n## Narxni o'zgartirsam?\nEski buyurtmalar o'zgarmaydi: har bir buyurtmada taomning **o'sha paytdagi narxi** saqlanadi.\n\n> **Retsept:** taom foydasi to'g'ri chiqishi uchun «Ombor» bo'limida shu taomga retsept kiriting (qarang: «Ombor va retseptlar»).",
+    "ru": "Раздел **Меню** (владелец, админ): слева категории, в центре блюда, справа выбранное блюдо.\n\n## Категория\nКнопкой **+** создайте категорию (например, «Национальные блюда», «Салаты», «Напитки»). Название пишется по-узбекски и по-русски.\n\n## Блюдо\n1. Выберите категорию и нажмите **Новый**.\n2. **Название** (узбекское и русское), **цена** (сум).\n3. Если нужен фискальный чек, укажите **код ИКПУ** и код упаковки (с сайта tasnif.soliq.uz).\n4. **Сохранить**.\n\n## Сделать неактивным\nВременно не продаваемое блюдо не удаляйте, а сделайте **неактивным**: история и отчёты сохранятся, официанту оно не показывается.\n\n## Если изменю цену?\nСтарые заказы не меняются: в каждом заказе сохраняется **цена блюда на тот момент**.\n\n> **Рецепт:** чтобы прибыль блюда считалась верно, укажите рецепт в разделе «Склад» (см. «Склад и рецепты»)."
+   }
+  },
+  {
+   "id": "stock_recipes",
+   "category": "menu",
+   "audience": "app",
+   "title": {
+    "uz": "Ombor va retseptlar",
+    "ru": "Склад и рецепты"
+   },
+   "body": {
+    "uz": "## Xomashyo (ombor)\n**Ombor** bo'limida xomashyolar: go'sht, guruch, sabzavot... Har biri uchun:\n- **Birlik**: gramm, millilitr yoki dona. Qoldiq shu kichik birlikda saqlanadi (kilogramm uchun grammda yozing: 1 kg = 1000 g).\n- **Minimal miqdor** — shundan kam qolsa «Kam qolgan» belgisi chiqadi.\n- **Kirim** — xomashyo sotib olinganda miqdor va **jami summa**ni yozing: dastur birlik narxini o'zi hisoblaydi.\n- **Chiqit** — buzilgan yoki to'kilgan xomashyoni sababi bilan hisobdan chiqaring.\n- **Sanash** — haqiqiy qoldiqni kiritib, dastur qoldig'ini tuzating.\n\n## Retsept\nHar bir taom uchun **1 porsiyaga** nima va qancha ketishini yozing: masalan, Osh: go'sht 120 g, guruch 200 g, sabzavot 80 g.\nDastur retsept bo'yicha:\n- **tannarxni** hisoblaydi (taom foydasi va marjasi shundan);\n- har bir to'langan buyurtmada xomashyoni ombordan **avtomatik yechadi**.\n\n## Muhim\n- Qoldiq **manfiy** bo'lishi mumkin (sotuv hech qachon to'xtatilmaydi), bu — kirim yozilmaganining belgisi.\n- Retseptsiz taomning tannarxi 0, hisobotdagi foyda esa ko'tarilib ketadi.\n- Oyiga bir marta ombordagi haqiqiy qoldiq bilan «Sanash» orqali tenglashtiring.",
+    "ru": "## Сырьё (склад)\nВ разделе **Склад** — сырьё: мясо, рис, овощи... Для каждого:\n- **Единица**: грамм, миллилитр или штука. Остаток хранится в мелкой единице (для килограммов пишите в граммах: 1 кг = 1000 г).\n- **Минимальное количество** — если остаток меньше, появится отметка «Заканчивается».\n- **Приход** — при закупке впишите количество и **общую сумму**: программа сама посчитает цену за единицу.\n- **Списание** — испорченное или пролитое сырьё спишите с причиной.\n- **Пересчёт** — введите реальный остаток, и программа поправит свой.\n\n## Рецепт\nДля каждого блюда укажите, что и сколько уходит **на 1 порцию**: например, Плов: мясо 120 г, рис 200 г, овощи 80 г.\nПо рецепту программа:\n- считает **себестоимость** (от неё прибыль и маржа блюда);\n- при каждой оплате заказа **автоматически списывает** сырьё со склада.\n\n## Важно\n- Остаток может стать **отрицательным** (продажа никогда не блокируется) — это признак того, что приход не записан.\n- Блюдо без рецепта имеет себестоимость 0, а прибыль в отчёте завышается.\n- Раз в месяц сверяйте реальные остатки через «Пересчёт»."
+   }
+  },
+  {
+   "id": "tables_halls",
+   "category": "menu",
+   "audience": "app",
+   "title": {
+    "uz": "Stollar va zallar",
+    "ru": "Столы и залы"
+   },
+   "body": {
+    "uz": "**Stollar** bo'limi (egasi, admin).\n\n## Zal\nChapda zallar ro'yxati; **+** bilan yangi zal («Asosiy zal», «VIP», «Terrasa»). Zal nomi o'zgartiriladi, bo'sh bo'lsagina o'chiriladi.\n\n## Stol\n1. Zalni tanlang, **Yangi stol** ni bosing.\n2. **Nomi** (raqam yoki nom: «1», «V1») va **o'rinlar soni**.\n3. **Saqlash**. Stol Zal bo'limida kartochka bo'lib chiqadi.\n\nBuyurtma tarixi bor stolni o'chirib bo'lmaydi (hisobotlar buzilmasligi uchun).\n\n## Ofitsiant foizi (zal va stol)\nFaqat **Ofitsiant foizlari** ruxsati bor xodimga ko'rinadi:\n- **Zal foizi** — shu zalning hamma stollari uchun (masalan, VIP — 10 %).\n- **Stol foizi** — bitta stol uchun (zal foizidan ustun).\nBo'sh qoldirsangiz — keyingi daraja olinadi: stol → zal → ofitsiantning o'z foizi.",
+    "ru": "Раздел **Столы** (владелец, админ).\n\n## Зал\nСлева список залов; кнопкой **+** новый зал («Основной зал», «VIP», «Терраса»). Название зала можно менять, удалить можно только пустой зал.\n\n## Стол\n1. Выберите зал и нажмите **Новый стол**.\n2. **Название** (номер или имя: «1», «V1») и **число мест**.\n3. **Сохранить**. Стол появится карточкой в разделе «Зал».\n\nСтол с историей заказов удалить нельзя (чтобы не нарушить отчёты).\n\n## Процент официанта (зал и стол)\nПоказывается только сотруднику с правом **Проценты официантов**:\n- **Процент зала** — для всех столов этого зала (например, VIP — 10 %).\n- **Процент стола** — для одного стола (приоритетнее процента зала).\nЕсли оставить пустым, берётся следующий уровень: стол → зал → личный процент официанта."
+   }
+  },
+  {
+   "id": "staff_roles",
+   "category": "staff",
+   "audience": "app",
+   "title": {
+    "uz": "Xodimlar va rollar",
+    "ru": "Сотрудники и роли"
+   },
+   "body": {
+    "uz": "**Xodimlar** bo'limi (egasi, admin).\n\n## Xodim qo'shish\n1. **Yangi xodim** → **Ism-familiya**, **Rol**, **PIN-kod** (1–4 raqam).\n2. **Ofitsiant foizi** (ixtiyoriy, faqat foiz ruxsati bor xodimga ko'rinadi).\n3. **Saqlash**.\n\n## Qoidalar\n- Ikki **faol** xodimda bir xil PIN bo'lmaydi (PIN odamni aniqlaydi).\n- Xodim ketsa, o'chirmang — **«Hisob faol»** belgisini olib tashlang: uning tarixi hisobotlarda qoladi.\n- Egasi rolini faqat Egasining o'zi berishi yoki o'zgartirishi mumkin. Oxirgi egasini olib tashlab bo'lmaydi.\n- O'zingizni nofaol qila olmaysiz.\n\n## Rollar\n**Xodimlar → Rollar** ekranida har bir rolga nima ruxsat berilganini belgilang (buyurtma, to'lov, chegirma, bekor qilish, smena, menyu, ombor, hisobotlar, foyda, foizlar, sozlamalar...). O'z rolingizni yaratishingiz ham mumkin (masalan, «Katta ofitsiant»).\n\n> **Xavfsizlik:** PIN-kodni boshqaga bermang. Foyda va ish haqini ko'rish ruxsatini faqat ishonchli odamga bering.",
+    "ru": "Раздел **Сотрудники** (владелец, админ).\n\n## Добавить сотрудника\n1. **Новый сотрудник** → **Имя-фамилия**, **Роль**, **PIN-код** (1–4 цифры).\n2. **Процент официанта** (необязательно, виден только сотруднику с правом на проценты).\n3. **Сохранить**.\n\n## Правила\n- У двух **активных** сотрудников не может быть одинаковый PIN (по PIN определяется человек).\n- Если сотрудник уволился, не удаляйте его — снимите галочку **«Аккаунт активен»**: его история останется в отчётах.\n- Роль Владельца может выдать или изменить только сам Владелец. Последнего Владельца убрать нельзя.\n- Нельзя сделать неактивным самого себя.\n\n## Роли\nНа экране **Сотрудники → Роли** отметьте, что разрешено каждой роли (заказы, оплата, скидки, отмена, смена, меню, склад, отчёты, прибыль, проценты, настройки...). Можно создать свою роль (например, «Старший официант»).\n\n> **Безопасность:** не передавайте PIN другим. Право видеть прибыль и зарплату давайте только доверенным людям."
+   }
+  },
+  {
+   "id": "waiter_percent",
+   "category": "staff",
+   "audience": "both",
+   "title": {
+    "uz": "Ofitsiant foizi",
+    "ru": "Процент официанта"
+   },
+   "body": {
+    "uz": "Ofitsiantlarga ish haqining bir qismi sifatida **to'langan hisobdan foiz** berish mumkin (masalan, 5 %).\n\n## Foiz qayerdan olinadi (shu tartibda)\n1. **Stolning foizi** (agar belgilangan bo'lsa);\n2. bo'lmasa — **zalning foizi**;\n3. bo'lmasa — **ofitsiantning o'z foizi**.\n\nTelefon buyurtmalari va olib ketishda stol yo'q: ofitsiantning o'z foizi olinadi.\n\n## Nimadan hisoblanadi\n**Taom summasidan**: chegirmadan keyingi taomlar summasi, **yetkazib berish haqisiz**.\n\n## Qotiriladi\nTo'lov vaqtida foiz va summa buyurtmaga **yozib qo'yiladi**. Keyin foizni o'zgartirsangiz ham, **eski hisoblar o'zgarmaydi**, yangi foiz faqat keyingi to'lovlarga ta'sir qiladi.\n\n## Qayerda o'rnatiladi\n- Ofitsiantniki: **Xodimlar** bo'limi.\n- Zal va stolniki: **Stollar** bo'limi.\nFaqat **Ofitsiant foizlari** ruxsati bor xodim ko'radi va o'zgartiradi.\n\n## Qayerda ko'rinadi\n**Hisobotlar → Ish haqi (foiz)**: oy bo'yicha har bir ofitsiant, stollar bo'yicha tafsilot. Excelga saqlash mumkin.\n\n**Misol:** hisob 200 000, chegirma 10 % → taom summasi 180 000. Foiz 5 % → **9 000 so'm**.",
+    "ru": "Официантам в составе зарплаты можно давать **процент с оплаченного счёта** (например, 5 %).\n\n## Откуда берётся процент (в таком порядке)\n1. **Процент стола** (если задан);\n2. иначе — **процент зала**;\n3. иначе — **личный процент официанта**.\n\nУ телефонных заказов и «с собой» стола нет: берётся личный процент.\n\n## С чего считается\n**С суммы за еду**: сумма блюд после скидки, **без платы за доставку**.\n\n## Фиксируется\nВ момент оплаты процент и сумма **записываются в заказ**. Если потом изменить процент, **старые счета не изменятся**, новый процент влияет только на следующие оплаты.\n\n## Где задаётся\n- Официанта: раздел **Сотрудники**.\n- Зала и стола: раздел **Столы**.\nВидит и меняет только сотрудник с правом **Проценты официантов**.\n\n## Где видно\n**Отчёты → Зарплата (процент)**: по месяцам, каждый официант, детализация по столам. Можно сохранить в Excel.\n\n**Пример:** счёт 200 000, скидка 10 % → сумма за еду 180 000. Процент 5 % → **9 000 сум**."
+   }
+  },
+  {
+   "id": "an_filters",
+   "category": "analytics",
+   "audience": "both",
+   "title": {
+    "uz": "Davr va filtrlar",
+    "ru": "Период и фильтры"
+   },
+   "body": {
+    "uz": "Har bir hisobot sahifasining tepasida **davr** va **filtrlar** turadi. Ular hamma raqamlarni o'zgartiradi.\n\n## Davr\n- Tayyor tugmalar: **Bugun, Kecha, 7 kun, 30 kun, Shu oy, O'tgan oy, Shu yil**.\n- O'z davringiz: ikki sanani yozing (kun.oy.yil) va **Enter** bosing (yoki strelka tugmasi).\n- Kunlar **restoranning mahalliy vaqti** bilan sanaladi (yarim tundan yarim tungacha).\n\n## Filtrlar\n- **Zal** — faqat shu zaldagi stollar.\n- **Xodim** — faqat shu ofitsiant (yoki kassir) qabul qilgan buyurtmalar.\n- **Tur** — zalda, olib ketish yoki yetkazib berish.\n\nFiltrlar birga ishlaydi: masalan, «VIP zal + Aziz + 30 kun».\n\n## Excelga saqlash\nTepadagi **Excelga saqlash** tugmasi ekrandagi jadvallarni xuddi shunday raqamlar bilan Excel faylga yozadi. Har bir jadval alohida varaq.\n\n> **Maslahat:** oyni oldingi oy bilan solishtirish uchun «Shu oy» va «O'tgan oy» ni almashtirib ko'ring. Yashil/qizil strelkalar buni o'zi ko'rsatadi.",
+    "ru": "Вверху каждой страницы отчётов находятся **период** и **фильтры**. Они меняют все цифры на странице.\n\n## Период\n- Готовые кнопки: **Сегодня, Вчера, 7 дней, 30 дней, Этот месяц, Прошлый месяц, Этот год**.\n- Свой период: впишите две даты (день.месяц.год) и нажмите **Enter** (или кнопку со стрелкой).\n- Дни считаются по **местному времени ресторана** (с полуночи до полуночи).\n\n## Фильтры\n- **Зал** — только столы этого зала.\n- **Сотрудник** — только заказы, принятые этим официантом (или кассиром).\n- **Тип** — в зале, с собой или доставка.\n\nФильтры работают вместе: например, «VIP-зал + Азиз + 30 дней».\n\n## Сохранить в Excel\nКнопка **Сохранить в Excel** вверху записывает таблицы с экрана в файл Excel с теми же цифрами. Каждая таблица на отдельном листе.\n\n> **Совет:** чтобы сравнить месяц с прошлым, переключайте «Этот месяц» и «Прошлый месяц». Зелёные/красные стрелки покажут это сами."
+   }
+  },
+  {
+   "id": "an_overview",
+   "category": "analytics",
+   "audience": "both",
+   "title": {
+    "uz": "Umumiy ko'rinish",
+    "ru": "Обзор"
+   },
+   "body": {
+    "uz": "Birinchi sahifa: davr bo'yicha asosiy raqamlar. Har bir raqam **oldingi shunday davr** bilan solishtiriladi (masalan, bu hafta — o'tgan hafta).\n\n## Yuqoridagi raqamlar\n- **Tushum** — mehmonlar to'lagan jami summa (chegirmadan keyin, yetkazib berish haqi bilan).\n- **Buyurtmalar** — to'langan buyurtmalar soni.\n- **O'rtacha chek** — tushum ÷ buyurtmalar. Oshirish yo'li: qo'shimcha taom/ichimlik taklif qilish.\n- **Foyda** va **Marja** — tushumdan tannarx ayirilgani va uning foizi. Tannarx retseptlardan olinadi.\n- **Mehmonlar** va **Bir mehmonga** — ofitsiant buyurtmaga mehmon sonini kiritgan bo'lsa ko'rinadi.\n- **Chegirmalar** — berilgan chegirmalar summasi.\n- **Bekor qilingan** — bekor qilingan buyurtmalar soni va summasi.\n- **Ofitsiantlar foizi** — ofitsiantlarga hisoblangan foizlar yig'indisi.\n\n## Strelkalar\n▲ — oldingi davrdan ko'p, ▼ — kam. **Yashil** — yaxshi, **qizil** — yomon. Shuning uchun chegirma va bekor qilishlar ko'paysa ▲ **qizil** bo'ladi.\n\n## Grafik\nTushum kunlar bo'yicha (30 kundan ko'p davrda haftalar, yarim yildan ko'pda oylar bo'yicha). **Sariq chiziq** — shu davr, **uzilgan chiziq** — oldingi davr. Sichqonchani nuqta ustiga olib borsangiz, aniq summa chiqadi.\n\n## Pastda\nTo'lov turlari ulushi (naqd/karta/o'tkazma), buyurtma turlari, eng ko'p sotilgan 5 ta taom va eng yaxshi 5 ta ofitsiant.\n\n> **Foyda 100 % ga yaqin chiqsa**, taomlarga retsept kiritilmagan bo'lishi mumkin: retseptsiz taomning tannarxi 0 deb olinadi. «Menyu» va «Ombor» bo'limida retseptlarni to'ldiring.",
+    "ru": "Первая страница: главные цифры за период. Каждая цифра **сравнивается с таким же прошлым периодом** (например, эта неделя — прошлая неделя).\n\n## Цифры сверху\n- **Выручка** — сколько всего заплатили гости (после скидок, вместе с платой за доставку).\n- **Заказы** — число оплаченных заказов.\n- **Средний чек** — выручка ÷ заказы. Растёт, если предлагать дополнительные блюда и напитки.\n- **Прибыль** и **Маржа** — выручка минус себестоимость и её процент. Себестоимость берётся из рецептов.\n- **Гости** и **На гостя** — видны, если официант указывал число гостей в заказе.\n- **Скидки** — сумма предоставленных скидок.\n- **Отменено** — число и сумма отменённых заказов.\n- **Процент официантов** — сумма процентов, начисленных официантам.\n\n## Стрелки\n▲ — больше, чем в прошлом периоде, ▼ — меньше. **Зелёный** — хорошо, **красный** — плохо. Поэтому рост скидок и отмен — ▲ **красный**.\n\n## График\nВыручка по дням (при периоде больше 30 дней — по неделям, больше полугода — по месяцам). **Жёлтая линия** — этот период, **пунктир** — прошлый. Наведите мышь на точку, чтобы увидеть точную сумму.\n\n## Ниже\nДоли способов оплаты (наличные/карта/перевод), типы заказов, 5 самых продаваемых блюд и 5 лучших официантов.\n\n> **Если прибыль близка к 100 %**, возможно, у блюд нет рецептов: себестоимость блюда без рецепта считается нулевой. Заполните рецепты в разделах «Меню» и «Склад»."
+   }
+  },
+  {
+   "id": "an_sales",
+   "category": "analytics",
+   "audience": "both",
+   "title": {
+    "uz": "Sotuvlar",
+    "ru": "Продажи"
+   },
+   "body": {
+    "uz": "Qaysi kun va soatda ko'p sotilishini ko'rsatadi: xodimlar jadvalini va oshxona tayyorgarligini rejalash uchun.\n\n## Hafta kunlari × soatlar xaritasi\nHar bir katak — haftaning kuni va soat. **Qanchalik to'q sariq, shunchalik ko'p tushum.** Katak ustiga sichqoncha olib borsangiz, summa va buyurtmalar soni chiqadi. Soat — **to'lov** vaqti (buyurtma ochilgan vaqt emas).\n\n## Soatlar bo'yicha sotuv\nBir kunning qaysi soatlarida eng gavjum. Eng baland ustun — «pik» soat. Shu vaqtda ofitsiant va oshpaz yetarli bo'lsin.\n\n## Hafta kuni bo'yicha o'rtacha kunlik tushum\nHar bir hafta kuni uchun **bir kunga o'rtacha** tushum (davrdagi shu kunlar soniga bo'lingan). Qaysi kunlar zaif ekanini ko'rsatadi — aksiya shu kunlarga.\n\n## Kunlar va oylar bo'yicha jadval\nHar bir kun uchun: buyurtmalar, mehmonlar, tushum, o'rtacha chek, chegirmalar, to'lov turlari va foyda. Ustun nomini bosib saralash mumkin (kattadan kichikka yoki aksincha).\n\n> **Misol:** agar juma 19:00–21:00 eng to'q bo'lsa, shu vaqtda qo'shimcha ofitsiant qo'ying; seshanba tushligi bo'sh bo'lsa, «biznes-lanch» taklif qiling.",
+    "ru": "Показывает, в какие дни и часы продаётся больше всего: для планирования смен и подготовки кухни.\n\n## Карта «день недели × час»\nКаждая клетка — день недели и час. **Чем темнее жёлтый, тем больше выручка.** Наведите мышь на клетку, чтобы увидеть сумму и число заказов. Час — время **оплаты** (а не открытия заказа).\n\n## Продажи по часам\nВ какие часы дня самая большая загрузка. Самый высокий столбец — «пик». В это время должно хватать официантов и поваров.\n\n## Средняя дневная выручка по дням недели\nДля каждого дня недели — **средняя выручка за один день** (делится на число таких дней в периоде). Видно, какие дни слабые — туда планируйте акции.\n\n## Таблицы по дням и месяцам\nПо каждому дню: заказы, гости, выручка, средний чек, скидки, способы оплаты и прибыль. Щёлкните по заголовку столбца, чтобы отсортировать (по убыванию или возрастанию).\n\n> **Пример:** если пятница 19:00–21:00 самая тёмная, поставьте в это время дополнительного официанта; если обед по вторникам пустой, предложите «бизнес-ланч»."
+   }
+  },
+  {
+   "id": "an_payments",
+   "category": "analytics",
+   "audience": "both",
+   "title": {
+    "uz": "To'lovlar",
+    "ru": "Оплаты"
+   },
+   "body": {
+    "uz": "Pul qanday usulda kelganini ko'rsatadi: **naqd, karta, o'tkazma** (Click, Payme, Uzum, QR).\n\n## Yuqoridagi kartalar\nHar bir usul bo'yicha jami summa, uning ulushi (%) va to'lovlar soni. **Bo'lib to'langan hisoblar** — bir hisob bir nechta usulda to'langan (masalan, yarmi naqd, yarmi karta). Bunday hisobning har bir qismi o'z usuliga yoziladi.\n\n## Grafik va jadvallar\nKunlar (uzoq davrda — oylar) bo'yicha to'lovlar. Jadvalda har bir kun uchun naqd, karta, o'tkazma va jami.\n\n## Smenalar: kassadagi naqd pul\nHar bir smena uchun:\n- **Bo'lishi kerak** = boshlang'ich kassa + naqd sotuvlar + kassaga qo'yilgan pul − kassadan olingan pul.\n- **Sanaldi** — smena yopilganda kassir sanagan haqiqiy naqd pul.\n- **Farq** = sanaldi − bo'lishi kerak. Nol bo'lsa — hammasi joyida. Manfiy son — pul yetishmaydi, musbat — ortiqcha.\n\n> **Eslatma:** karta va o'tkazma kassaga naqd tushmaydi, shuning uchun «bo'lishi kerak» faqat naqd to'lovlarni hisoblaydi.",
+    "ru": "Показывает, как пришли деньги: **наличные, карта, перевод** (Click, Payme, Uzum, QR).\n\n## Карточки сверху\nПо каждому способу: общая сумма, доля (%) и число оплат. **Раздельная оплата** — один счёт оплачен несколькими способами (например, половина наличными, половина картой). Каждая часть такого счёта записывается на свой способ.\n\n## График и таблицы\nОплаты по дням (при длинном периоде — по месяцам). В таблице по каждому дню: наличные, карта, перевод и итого.\n\n## Смены: наличные в кассе\nДля каждой смены:\n- **Должно быть** = касса на начало + наличные продажи + внесённые в кассу деньги − изъятые.\n- **Пересчитано** — реальные наличные, которые кассир посчитал при закрытии смены.\n- **Разница** = пересчитано − должно быть. Ноль — всё сходится. Минус — не хватает денег, плюс — лишние.\n\n> **Заметка:** карта и перевод в кассу наличными не попадают, поэтому «должно быть» учитывает только наличные оплаты."
+   }
+  },
+  {
+   "id": "an_waiters",
+   "category": "analytics",
+   "audience": "both",
+   "title": {
+    "uz": "Ofitsiantlar",
+    "ru": "Официанты"
+   },
+   "body": {
+    "uz": "Har bir xodimning ishi: qancha sotdi, qancha ishlab topdi, qanday ishladi.\n\n## Jadval ustunlari\n- **Buyurtmalar**, **Tushum**, **O'rtacha chek** — xodim qabul qilgan to'langan buyurtmalar.\n- **Foiz** va **Ishlab topgan** — to'lov paytida qotirilgan ofitsiant foizi va uning summasi. Foiz «real» bo'lib chiqadi: stollar har xil foizda bo'lsa, o'rtacha chiqadi.\n- **Mehmonlar** — kiritilgan mehmonlar yig'indisi. **Stollar** — nechta turli stolga xizmat ko'rsatdi.\n- **Chegirmalar** — shu xodim bergan chegirmalar summasi.\n- **Bekor** — shu xodim buyurtmalaridan bekor qilinganlar soni.\n- **Stolda (daq.)** — buyurtma ochilganidan to'lovgacha o'rtacha daqiqa.\n\n## Qatorni bosing\nXodimning **stollar bo'yicha** tafsiloti ochiladi: qaysi stol, nechta buyurtma, taom summasi, foiz va ishlab topgani.\n\n## Qanday o'qish kerak\n- O'rtacha chek yuqori, chegirma kam — yaxshi sotuvchi.\n- Chegirmalar yoki bekor qilishlar boshqalarnikidan ancha ko'p — «Nazorat» sahifasida sabablarni tekshiring.\n- Stolda vaqt juda uzun — xizmat sekin yoki mehmonlar uzoq o'tiradi.",
+    "ru": "Работа каждого сотрудника: сколько продал, сколько заработал, как работал.\n\n## Столбцы таблицы\n- **Заказы**, **Выручка**, **Средний чек** — оплаченные заказы, принятые сотрудником.\n- **Процент** и **Заработал** — процент официанта, зафиксированный при оплате, и его сумма. Процент получается «реальным»: если столы с разными процентами, показывается средний.\n- **Гости** — сумма указанных гостей. **Столы** — сколько разных столов обслужил.\n- **Скидки** — сумма скидок, данных этим сотрудником.\n- **Отмен** — сколько из его заказов отменено.\n- **За столом (мин)** — среднее число минут от открытия заказа до оплаты.\n\n## Нажмите на строку\nОткроется детализация сотрудника **по столам**: какой стол, сколько заказов, сумма за еду, процент и заработок.\n\n## Как читать\n- Высокий средний чек и мало скидок — хороший продавец.\n- Скидки или отмены заметно выше, чем у других, — проверьте причины на странице «Контроль».\n- Очень долгое время за столом — медленное обслуживание или гости долго сидят."
+   }
+  },
+  {
+   "id": "an_payroll",
+   "category": "analytics",
+   "audience": "both",
+   "title": {
+    "uz": "Ish haqi (foiz)",
+    "ru": "Зарплата (процент)"
+   },
+   "body": {
+    "uz": "Oy oxirida har bir ofitsiantga qancha to'lash kerakligini ko'rsatadi. Har doim **to'liq kalendar oyi** (yuqoridagi davr bu yerga ta'sir qilmaydi). ◀ ▶ tugmalari bilan oyni almashtiring.\n\n## Qanday hisoblanadi\n1. Hisob to'langanda dastur foizni tanlaydi: **stolning foizi**, bo'lmasa **zalning foizi**, bo'lmasa **ofitsiantning o'z foizi**.\n2. Foiz **taom summasidan** hisoblanadi: chegirmadan keyingi taomlar summasi, **yetkazib berish haqisiz**.\n3. Foiz va summa to'lov paytida **qotiriladi**: keyin foizni o'zgartirsangiz ham, eski hisoblar o'zgarmaydi.\n\n**Misol:** 2 ta osh va salat, jami 135 000 so'm, chegirma yo'q. Ofitsiant foizi 5 % bo'lsa — 6 750 so'm. VIP zal 10 % qilingan bo'lsa, VIP stoldagi hisobdan — 13 500 so'm.\n\n## Jadval\nHar bir ofitsiant: buyurtmalar, taom summasi, o'rtacha foiz va **ishlab topgan** summa. Qatorni bosing — stollar bo'yicha tafsilot ochiladi. Yuqoridagi karta «Jami to'lanadigan foiz»ni ko'rsatadi.\n\n> **Eslatma:** foizlarni «Xodimlar» (ofitsiantning o'zi), «Stollar» (zal va stol) bo'limida faqat **Ofitsiant foizlari** ruxsati bor xodim (egasi, admin) o'zgartira oladi.",
+    "ru": "Показывает, сколько нужно заплатить каждому официанту в конце месяца. Всегда **полный календарный месяц** (период сверху здесь не действует). Переключайте месяц кнопками ◀ ▶.\n\n## Как считается\n1. При оплате счёта программа выбирает процент: **процент стола**, а если его нет — **процент зала**, а если нет и его — **личный процент официанта**.\n2. Процент берётся с **суммы за еду**: сумма блюд после скидки, **без платы за доставку**.\n3. Процент и сумма **фиксируются** при оплате: если потом изменить процент, старые счета не поменяются.\n\n**Пример:** 2 плова и салат, всего 135 000 сум, без скидки. При проценте официанта 5 % — 6 750 сум. Если для VIP-зала задано 10 %, со счёта за VIP-столом — 13 500 сум.\n\n## Таблица\nПо каждому официанту: заказы, сумма за еду, средний процент и **заработал**. Нажмите на строку — откроется детализация по столам. Карточка сверху показывает «Итого к выплате (процент)».\n\n> **Заметка:** проценты меняются в «Сотрудники» (личный), «Столы» (зал и стол) только у сотрудника с правом **Проценты официантов** (владелец, администратор)."
+   }
+  },
+  {
+   "id": "an_tables",
+   "category": "analytics",
+   "audience": "both",
+   "title": {
+    "uz": "Stollar va zallar",
+    "ru": "Столы и залы"
+   },
+   "body": {
+    "uz": "Qaysi stol va zal ko'proq daromad keltirishini ko'rsatadi.\n\n## Zallar\nHar bir zal: stollar soni, buyurtmalar, tushum va o'rtacha chek.\n\n## Eng daromadli stollar\nTushum bo'yicha eng yaxshi 8 ta stol.\n\n## Stollar jadvali\n- **O'rinlar** — stoldagi joylar soni.\n- **Buyurtmalar, Mehmonlar, Tushum, O'rtacha chek** — shu stol bo'yicha.\n- **Stolda (daq.)** — mehmon o'rtacha qancha vaqt o'tiradi.\n- **Kuniga buyurtma** — buyurtmalar soni ÷ kunlar. Stol kuniga necha marta almashadi (aylanish).\n- **Bir o'ringa tushum** — tushum ÷ o'rinlar soni: stollarni bir-biri bilan adolatli solishtirish uchun.\n\n> **Foydasi:** doim bo'sh turadigan stollar yoki juda uzoq «band» stollar joylashuv, xizmat yoki narx masalasini ko'rsatadi. Bir o'ringa tushum past zalni qayta jihozlash yoki aksiya haqida o'ylash kerak.",
+    "ru": "Показывает, какие столы и залы приносят больше дохода.\n\n## Залы\nПо каждому залу: число столов, заказы, выручка и средний чек.\n\n## Самые доходные столы\n8 лучших столов по выручке.\n\n## Таблица столов\n- **Места** — число мест за столом.\n- **Заказы, Гости, Выручка, Средний чек** — по этому столу.\n- **За столом (мин)** — сколько в среднем сидят гости.\n- **Заказов в день** — число заказов ÷ дни. Как часто стол «оборачивается».\n- **Выручка на место** — выручка ÷ число мест: чтобы честно сравнивать столы между собой.\n\n> **Польза:** столы, которые всегда пусты или слишком долго заняты, подсказывают проблему с расположением, сервисом или ценами. Низкая выручка на место в зале — повод пересмотреть зал или провести акцию."
+   }
+  },
+  {
+   "id": "an_products",
+   "category": "analytics",
+   "audience": "both",
+   "title": {
+    "uz": "Taomlar",
+    "ru": "Блюда"
+   },
+   "body": {
+    "uz": "Qaysi taom ko'p sotiladi, qaysi biri foyda keltiradi va qaysi biri «yotib qolgan».\n\n## Yuqoridagi raqamlar\n- **Sotilgan porsiyalar** va taomlar turi.\n- **A guruhidagi taomlar** — foydaning 80 % ini beradigan taomlar soni.\n- **Sotilmagan taomlar** — menyuda bor, lekin shu davrda bitta ham sotilmagan.\n- **Tayyorlash vaqti** — oshxonaga yuborilgandan oshpaz «tayyor» deb belgilagunicha o'rtacha daqiqa.\n\n## ABC tahlil\nTaomlar qiymat bo'yicha kattadan kichikka tartiblanadi:\n- **A** — birinchi 80 % ni beradiganlar: asosiy daromad. Ularni **saqlab qoling**: doim omborda bo'lsin, sifati yaxshi bo'lsin.\n- **B** — keyingi 15 %: o'rta.\n- **C** — oxirgi 5 %: eng kam foyda. Menyudan olib tashlashni yoki narxini o'zgartirishni o'ylab ko'ring.\n\nIkkita ABC bor: **tushum bo'yicha** va **foyda bo'yicha**. Ko'p sotilgan taom foydali bo'lmasligi mumkin (masalan, choy: tannarxi past bo'lsa ham, summasi kichik).\n\n## Jadval\nMiqdor, tushum (chegirmadan keyin), ulush %, tannarx, foyda, marja % va tayyorlash vaqti.\n\n> **Eslatma:** tannarx **hozirgi retsept va xomashyo narxlari** bo'yicha taxminiy hisoblanadi, shuning uchun eski davr uchun biroz farq qilishi mumkin. Retseptsiz taomning tannarxi 0.",
+    "ru": "Какие блюда продаются лучше всего, какие приносят прибыль, а какие «залежались».\n\n## Цифры сверху\n- **Продано порций** и число видов блюд.\n- **Блюда группы A** — сколько блюд дают 80 % прибыли.\n- **Непроданные блюда** — есть в меню, но за период не продано ни одного.\n- **Время приготовления** — среднее число минут от отправки на кухню до отметки повара «готово».\n\n## ABC-анализ\nБлюда сортируются по ценности от большего к меньшему:\n- **A** — первые 80 %: основной доход. Их нужно **беречь**: всегда в наличии, хорошее качество.\n- **B** — следующие 15 %: середина.\n- **C** — последние 5 %: меньше всего пользы. Подумайте, не убрать ли из меню или изменить цену.\n\nABC считается дважды: **по выручке** и **по прибыли**. Самое продаваемое блюдо не всегда самое выгодное (например, чай: себестоимость низкая, но сумма маленькая).\n\n## Таблица\nКоличество, выручка (после скидки), доля %, себестоимость, прибыль, маржа % и время приготовления.\n\n> **Заметка:** себестоимость считается **примерно, по текущим ценам рецептов и сырья**, поэтому для старых периодов может немного отличаться. У блюда без рецепта себестоимость 0."
+   }
+  },
+  {
+   "id": "an_customers",
+   "category": "analytics",
+   "audience": "both",
+   "title": {
+    "uz": "Mijozlar va yetkazib berish",
+    "ru": "Клиенты и доставка"
+   },
+   "body": {
+    "uz": "Telefon orqali buyurtma bergan mijozlar va kuryerlar. Zalda telefonsiz o'tirgan mehmonlar bu yerga kirmaydi.\n\n## Raqamlar\n- **Mijozlar** — davrda buyurtma bergan telefonli mijozlar.\n- **Yangi mijozlar** — birinchi to'langan buyurtmasi aynan shu davrda.\n- **Qaytgan mijozlar** — avval ham buyurtma bergan: ular sizning doimiy mijozlaringiz.\n- **Yetkazish buyurtmalari**, **Yetkazishda o'rtacha chek**.\n\n## Eng faol mijozlar\nTushum bo'yicha eng yaxshi mijozlar: buyurtmalar soni, o'rtacha chek, oxirgi buyurtma sanasi, «Yangi» belgisi. Doimiy mijozlarni chegirma yoki xabar bilan rag'batlantiring.\n\n## Kuryerlar\nHar bir kuryer: yetkazilgan buyurtmalar, tushum, yetkazish haqi.\n\n> **Maslahat:** yangi mijozlar ko'p, qaytganlar kam bo'lsa — birinchi marta kelganlar qaytib kelmayapti: xizmat yoki taom sifatini tekshiring.",
+    "ru": "Клиенты, заказывающие по телефону, и курьеры. Гости, сидящие в зале без телефона, сюда не попадают.\n\n## Цифры\n- **Клиенты** — клиенты с телефоном, сделавшие заказ в периоде.\n- **Новые клиенты** — первый оплаченный заказ именно в этом периоде.\n- **Вернувшиеся клиенты** — заказывали и раньше: это ваши постоянные клиенты.\n- **Заказы доставки**, **Средний чек доставки**.\n\n## Самые активные клиенты\nЛучшие клиенты по выручке: число заказов, средний чек, дата последнего заказа, отметка «Новый». Поощряйте постоянных клиентов скидкой или сообщением.\n\n## Курьеры\nПо каждому курьеру: доставленные заказы, выручка, плата за доставку.\n\n> **Совет:** если новых клиентов много, а вернувшихся мало — пришедшие впервые не возвращаются: проверьте качество сервиса и блюд."
+   }
+  },
+  {
+   "id": "an_control",
+   "category": "analytics",
+   "audience": "both",
+   "title": {
+    "uz": "Nazorat",
+    "ru": "Контроль"
+   },
+   "body": {
+    "uz": "Qo'pol xatolar, firibgarlik va yo'qotishlarni topish uchun. Egasi shu sahifani tez-tez ko'rib turishi kerak.\n\n## Raqamlar\nBekor qilingan buyurtmalar, **oshxonadan keyin bekor qilinganlar** (taom tayyorlana boshlagan — yo'qotish), chegirmalar, oshxonadan olib tashlangan taomlar va kassadagi farqlar.\n\n## Bekor qilingan buyurtmalar\nHar biri: vaqt, stol, ofitsiant, **kim bekor qildi**, **sabab** (kassir tanlaydi: «Mehmon ketdi», «Xato buyurtma»...) va summa. «Oshxonaga borgan» belgisi — taom tayyorlanishga ulgurgan.\n\n## Chegirmalar xodimlar bo'yicha\nKim qancha chegirma bergan. Biror kishi boshqalardan ancha ko'p bersa, sababini so'rang.\n\n## Oshxonadan olib tashlangan taomlar\nOshxonaga yuborilgandan keyin hisobdan kamaytirilgan yoki o'chirilgan taomlar.\n\n## Kassadagi farqlar\nFaqat farqi **nol bo'lmagan** smenalar: kim ochgan, qancha bo'lishi kerak edi, qancha sanaldi.\n\n> **Nimaga e'tibor berish:** bir xodimda bekor qilish va chegirmalar tez-tez; kechqurun bir xil soatda kassada farq; sababsiz «Xato buyurtma». Bular to'liq tekshirish uchun belgi, hali ayblov emas.",
+    "ru": "Чтобы находить грубые ошибки, мошенничество и потери. Владельцу полезно заглядывать сюда часто.\n\n## Цифры\nОтменённые заказы, **отменённые после кухни** (блюдо уже готовилось — потеря), скидки, блюда, убранные после кухни, и расхождения в кассе.\n\n## Отменённые заказы\nПо каждому: время, стол, официант, **кто отменил**, **причина** (кассир выбирает: «Гость ушёл», «Ошибочный заказ»...) и сумма. Отметка «Был на кухне» — блюдо уже успели готовить.\n\n## Скидки по сотрудникам\nКто сколько скидок дал. Если кто-то даёт заметно больше других, спросите о причине.\n\n## Блюда, убранные после кухни\nБлюда, которые после отправки на кухню уменьшили или удалили из счёта.\n\n## Расхождения в кассе\nТолько смены с разницей **не равной нулю**: кто открыл, сколько должно быть, сколько пересчитано.\n\n> **На что смотреть:** частые отмены и скидки у одного сотрудника; расхождения в кассе в одно и то же время вечером; «Ошибочный заказ» без объяснений. Это повод проверить, а не обвинение."
+   }
+  },
+  {
+   "id": "an_stock",
+   "category": "analytics",
+   "audience": "both",
+   "title": {
+    "uz": "Ombor",
+    "ru": "Склад"
+   },
+   "body": {
+    "uz": "Ombordagi xomashyo qiymati va nima tugab borayotgani.\n\n## Raqamlar\n- **Ombor qiymati** — hozirgi qoldiq × birlik narxi, barcha xomashyo bo'yicha. Bu «davr» emas, **hozirgi holat**.\n- **Kam qolgan** — qoldig'i minimal miqdorga teng yoki undan kam xomashyolar soni.\n- **Chiqit** — tanlangan davrda hisobdan chiqarilgan (buzilgan, to'kilgan) xomashyo qiymati.\n\n## Jadval\nXomashyo, qoldiq, minimal miqdor, qiymat va «!» belgisi (kam qolgan). Kam qolganlar jadval tepasida turadi: **shularni birinchi navbatda sotib oling.**\n\n> **Qanday ishlaydi:** har bir to'langan buyurtmada taomning retsepti bo'yicha xomashyo ombordan avtomatik yechiladi. Retsept kiritilmasa, ombor qoldig'i o'zgarmaydi va foyda noto'g'ri ko'rinadi. Retseptlarni to'ldirib, vaqti-vaqti bilan haqiqiy qoldiqni «Ombor» bo'limida tekshirib turing.",
+    "ru": "Стоимость сырья на складе и что заканчивается.\n\n## Цифры\n- **Стоимость склада** — текущий остаток × цена за единицу, по всему сырью. Это не «период», а **состояние на сейчас**.\n- **Заканчивается** — сколько видов сырья с остатком, равным минимальному или меньше.\n- **Списания** — стоимость сырья, списанного (испорченного, пролитого) за выбранный период.\n\n## Таблица\nСырьё, остаток, минимальное количество, стоимость и отметка «!» (заканчивается). Заканчивающееся стоит вверху таблицы: **закупайте это в первую очередь.**\n\n> **Как это работает:** при каждой оплате заказа сырьё автоматически списывается со склада по рецепту блюда. Если рецепт не указан, остаток не меняется и прибыль выглядит завышенной. Заполните рецепты и периодически сверяйте реальные остатки в разделе «Склад»."
+   }
+  },
+  {
+   "id": "backup",
+   "category": "system",
+   "audience": "app",
+   "title": {
+    "uz": "Zaxira nusxa (backup)",
+    "ru": "Резервная копия (backup)"
+   },
+   "body": {
+    "uz": "Zaxira nusxa — butun bazaning nusxasi. Kompyuter buzilsa yoki xato qilinsa, shu nusxadan **hamma narsani tiklash** mumkin.\n\n## Avtomatik\n**Server** kompyuter yoqilganda, oxirgi nusxa taxminan bir kundan eski bo'lsa, o'zi nusxa oladi. Eng yangi **14 ta** saqlanadi. Papka: `C:\\ProgramData\\SwedPos\\backups`.\n\n## Qo'lda\n**Sozlamalar → Zaxira nusxa → Hozir nusxa olish**. Papkani o'zgartirish mumkin (masalan, USB flesh yoki boshqa disk).\n\n## Tiklash\nFaqat **Egasi**. Ro'yxatdan nusxani tanlab, **Tanlanganini tiklash** ni bosing. **Diqqat:** hozirgi barcha ma'lumotlar nusxadagi holatga qaytadi. Boshqa kompyuterlarda dasturni yoping. Tiklashdan oldin joriy ma'lumotlarning ehtiyot nusxasi `before-restore` papkasiga saqlanadi.\n\n## Eng muhim qoida\nNusxalar **shu kompyuterning o'zida** turadi: disk buzilsa, ular ham yo'qoladi. **Haftada bir marta nusxalarni flesh-xotiraga yoki boshqa kompyuterga ko'chiring.**",
+    "ru": "Резервная копия — копия всей базы. Если компьютер сломается или будет ошибка, из неё можно **восстановить всё**.\n\n## Автоматически\nКогда включается **сервер**, а последняя копия старше примерно суток, программа сама делает копию. Хранятся последние **14**. Папка: `C:\\ProgramData\\SwedPos\\backups`.\n\n## Вручную\n**Настройки → Резервные копии → Сделать копию сейчас**. Папку можно сменить (например, на USB-флешку или другой диск).\n\n## Восстановление\nТолько **Владелец**. Выберите копию в списке и нажмите **Восстановить выбранную**. **Внимание:** все текущие данные вернутся к состоянию копии. На других компьютерах закройте программу. Перед восстановлением страховочная копия текущих данных сохраняется в папку `before-restore`.\n\n## Главное правило\nКопии лежат **на этом же компьютере**: если сломается диск, пропадут и они. **Раз в неделю копируйте копии на флешку или другой компьютер.**"
+   }
+  },
+  {
+   "id": "updates",
+   "category": "system",
+   "audience": "app",
+   "title": {
+    "uz": "Yangilanishlar",
+    "ru": "Обновления"
+   },
+   "body": {
+    "uz": "SwedPos yangi versiyasi har bir kompyuterga flesh bilan borib o'rnatilmaydi: u **bir marta** serverga yuklanadi, keyin hamma kompyuter o'zi yangilanadi.\n\n## Tartib\n1. Istalgan kompyuterda **Sozlamalar → Yangilanishlar → Faylni yuklash** va `SwedPos-Setup-x.x.x.exe` faylini tanlang. Fayl bazaga saqlanadi.\n2. **Avval server** kompyuterda **«Shu kompyuterga o'rnatish»** ni bosing. Windows ruxsat so'raydi (administrator) — «Ha». Dastur yopiladi, yangilanadi va qayta ochiladi.\n3. Qolgan kompyuterlarda tepada **«Yangilanish bor»** tugmasi paydo bo'ladi — bosing.\n\n## Server va terminal versiyalari\nServer yangilanganda baza ham yangilanadi. Server **eski** terminalni ishlatmaydi: terminalda «Yangilash kerak» oynasi chiqadi. Terminal serverdan **yangi** bo'lsa, «Avval serverni yangilang» deydi.\n\n## Ma'lumotlar yo'qolmaydi\nYangilanish sozlamalar va bazaga tegmaydi. Shunday bo'lsa ham, yangilashdan oldin zaxira nusxa oling.\n\n> Hozircha yangilanishni internetdan yuklab bo'lmaydi: yangi faylni flesh yoki papkadan bir marta yuklaysiz.",
+    "ru": "Новая версия SwedPos не устанавливается на каждый компьютер с флешкой: она **один раз** загружается на сервер, после чего все компьютеры обновляются сами.\n\n## Порядок\n1. На любом компьютере: **Настройки → Обновления → Загрузить файл** и выберите `SwedPos-Setup-x.x.x.exe`. Файл сохранится в базе.\n2. **Сначала на сервере** нажмите **«Установить на этот ПК»**. Windows попросит разрешение (администратор) — «Да». Программа закроется, обновится и откроется снова.\n3. На остальных компьютерах вверху появится кнопка **«Есть обновление»** — нажмите её.\n\n## Версии сервера и терминала\nПри обновлении сервера обновляется и база. Сервер **не работает со старым** терминалом: на терминале появится окно «Требуется обновление». Если терминал **новее** сервера, он скажет «Сначала обновите сервер».\n\n## Данные не теряются\nОбновление не затрагивает настройки и базу. Но перед обновлением всё равно сделайте резервную копию.\n\n> Пока обновление нельзя скачать из интернета: новый файл вы один раз загружаете с флешки или из папки."
+   }
+  },
+  {
+   "id": "cloud",
+   "category": "system",
+   "audience": "both",
+   "title": {
+    "uz": "SwedPos Cloud (egasi uchun sayt)",
+    "ru": "SwedPos Cloud (сайт для владельца)"
+   },
+   "body": {
+    "uz": "**SwedPos Cloud** — egasi telefon yoki kompyuterdan restoran hisobotlarini istalgan joydan ko'rishi uchun veb-sayt. Faqat **ko'rish**: u yerdan buyurtma olinmaydi.\n\n## Nima ko'rinadi\nDasturdagi bilan **bir xil** hisobotlar: tushum, foyda, ofitsiantlar, ish haqi (foiz), to'lovlar, stollar, taomlar, mijozlar, nazorat, ombor. Raqamlar restoran dasturidagi bilan bir xil.\n\n## Qanday ishlaydi\n- **Server kompyuter** har daqiqada yangi savdolarni saytga yuboradi. PIN-kodlar va parollar **yuborilmaydi**.\n- Internet yo'q bo'lsa, hech narsa yo'qolmaydi: aloqa tiklangach, yuborilmaganlar o'zi yetkaziladi.\n\n## Ulash (server kompyuterda)\n1. Sayt administratori saytda restoran va egasini qo'shadi va sizga **sayt manzili** hamda **restoran kaliti**ni beradi (kalit bir marta ko'rsatiladi).\n2. **Sozlamalar → SwedPos Cloud**: manzil va kalitni yozing → **Saqlash**.\n3. Holat qatori «Oxirgi yuborilgan» vaqtini ko'rsatadi. Birinchi yuborishda barcha eski ma'lumot yetkaziladi (bir necha daqiqa).\n4. Egasi saytga **telefon raqami va paroli** bilan kiradi.\n\n## Muammo bo'lsa\n- «Yuborilmadi» xabari: manzil/kalit to'g'riligi, internet.\n- Saytda ma'lumot yangilanmasa: tepadagi «Oxirgi ma'lumot» vaqtiga qarang. 10 daqiqadan eski bo'lsa, server kompyuter o'chiq yoki internet yo'q.",
+    "ru": "**SwedPos Cloud** — сайт, где владелец с телефона или компьютера может смотреть отчёты ресторана из любого места. Только **просмотр**: заказы там принимать нельзя.\n\n## Что видно\n**Те же** отчёты, что и в программе: выручка, прибыль, официанты, зарплата (процент), оплаты, столы, блюда, клиенты, контроль, склад. Цифры такие же, как в программе ресторана.\n\n## Как это работает\n- **Серверный компьютер** каждую минуту отправляет на сайт новые продажи. PIN-коды и пароли **не отправляются**.\n- Если интернета нет, ничего не теряется: когда связь вернётся, неотправленное дойдёт само.\n\n## Подключение (на серверном компьютере)\n1. Администратор сайта добавляет на сайте ресторан и владельца и даёт вам **адрес сайта** и **ключ ресторана** (ключ показывается один раз).\n2. **Настройки → SwedPos Cloud**: впишите адрес и ключ → **Сохранить**.\n3. Строка состояния покажет время «Последняя отправка». При первой отправке дойдут все старые данные (несколько минут).\n4. Владелец входит на сайт по **номеру телефона и паролю**.\n\n## Если проблема\n- Сообщение «Не отправлено»: проверьте адрес/ключ, интернет.\n- Если на сайте данные не обновляются: смотрите время «Последние данные» вверху. Если оно старше 10 минут, серверный компьютер выключен или нет интернета."
+   }
+  },
+  {
+   "id": "network",
+   "category": "system",
+   "audience": "app",
+   "title": {
+    "uz": "Tarmoq: kabel, switch, IP manzillar",
+    "ru": "Сеть: кабель, коммутатор, IP-адреса"
+   },
+   "body": {
+    "uz": "Hamma kompyuter va printerlar **bitta tarmoqda** bo'lishi kerak.\n\n## Nima kerak\n- Bitta **router** va (rozetka yetmasa) **switch**. «Hub» emas, **switch** oling.\n- Server, oshxona printerlari va imkon bo'lsa hamma kompyuterlar **kabel** bilan ulanadi. Printerni Wi-Fi bilan ulamang: chek kechikadi.\n\n## IP manzil nima\nHar bir qurilmaning tarmoqdagi manzili, masalan, `192.168.1.10`. Bitta restoran — bitta «ko'cha»: ortiqcha narsa kerak emas.\n\n## Eng muhim: manzillar o'zgarmasin\nRouter har safar manzilni o'zgartirsa, terminallar serverni topa olmaydi va printerlar chop etmaydi. Shuning uchun **server va har bir printerga doimiy IP** bering:\n1. Router sahifasini oching (odatda `192.168.1.1`, parol routerning pastidagi yorliqda).\n2. **DHCP reservation / Address reservation / Static lease** bo'limini toping.\n3. Qurilmaning MAC manzilini tanlangan IP ga bog'lang. Masalan: server `192.168.1.10`, asosiy oshxona printeri `192.168.1.51`, salat printeri `192.168.1.52`.\n\nManzillarni qog'ozga yozib, har bir qurilmaga yopishtirib qo'ying.\n\n## Tekshirish\n- Terminalda: **Sozlamalar** da server IP va port to'g'ri.\n- Printer: **Test chop etish**.\n- Kompyuterda buyruq qatori (cmd): `ping 192.168.1.10` — javob kelishi kerak.\n\n> **Windows brandmauer** serverda TCP port (bazaning porti) ga ruxsat berishi kerak; o'rnatuvchi buni o'zi qiladi, bo'lmasa qo'llanmaga qarang.",
+    "ru": "Все компьютеры и принтеры должны быть **в одной сети**.\n\n## Что нужно\n- Один **роутер** и (если не хватает розеток) **коммутатор (switch)**. Берите именно **switch**, а не «hub».\n- Сервер, принтеры кухни и по возможности все компьютеры подключаются **кабелем**. Принтеры не подключайте по Wi-Fi: чеки будут задерживаться.\n\n## Что такое IP-адрес\nАдрес устройства в сети, например `192.168.1.10`. Один ресторан — одна «улица»: больше ничего не нужно.\n\n## Самое важное: адреса не должны меняться\nЕсли роутер каждый раз меняет адрес, терминалы не находят сервер, а принтеры не печатают. Поэтому задайте **постоянный IP серверу и каждому принтеру**:\n1. Откройте страницу роутера (обычно `192.168.1.1`, пароль на наклейке снизу).\n2. Найдите **DHCP reservation / Address reservation / Static lease**.\n3. Привяжите MAC-адрес устройства к выбранному IP. Например: сервер `192.168.1.10`, принтер основной кухни `192.168.1.51`, салатный принтер `192.168.1.52`.\n\nЗапишите адреса на бумагу и приклейте к каждому устройству.\n\n## Проверка\n- На терминале: в **Настройках** IP сервера и порт верные.\n- Принтер: **Тест печати**.\n- На компьютере в командной строке (cmd): `ping 192.168.1.10` — должен быть ответ.\n\n> **Брандмауэр Windows** на сервере должен пропускать TCP-порт (порт базы); установщик делает это сам, если нет — см. руководство."
+   }
+  },
+  {
+   "id": "troubleshooting",
+   "category": "problems",
+   "audience": "app",
+   "title": {
+    "uz": "Muammolar va yechimlar",
+    "ru": "Проблемы и решения"
+   },
+   "body": {
+    "uz": "## Terminal «bazaga ulanib bo'lmadi» deydi\n1. Server kompyuter yoqilganmi va SwedPos ochilganmi?\n2. Ikkalasi bitta tarmoqdami (bitta router/switch)?\n3. Terminaldagi server IP manzili to'g'rimi? Server IP o'zgargan bo'lishi mumkin: doimiy IP bering.\n4. Parol va port to'g'rimi (server *Sozlamalar → Boshqa kompyuterlarni ulash*).\n5. Serverda Windows brandmauer bazaning portiga ruxsat beradimi?\n\n## Oshxona printeri chop etmayapti\n1. Printer yoqilganmi, qog'ozi bormi, qopqog'i yopiqmi, kabel chirog'i yonyaptimi?\n2. **Sozlamalar → Oshxona printerlari → Test chop etish** o'tyaptimi?\n3. IP printer sozlamalar varag'idagi bilan bir xilmi?\n4. Chop etuvchi kompyuter (server) yoqilganmi? Navbat kartasida xato yozilgan bo'lishi mumkin.\n\n## To'lov qabul qilinmayapti\nSmena ochiqmi? («Smena» bo'limi.) Bo'lib to'lashda yig'indi hisobga aniq tengmi?\n\n## Chekda harflar noto'g'ri\nChek printeri kodirovkasini CP866 ↔ CP1251 almashtiring.\n\n## «Yangilash kerak» oynasi\nBu kompyuter serverdan eski. «Yangilash» tugmasini bosing; fayl serverga yuklanmagan bo'lsa, egasi uni yuklaydi.\n\n## Hisobotlarda foyda juda yuqori\nTaomlarda retsept yo'q. «Ombor» bo'limida retsept kiriting.\n\n## Sayt (SwedPos Cloud) yangilanmayapti\n**Sozlamalar → SwedPos Cloud** holatini ko'ring (manzil, kalit, internet).\n\n## Barchasi yordam bermasa\n«Yordam markazi» sahifasidagi telefonga qo'ng'iroq qiling. Qo'ng'iroq qilishdan oldin xato matnini va dastur versiyasini (Sozlamalar → Yangilanishlar) yozib oling.",
+    "ru": "## Терминал пишет «нет связи с базой данных»\n1. Сервер включён и SwedPos на нём открыт?\n2. Оба в одной сети (один роутер/коммутатор)?\n3. IP-адрес сервера на терминале верный? Возможно, IP сервера изменился: задайте постоянный IP.\n4. Пароль и порт верные (на сервере *Настройки → Подключение других компьютеров*)?\n5. Брандмауэр Windows на сервере пропускает порт базы?\n\n## Принтер кухни не печатает\n1. Принтер включён, есть бумага, крышка закрыта, индикатор кабеля горит?\n2. **Настройки → Принтеры кухни → Тест печати** проходит?\n3. IP совпадает с указанным на странице настроек принтера?\n4. Печатающий компьютер (сервер) включён? В карточке Очередь может быть написана ошибка.\n\n## Оплата не принимается\nСмена открыта? (раздел «Смена».) При раздельной оплате сумма точно равна счёту?\n\n## В чеке неправильные буквы\nСмените кодировку принтера чеков CP866 ↔ CP1251.\n\n## Окно «Требуется обновление»\nЭтот компьютер старее сервера. Нажмите «Обновить»; если файл не загружен на сервер, его загружает владелец.\n\n## В отчётах слишком высокая прибыль\nУ блюд нет рецептов. Заполните рецепты в разделе «Склад».\n\n## Сайт (SwedPos Cloud) не обновляется\nПосмотрите состояние в **Настройки → SwedPos Cloud** (адрес, ключ, интернет).\n\n## Ничего не помогло\nПозвоните по телефону на странице «Центр помощи». Перед звонком запишите текст ошибки и версию программы (Настройки → Обновления)."
+   }
+  },
+  {
+   "id": "web_problems",
+   "category": "problems",
+   "audience": "web",
+   "title": {
+    "uz": "Sayt bilan bog'liq muammolar",
+    "ru": "Проблемы с сайтом"
+   },
+   "body": {
+    "uz": "## Kira olmayapman\n- Telefon raqamini **998 bilan** yoki 9 xonali ko'rinishda yozing: ikkalasi ham ishlaydi.\n- Parolni katta-kichik harf bilan to'g'ri yozing.\n- Xato davom etsa, sayt administratoriga murojaat qiling — parolni u yangilaydi.\n\n## Hisobotlar bo'sh yoki yangilanmayapti\n1. Tepada «Oxirgi ma'lumot» vaqtiga qarang. Eski bo'lsa — restoran serveri o'chiq yoki internet yo'q.\n2. Restoranda server kompyuterda **Sozlamalar → SwedPos Cloud** holatini tekshiring.\n3. Yangi ulangan restoranda birinchi yuborish bir necha daqiqa oladi.\n\n## Raqamlar dasturdagi bilan farq qiladi\n- Bir xil **davr va filtrlar** tanlanganini tekshiring.\n- Sayt kunlarni **Toshkent vaqti** bilan sanaydi; dasturda kompyuter vaqti. Kompyuter vaqti noto'g'ri bo'lsa, farq chiqadi.\n- Farq saqlansa, yordam markaziga yozing: qaysi sahifa va qaysi davr ekanini ayting.\n\n## Excel fayl ochilmayapti\nFaylni Excel yoki LibreOffice bilan oching; brauzer ichida emas, yuklab olingan fayldan.",
+    "ru": "## Не могу войти\n- Вводите номер телефона **с 998** или в 9-значном виде: работают оба.\n- Пароль вводите с правильным регистром.\n- Если ошибка остаётся, обратитесь к администратору сайта — пароль обновит он.\n\n## Отчёты пустые или не обновляются\n1. Посмотрите вверху время «Последние данные». Если оно старое, сервер ресторана выключен или нет интернета.\n2. В ресторане на серверном компьютере проверьте **Настройки → SwedPos Cloud**.\n3. У только что подключённого ресторана первая отправка занимает несколько минут.\n\n## Цифры отличаются от программы\n- Проверьте, что выбраны одинаковые **период и фильтры**.\n- Сайт считает дни по **ташкентскому времени**, программа — по времени компьютера. Если время компьютера неверное, будет разница.\n- Если разница остаётся, напишите в центр помощи: укажите страницу и период.\n\n## Excel-файл не открывается\nОткройте файл в Excel или LibreOffice — из скачанного файла, а не в браузере."
+   }
+  }
+ ],
+ "terms": [
+  {
+   "id": "revenue",
+   "title": {
+    "uz": "Tushum",
+    "ru": "Выручка"
+   },
+   "short": {
+    "uz": "Mehmonlar to'lagan jami summa (chegirmadan keyin, yetkazib berish haqi bilan). Faqat to'langan buyurtmalar.",
+    "ru": "Сколько всего заплатили гости (после скидок, вместе с платой за доставку). Только оплаченные заказы."
+   }
+  },
+  {
+   "id": "orders",
+   "title": {
+    "uz": "Buyurtmalar",
+    "ru": "Заказы"
+   },
+   "short": {
+    "uz": "To'langan buyurtmalar soni.",
+    "ru": "Количество оплаченных заказов."
+   }
+  },
+  {
+   "id": "average_check",
+   "title": {
+    "uz": "O'rtacha chek",
+    "ru": "Средний чек"
+   },
+   "short": {
+    "uz": "Tushum ÷ buyurtmalar soni. Bitta buyurtmada o'rtacha qancha to'lashadi.",
+    "ru": "Выручка ÷ число заказов. Сколько в среднем платят за один заказ."
+   }
+  },
+  {
+   "id": "guests",
+   "title": {
+    "uz": "Mehmonlar",
+    "ru": "Гости"
+   },
+   "short": {
+    "uz": "Buyurtmalarda ofitsiant kiritgan mehmonlar soni yig'indisi. Kiritilmasa hisoblanmaydi.",
+    "ru": "Сумма гостей, которых официант указал в заказах. Если не указано, не считается."
+   }
+  },
+  {
+   "id": "per_guest",
+   "title": {
+    "uz": "Bir mehmonga",
+    "ru": "На гостя"
+   },
+   "short": {
+    "uz": "Mehmonlar soni kiritilgan buyurtmalar tushumi ÷ ularning mehmonlari.",
+    "ru": "Выручка заказов с указанным числом гостей ÷ число этих гостей."
+   }
+  },
+  {
+   "id": "profit",
+   "title": {
+    "uz": "Foyda",
+    "ru": "Прибыль"
+   },
+   "short": {
+    "uz": "Tushum − tannarx. Tannarx: to'lov paytida ombordan yechilgan xomashyo qiymati (retseptlar bo'yicha).",
+    "ru": "Выручка − себестоимость. Себестоимость: стоимость сырья, списанного со склада при оплате (по рецептам)."
+   }
+  },
+  {
+   "id": "margin",
+   "title": {
+    "uz": "Marja",
+    "ru": "Маржа"
+   },
+   "short": {
+    "uz": "Foyda ÷ tushum, foizda. Har 100 so'm tushumdan qancha foyda qolishi.",
+    "ru": "Прибыль ÷ выручка, в процентах. Сколько прибыли остаётся с каждых 100 сум выручки."
+   }
+  },
+  {
+   "id": "discounts",
+   "title": {
+    "uz": "Chegirmalar",
+    "ru": "Скидки"
+   },
+   "short": {
+    "uz": "Beriladigan chegirmalar summasi (taomlar narxi − chegirmadan keyingi narx).",
+    "ru": "Сумма предоставленных скидок (цена блюд − цена после скидки)."
+   }
+  },
+  {
+   "id": "cancelled",
+   "title": {
+    "uz": "Bekor qilingan",
+    "ru": "Отменено"
+   },
+   "short": {
+    "uz": "Bekor qilingan buyurtmalar soni va ulardagi taomlar summasi.",
+    "ru": "Число отменённых заказов и сумма блюд в них."
+   }
+  },
+  {
+   "id": "waiter_earned",
+   "title": {
+    "uz": "Ofitsiantlar foizi",
+    "ru": "Процент официантов"
+   },
+   "short": {
+    "uz": "To'lov paytida hisoblangan ofitsiant foizlari yig'indisi (taom summasidan, yetkazib berishsiz).",
+    "ru": "Сумма процентов официантов, начисленных при оплате (с суммы за еду, без доставки)."
+   }
+  },
+  {
+   "id": "previous_period",
+   "title": {
+    "uz": "Oldingi davrga nisbatan",
+    "ru": "К прошлому периоду"
+   },
+   "short": {
+    "uz": "Shu davr xuddi shuncha kunlik oldingi davr bilan solishtiriladi. Yashil — yaxshi, qizil — yomon (masalan, bekor qilishlar ko'paysa qizil).",
+    "ru": "Период сравнивается с таким же по длине предыдущим. Зелёный — хорошо, красный — плохо (например, рост отмен — красный)."
+   }
+  },
+  {
+   "id": "heatmap",
+   "title": {
+    "uz": "Issiqlik xaritasi",
+    "ru": "Карта загрузки"
+   },
+   "short": {
+    "uz": "Hafta kunlari va soatlar bo'yicha tushum. Qanchalik to'q, shunchalik ko'p sotilgan.",
+    "ru": "Выручка по дням недели и часам. Чем темнее, тем больше продаж."
+   }
+  },
+  {
+   "id": "abc",
+   "title": {
+    "uz": "ABC tahlil",
+    "ru": "ABC-анализ"
+   },
+   "short": {
+    "uz": "Taomlar qiymat bo'yicha saralanadi: birinchi 80 % — A, keyingi 15 % — B, qolgani — C.",
+    "ru": "Блюда сортируются по ценности: первые 80 % — A, следующие 15 % — B, остальное — C."
+   }
+  },
+  {
+   "id": "cost_of_goods",
+   "title": {
+    "uz": "Tannarx",
+    "ru": "Себестоимость"
+   },
+   "short": {
+    "uz": "Sotilgan taomlarga ketgan xomashyoning qiymati (retsept va xomashyo narxi bo'yicha).",
+    "ru": "Стоимость сырья, ушедшего на проданные блюда (по рецептам и цене сырья)."
+   }
+  },
+  {
+   "id": "shift_difference",
+   "title": {
+    "uz": "Kassadagi farq",
+    "ru": "Расхождение в кассе"
+   },
+   "short": {
+    "uz": "Smena yopilganda sanalgan naqd pul − bo'lishi kerak bo'lgan naqd pul.",
+    "ru": "Пересчитанные наличные при закрытии смены − должная сумма наличных."
+   }
+  },
+  {
+   "id": "split_bill",
+   "title": {
+    "uz": "Bo'lib to'langan hisob",
+    "ru": "Раздельная оплата"
+   },
+   "short": {
+    "uz": "Bir hisob bir nechta usulda to'langan (masalan, yarmi naqd, yarmi karta).",
+    "ru": "Один счёт оплачен несколькими способами (например, половина наличными, половина картой)."
+   }
+  },
+  {
+   "id": "food_paid",
+   "title": {
+    "uz": "Taom summasi",
+    "ru": "Сумма за еду"
+   },
+   "short": {
+    "uz": "Ofitsiant foizi hisoblanadigan asos: chegirmadan keyingi taomlar summasi, yetkazib berish haqisiz.",
+    "ru": "База для процента официанта: сумма блюд после скидки, без платы за доставку."
+   }
+  },
+  {
+   "id": "prep_time",
+   "title": {
+    "uz": "Tayyorlash vaqti",
+    "ru": "Время приготовления"
+   },
+   "short": {
+    "uz": "Oshxonaga yuborilgandan oshpaz «tayyor» deb belgilagunicha o'tgan o'rtacha daqiqa.",
+    "ru": "Среднее число минут от отправки на кухню до отметки повара «готово»."
+   }
+  },
+  {
+   "id": "new_customer",
+   "title": {
+    "uz": "Yangi mijoz",
+    "ru": "Новый клиент"
+   },
+   "short": {
+    "uz": "Birinchi to'langan buyurtmasi shu davrga to'g'ri kelgan mijoz.",
+    "ru": "Клиент, чей первый оплаченный заказ приходится на этот период."
+   }
+  },
+  {
+   "id": "stock_value",
+   "title": {
+    "uz": "Ombor qiymati",
+    "ru": "Стоимость склада"
+   },
+   "short": {
+    "uz": "Qoldiq miqdori × birlik narxi, barcha xomashyo bo'yicha.",
+    "ru": "Остаток × цена за единицу по всему сырью."
+   }
+  },
+  {
+   "id": "low_stock",
+   "title": {
+    "uz": "Kam qolgan",
+    "ru": "Заканчивается"
+   },
+   "short": {
+    "uz": "Qoldiq minimal miqdorga teng yoki undan kam.",
+    "ru": "Остаток равен минимальному или меньше."
+   }
+  },
+  {
+   "id": "waiter_percent",
+   "title": {
+    "uz": "Ofitsiant foizi",
+    "ru": "Процент официанта"
+   },
+   "short": {
+    "uz": "Har bir to'langan hisobdan ofitsiantga tegadigan ulush. Stol, zal yoki ofitsiantning o'z foizi (shu tartibda) olinadi va to'lov paytida qotiriladi.",
+    "ru": "Доля с каждого оплаченного счёта, которая достаётся официанту. Берётся процент стола, зала или самого официанта (в таком порядке) и фиксируется при оплате."
+   }
+  }
+ ]
+}

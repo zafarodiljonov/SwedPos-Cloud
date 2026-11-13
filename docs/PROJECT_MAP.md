@@ -33,6 +33,7 @@ The owner website for SwedPos restaurants (Python Django + PostgreSQL). Read-onl
 | Sorting a table, opening a waiter's tables | `static/js/app.js`, `apps/reports/views.py` (`detail`) |
 | Look and phone layout | `static/css/app.css` |
 | Uzbek / Russian texts | `locale/*/LC_MESSAGES/django.po` (do not edit by hand; run `tools/make_texts.py`) |
+| Help center (guides, glossary, "?" next to every report title) | `apps/help/` (`content.py`, `views.py`, `help.json`), `templates/help/index.html`. The texts are written in the desktop repo's `help/` folder and copied here by `python tools/build_help.py` there: do not edit `help.json` by hand |
 | Demo restaurant | `apps/core/management/commands/seed_demo.py` |
 
 ## Why the numbers equal the restaurant's

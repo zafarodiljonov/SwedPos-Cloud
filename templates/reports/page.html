@@ -18,6 +18,7 @@
       </span>
     </div>
     <div class="top-actions">
+      <a class="btn ghost" href="{% url 'help:index' %}">?</a>
       <a class="lang {% if LANGUAGE_CODE == 'uz' %}on{% endif %}" href="{% url 'reports:language' 'uz' %}?next={{ request.get_full_path|urlencode }}">UZ</a><a class="lang {% if LANGUAGE_CODE == 'ru' %}on{% endif %}" href="{% url 'reports:language' 'ru' %}?next={{ request.get_full_path|urlencode }}">RU</a>
       <span class="who">{{ user.full_name|default:user.phone }}</span>
       {% if user.is_staff %}<a class="btn ghost" href="{% url 'admin:index' %}">{% translate "web_admin" %}</a>{% endif %}
@@ -66,7 +67,7 @@
 
     <div class="page-head">
       <div>
-        <h1>{{ title }}</h1>
+        <h1>{{ title }}<a class="helplink" href="{% url 'help:topic' 'an_'|add:page %}">?</a></h1>
         <p class="dim">{{ hint }}</p>
       </div>
       <div class="page-side">

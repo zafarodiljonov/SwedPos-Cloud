@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}{{ t.title }} · SwedPos Cloud{% endblock %}
+{% block body %}
+<div class="helpwrap">
+  <header class="topbar">
+    <a class="brand" href="{% url 'reports:home' %}"><span class="brand-mark"></span>SWEDPOS <b>CLOUD</b></a>
+    <div class="restaurant"><span class="name">{{ t.title }}</span></div>
+    <div class="top-actions">
+      <a class="lang {% if LANGUAGE_CODE == 'uz' %}on{% endif %}" href="{% url 'reports:language' 'uz' %}?next={{ request.get_full_path|urlencode }}">UZ</a><a class="lang {% if LANGUAGE_CODE == 'ru' %}on{% endif %}" href="{% url 'reports:language' 'ru' %}?next={{ request.get_full_path|urlencode }}">RU</a>
+      <a class="btn ghost" href="{% url 'reports:home' %}">{{ t.back }}</a>
+    </div>
+  </header>
+  <div class="helpbody">
+    <aside class="helpside">
+      <form method="get" action="{% url 'help:index' %}"><input name="q" value="{{ query }}" placeholder="{{ t.search }}"></form>
+      <div class="helptabs">
+        <a class="{% if show == 'guides' %}on{% endif %}" href="{% url 'help:index' %}?tab=guides">{{ t.guides }}</a>
+        <a class="{% if show == 'terms' %}on{% endif %}" href="{% url 'help:index' %}?tab=terms">{{ t.terms }}</a>
+        <a class="{% if show == 'contact' %}on{% endif %}" href="{% url 'help:index' %}?tab=contact">{{ t.contact }}</a>
+      </div>
+      {% if results is not None %}
+        {% for r in results %}<a class="topic" href="{% url 'help:topic' r.id %}">{{ r.title }}</a>{% empty %}<p class="dim">{{ t.empty }}</p>{% endfor %}
+      {% elif show == 'guides' %}
+        {% for c in categories %}
+          <div class="cat">{{ c.title }}</div>
+          {% for tp in c.topics %}<a class="topic {% if topic and topic.id == tp.id %}on{% endif %}" href="{% url 'help:topic' tp.id %}">{{ tp.title }}</a>{% endfor %}
+        {% endfor %}
+      {% endif %}
+    </aside>
+    <main class="helpmain">
+      {% if topic %}
+        <h1>{{ topic.title }}</h1>{{ topic.html }}
+      {% elif show == 'terms' %}
+        <dl>{% for term in terms %}<dt>{{ term.title }}</dt><dd>{{ term.short }}</dd>{% endfor %}</dl>
+      {% elif show == 'contact' %}
+        <h1>{{ t.contact }}</h1>
+        {% if contacts %}<p>{{ t.contact_text }}</p>{% for c in contacts %}<p class="dim">{{ c.label }}</p><p class="big">{{ c.value }}</p>{% endfor %}{% endif %}
+      {% else %}
+        <h1>{{ t.title }}</h1><p>{{ t.welcome }}</p>
+      {% endif %}
+    </main>
+  </div>
+</div>
+{% endblock %}
