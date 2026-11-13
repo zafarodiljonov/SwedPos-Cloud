@@ -44,6 +44,32 @@ class SyncApiTests(TestCase):
         self.assertNotIn(self.key, self.restaurant.key_hash)
         self.assertEqual(Restaurant.by_key(self.key), self.restaurant)
 
+    def test_a_new_reset_id_deletes_the_old_data_once(self):
+        import json
+        self.assertEqual(self.post(GOLDEN.read_bytes()).status_code, 200)
+        self.assertGreater(m.Order.objects.filter(restaurant=self.restaurant).count(), 0)
+        dishes = m.Dish.objects.filter(restaurant=self.restaurant).count()
+
+        # "clear sales": orders and shifts go, the menu stays
+        empty = {"Protocol": 1, "AppVersion": "1.4.0", "Reset": {"Id": "r1", "Kind": "sales"}}
+        self.assertEqual(self.post(json.dumps(empty)).status_code, 200)
+        self.assertEqual(m.Order.objects.filter(restaurant=self.restaurant).count(), 0)
+        self.assertEqual(m.Shift.objects.filter(restaurant=self.restaurant).count(), 0)
+        self.assertEqual(m.Dish.objects.filter(restaurant=self.restaurant).count(), dishes)
+
+        # the same reset id again (the next batches) deletes nothing
+        self.assertEqual(self.post(GOLDEN.read_bytes()).status_code, 200)
+        self.assertEqual(self.post(json.dumps(empty)).status_code, 200)
+        self.assertGreater(m.Order.objects.filter(restaurant=self.restaurant).count(), 0)
+
+        # "factory reset": the menu goes too
+        everything = {"Protocol": 1, "AppVersion": "1.4.0", "Reset": {"Id": "r2", "Kind": "all"}}
+        self.assertEqual(self.post(json.dumps(everything)).status_code, 200)
+        self.assertEqual(m.Order.objects.filter(restaurant=self.restaurant).count(), 0)
+        self.assertEqual(m.Dish.objects.filter(restaurant=self.restaurant).count(), 0)
+        self.restaurant.refresh_from_db()
+        self.assertEqual(self.restaurant.last_reset_id, "r2")
+
     def test_ping(self):
         self.assertEqual(self.client.get("/api/ping").json()["protocol"], 1)
 

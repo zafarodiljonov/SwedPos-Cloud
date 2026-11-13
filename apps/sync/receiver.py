@@ -64,6 +64,12 @@ def apply_batch(restaurant, data: dict) -> int:
     if data.get("Protocol") != PROTOCOL:
         raise BatchError("sync_protocol")
 
+    reset = data.get("Reset")
+    if reset and reset.get("Id") and reset["Id"] != restaurant.last_reset_id:
+        wipe(restaurant, everything=reset.get("Kind") == "all")
+        restaurant.last_reset_id = str(reset["Id"])[:40]
+        restaurant.save(update_fields=["last_reset_id"])
+
     ref = data.get("Reference")
     if ref:
         _apply_reference(restaurant, ref)
@@ -118,6 +124,17 @@ def apply_batch(restaurant, data: dict) -> int:
     restaurant.last_app_version = (data.get("AppVersion") or "")[:20]
     restaurant.save(update_fields=["last_sync_at", "last_app_version"])
     return len(orders)
+
+
+def wipe(restaurant, everything=False):
+    """The restaurant started from zero: delete the same data here.
+    "sales": orders, payments, shifts, cash/stock history, kitchen notices.
+    "all": also menu, recipes, ingredients, customers and staff (the restaurant sends the remaining owners,
+    halls and tables again right after, because its cursor starts over)."""
+    sales = (m.KitchenNotice, m.Payment, m.OrderLine, m.StockMovement, m.CashMovement, m.Order, m.Shift)
+    more = (m.Customer, m.RecipeLine, m.Dish, m.Category, m.Ingredient, m.Staff) if everything else ()
+    for model in sales + more:
+        model.objects.filter(restaurant=restaurant).delete()
 
 
 def _apply_reference(restaurant, ref):

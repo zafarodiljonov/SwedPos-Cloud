@@ -26,6 +26,9 @@ class Restaurant(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     last_sync_at = models.DateTimeField(null=True, blank=True, editable=False)
     last_app_version = models.CharField(max_length=20, blank=True, editable=False)
+    # The last "start from zero" done in the restaurant (SwedPos > Settings > Reset). A new id in a batch
+    # makes the website delete the same data before storing the batch.
+    last_reset_id = models.CharField(max_length=40, blank=True, editable=False)
 
     class Meta:
         ordering = ["name"]

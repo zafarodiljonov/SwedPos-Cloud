@@ -482,6 +482,19 @@
    }
   },
   {
+   "id": "reset",
+   "category": "system",
+   "audience": "app",
+   "title": {
+    "uz": "Noldan boshlash (tozalash)",
+    "ru": "Начать с нуля (очистка)"
+   },
+   "body": {
+    "uz": "Sinov davridan keyin yoki yangi boshlash uchun eski ma'lumotlarni o'chirish mumkin. Faqat **Egasi**, faqat **server** kompyuterda: **Sozlamalar → Noldan boshlash**.\n\n## Ikki xil tozalash\n- **Faqat savdolar** — buyurtmalar, to'lovlar, smenalar, kassa va ombor tarixi, oshxona xabarlari o'chadi. Menyu, retseptlar, xomashyo va uning **qoldig'i**, xodimlar, stollar, mijozlar, printerlar va sozlamalar qoladi. Sinov oyidan keyin eng ko'p shu kerak bo'ladi.\n- **Hammasi** — yuqoridagilar va menyu, retseptlar, xomashyo, mijozlar, **egasidan boshqa** barcha xodimlar o'chadi. Egasi, zallar va stollar, rollar, printerlar va sozlamalar qoladi.\n\n## Qanday qilinadi\n1. Kun oxirida, barcha buyurtmalar yopilgan paytda qiling. Boshqa kompyuterlarda dasturni yoping.\n2. Turini tanlang, **Egasining PIN-kodini** va **TOZALASH** so'zini yozing.\n3. **Zaxira olib, o'chirish** ni bosing. Dastur nima o'chishini sanab ko'rsatadi va yana so'raydi.\n4. Dastur avval **zaxira nusxa** oladi (`backups\\\\before-reset` papkasi). Nusxa olinmasa, hech narsa o'chirilmaydi.\n5. Keyin hammasi bir martada o'chiriladi: yoki to'liq, yoki umuman o'chmaydi.\n\n## Sayt (SwedPos Cloud)\nSaytdagi nusxa ham **o'zi** tozalanadi: server keyingi yuborishda saytga «tozalash bo'ldi» deb xabar beradi. Bir-ikki daqiqa kuting.\n\n## Qaytarish\nXato qilgan bo'lsangiz: **Sozlamalar → Zaxira nusxa**, papkani `before-reset` ga o'zgartiring va o'sha nusxani **tiklang**.\n\n> Buyurtma raqamlari noldan boshlanmaydi — bu ataylab qilingan: yangi buyurtma hech qachon eski raqamni olmaydi.",
+    "ru": "После пробного периода или чтобы начать заново, старые данные можно удалить. Только **Владелец**, только на **сервере**: **Настройки → Начать с нуля**.\n\n## Два вида очистки\n- **Только продажи** — удаляются заказы, оплаты, смены, история кассы и склада, сообщения кухни. Меню, рецепты, сырьё и его **остатки**, сотрудники, столы, клиенты, принтеры и настройки остаются. После пробного месяца обычно нужно именно это.\n- **Всё** — то же самое плюс меню, рецепты, сырьё, клиенты и все сотрудники, **кроме владельца**. Остаются владелец, залы и столы, роли, принтеры и настройки.\n\n## Как это сделать\n1. Делайте в конце дня, когда все заказы закрыты. На других компьютерах закройте программу.\n2. Выберите вид, введите **PIN-код владельца** и слово **ОЧИСТИТЬ**.\n3. Нажмите **Сделать копию и удалить**. Программа покажет, сколько чего удалится, и спросит ещё раз.\n4. Сначала делается **резервная копия** (папка `backups\\\\before-reset`). Если копия не получилась, ничего не удаляется.\n5. Затем всё удаляется за один раз: либо полностью, либо совсем ничего.\n\n## Сайт (SwedPos Cloud)\nКопия на сайте очищается **сама**: при следующей отправке сервер сообщит сайту об очистке. Подождите минуту-две.\n\n## Как вернуть\nЕсли ошиблись: **Настройки → Резервные копии**, смените папку на `before-reset` и **восстановите** эту копию.\n\n> Номера заказов не начинаются с нуля — это сделано специально: новый заказ никогда не получит номер старого."
+   }
+  },
+  {
    "id": "updates",
    "category": "system",
    "audience": "app",
