@@ -2,7 +2,7 @@
 
 Paste everything below the line into a new Claude Code chat to continue with full context. Keep it up to date when the project state changes.
 
-Last updated: 2026-11-10 · `main`
+Last updated: 2026-11-14 · `main` (deployed)
 
 ---
 
@@ -20,10 +20,12 @@ I'm continuing work on **SwedPos Cloud**, the owner website for my restaurant PO
 9. Git: small commits on `main` are fine for docs; features on a branch; commit trailer `Co-Authored-By: Claude <model> <noreply@anthropic.com>`.
 
 ### State
-Login with phone + password (owners/managers; SwedPos staff = superusers in `/admin/`), restaurants with sync keys, `/api/sync` receiver (idempotent), 10 report pages (overview, sales, payments, waiters, payroll, tables, dishes/ABC, customers, control, stock) with SVG charts, sortable tables, waiter drill-down, Excel export, UZ/RU, no demo content, Django Europe deploy guide. 19 tests. **Not deployed yet.**
+Login with phone + password (owners/managers; SwedPos staff = superusers in `/admin/`), restaurants with sync keys, `/api/sync` receiver (idempotent), 10 report pages (overview, sales, payments, waiters, payroll, tables, dishes/ABC, customers, control, stock) with SVG charts, sortable tables, waiter drill-down, Excel export, UZ/RU, no demo content, Django Europe deploy guide. 22 tests (`apps/restaurants/tests/test_admin_flow.py` walks the new-restaurant steps).
+**Live** at `https://swedpos.django.group` since 2026-11-14 (server `fastfreezing@s20.wservices.ch`: code `~/swedpos`, venv `~/venv_swedpos`, port 63503, start/stop `~/init/swedpos`, secrets `~/swedpos/.env`). Update: `deploy/DJANGOEUROPE_SETUP.md` step 12.
+Restaurants on the site: the owner's test PC (rename to "TEST - Zafar PC"); the real Maroqand is created at the restaurant (desktop repo `SwedPos_USB` guide, section 11). Never paste old terminal output back into the SSH window: it re-runs the commands (it emptied `.env` once).
 
 ### Next
-1. Deploy on Django Europe (`deploy/DJANGOEUROPE_SETUP.md`), create the first restaurant, paste the key into the desktop (Settings > SwedPos Cloud), check the first sync.
+1. Daily database backup on the server (`deploy/DJANGOEUROPE_SETUP.md` step 13, panel Cron). Connect the real Maroqand restaurant at the opening.
 2. Admin page for restaurants/accounts instead of Django admin; password reset (SMS via Eskiz.uz).
 3. Version 2: change settings online (menu prices, waiter percent) through a command queue the desktop pulls.
 4. Owner mobile view/notifications (shift closed), multi-restaurant comparison.
