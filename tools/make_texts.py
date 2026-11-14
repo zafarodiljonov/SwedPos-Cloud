@@ -28,7 +28,6 @@ WEB_TEXTS = {
     "web_month_prev": ("Oldingi oy", "Предыдущий месяц"),
     "web_month_next": ("Keyingi oy", "Следующий месяц"),
     "web_apply": ("Ko'rsatish", "Показать"),
-    "web_try_demo": ("Demoni ochish", "Открыть демо"),
     "web_admin": ("Boshqaruv", "Управление"),
     "web_close": ("Yopish", "Закрыть"),
 }

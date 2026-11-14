@@ -20,7 +20,7 @@ I'm continuing work on **SwedPos Cloud**, the owner website for my restaurant PO
 9. Git: small commits on `main` are fine for docs; features on a branch; commit trailer `Co-Authored-By: Claude <model> <noreply@anthropic.com>`.
 
 ### State
-Login with phone + password (owners/managers; SwedPos staff = superusers in `/admin/`), restaurants with sync keys, `/api/sync` receiver (idempotent), 10 report pages (overview, sales, payments, waiters, payroll, tables, dishes/ABC, customers, control, stock) with SVG charts, sortable tables, waiter drill-down, Excel export, UZ/RU, demo restaurant (`manage.py seed_demo`), Django Europe deploy guide. 12 tests. **Not deployed yet.**
+Login with phone + password (owners/managers; SwedPos staff = superusers in `/admin/`), restaurants with sync keys, `/api/sync` receiver (idempotent), 10 report pages (overview, sales, payments, waiters, payroll, tables, dishes/ABC, customers, control, stock) with SVG charts, sortable tables, waiter drill-down, Excel export, UZ/RU, no demo content, Django Europe deploy guide. 19 tests. **Not deployed yet.**
 
 ### Next
 1. Deploy on Django Europe (`deploy/DJANGOEUROPE_SETUP.md`), create the first restaurant, paste the key into the desktop (Settings > SwedPos Cloud), check the first sync.

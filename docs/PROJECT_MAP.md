@@ -12,7 +12,6 @@ The owner website for SwedPos restaurants (Python Django + PostgreSQL). Read-onl
 | `apps/sync` | What the restaurant sends: `models.py` (the copied data), `receiver.py` (stores a batch), `views.py` (`/api/sync`, `/api/ping`) |
 | `apps/analytics` | `services.py` = the report calculations (port of the desktop's `AnalyticsService.cs`), `tests/` |
 | `apps/reports` | The pages: `views.py`, `builder.py` (page content), `charts.py` (SVG), `excel.py`, `templatetags/`, `urls.py` |
-| `apps/core` | `management/commands/seed_demo.py`, `demo/demo_batch.json.gz`, `context_processors.py` |
 | `templates/`, `static/` | HTML (`reports/page.html`, `block.html`, `table.html`, `registration/login.html`), `css/app.css`, `js/app.js` |
 | `locale/uz`, `locale/ru` | Texts (`django.po` generated from the desktop's `Loc.cs`, compiled `django.mo` committed) |
 | `tools/` | `make_texts.py`, `compile_messages.py` (no gettext needed) |
@@ -28,13 +27,12 @@ The owner website for SwedPos restaurants (Python Django + PostgreSQL). Read-onl
 | Revenue, profit, waiters, payroll, payments, tables, dishes (ABC), customers, control, stock | `apps/analytics/services.py` (methods `overview`, `sales`, `payments`, `waiters`, `payroll`, `tables`, `products`, `customers`, `control`, `stock`) |
 | What each page shows (tiles, charts, tables) | `apps/reports/builder.py` |
 | Drawing charts | `apps/reports/charts.py` (line, bars), `templates/reports/block.html` (heat map, shares) |
-| Filters, language switch, demo entry, Excel link | `apps/reports/views.py`, `templates/reports/page.html` |
+| Filters, language switch, Excel link | `apps/reports/views.py`, `templates/reports/page.html` |
 | Excel download | `apps/reports/excel.py` (writes the same tables as the page) |
 | Sorting a table, opening a waiter's tables | `static/js/app.js`, `apps/reports/views.py` (`detail`) |
 | Look and phone layout | `static/css/app.css` |
 | Uzbek / Russian texts | `locale/*/LC_MESSAGES/django.po` (do not edit by hand; run `tools/make_texts.py`) |
 | Help center (guides, glossary, "?" next to every report title) | `apps/help/` (`content.py`, `views.py`, `help.json`), `templates/help/index.html`. The texts are written in the desktop repo's `help/` folder and copied here by `python tools/build_help.py` there: do not edit `help.json` by hand |
-| Demo restaurant | `apps/core/management/commands/seed_demo.py` |
 
 ## Why the numbers equal the restaurant's
 `apps/analytics/tests/test_golden.py` loads `fixtures/golden_batch.json` (a week written by the desktop) and compares every field of every page with `golden_expected.json` (what the desktop's C# code reports). Rounding follows C# (`Math.Round`, halves to even). If the desktop's analytics or sync format change: regenerate the files with `tools/CloudFixtures` in the desktop repo, copy them here, run the tests.
@@ -46,6 +44,6 @@ The owner website for SwedPos restaurants (Python Django + PostgreSQL). Read-onl
 4. Regenerate the comparison data and run the tests.
 
 ## Run and debug in VS Code
-- **F5** (Run and Debug > "Django: runserver") then open http://127.0.0.1:8100. Terminal > Run Task: **migrate**, **seed_demo**, **test**, **createsuperuser**, **texts: rebuild**.
+- **F5** (Run and Debug > "Django: runserver") then open http://127.0.0.1:8100. Terminal > Run Task: **migrate**, **test**, **createsuperuser**, **texts: rebuild**.
 - From a terminal: `.venv\Scripts\python.exe manage.py runserver 8100` (port 8100, so it never meets your other Django projects on port 8000).
-- Login: `+998 90 000 00 00` / `demo12345` after `seed_demo`, or your own superuser.
+- Login at `/admin/` with your own superuser (`createsuperuser`), then add an owner and a restaurant there.

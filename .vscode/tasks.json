@@ -20,14 +20,6 @@
       "problemMatcher": []
     },
     {
-      "label": "seed_demo (demo restaurant, 60 days up to today)",
-      "type": "process",
-      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
-      "args": ["manage.py", "seed_demo"],
-      "options": { "env": { "PYTHONUTF8": "1" } },
-      "problemMatcher": []
-    },
-    {
       "label": "test (all tests)",
       "type": "process",
       "command": "${workspaceFolder}/.venv/Scripts/python.exe",

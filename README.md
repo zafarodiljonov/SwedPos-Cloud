@@ -29,7 +29,7 @@ SwedPos desktop (server PC)                         SwedPos Cloud (Django)
 ## Run it in VS Code
 
 File > Open Folder > the `website` folder (or the `SwedPos.code-workspace` in the desktop folder, which shows both projects).
-**F5** > "Django: runserver" then open http://127.0.0.1:8100. Terminal > Run Task: migrate, seed_demo, test, createsuperuser, texts.
+**F5** > "Django: runserver" then open http://127.0.0.1:8100. Terminal > Run Task: migrate, test, createsuperuser, texts.
 Where is what: [docs/PROJECT_MAP.md](docs/PROJECT_MAP.md). Managing everything (git, releases, Claude in VS Code): the desktop's [docs/MANAGE_YOURSELF.md](../docs/MANAGE_YOURSELF.md). To continue in a new chat: [HANDOFF.md](HANDOFF.md).
 
 ## Local setup
@@ -41,11 +41,10 @@ pip install -r requirements/dev.txt
 copy .env.example .env            # optional: DATABASE_URL for PostgreSQL (without it a local SQLite file is used)
 python manage.py migrate
 python manage.py createsuperuser  # your login: phone number + password
-python manage.py seed_demo        # demo restaurant with 60 days of sales up to today
 python manage.py runserver 8100     # 8100: runs next to your other Django projects (port 8000)
 ```
 
-Open http://127.0.0.1:8100/ → "Demoni ochish", or log in with `+998 90 000 00 00` / `demo12345`.
+Open http://127.0.0.1:8100/admin/ and log in with your superuser (phone + password), add an owner and a restaurant (the sync key is shown once).
 
 PostgreSQL locally (as in the other projects, once in psql as the postgres superuser):
 `CREATE ROLE swedpos_cloud LOGIN PASSWORD '...'; CREATE DATABASE swedpos_cloud OWNER swedpos_cloud;`
@@ -63,8 +62,8 @@ Django Europe: see `deploy/DJANGOEUROPE_SETUP.md`.
 
 ## Regenerating the comparison data
 
-`apps/analytics/tests/fixtures/*.json` and `apps/core/demo/demo_batch.json.gz` are written by a small tool that runs
-the desktop's own code (fixed test week + expected reports, and the demo restaurant). Regenerate them when the
+`apps/analytics/tests/fixtures/*.json` are written by a small tool that runs
+the desktop's own code (fixed test week + expected reports). Regenerate them when the
 desktop's analytics change.
 
 ## Planned
