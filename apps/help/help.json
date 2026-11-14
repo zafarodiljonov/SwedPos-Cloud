@@ -6,7 +6,15 @@
     "uz": "Yordam telefoni",
     "ru": "Телефон поддержки"
    },
-   "value": ""
+   "value": "+998 88 494 50 54"
+  },
+  {
+   "id": "email",
+   "label": {
+    "uz": "Elektron pochta",
+    "ru": "Электронная почта"
+   },
+   "value": "swedappwb@gmail.com"
   },
   {
    "id": "telegram",
