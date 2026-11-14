@@ -13,7 +13,7 @@ Account `fastfreezing` · server `s20.wservices.ch` · Python on the server is *
 > |---|---|---|---|---|
 > | Folder | `~/indref` | `~/erpwms` | `~/homenet` | `~/swedpos` |
 > | Venv | `~/venv` | `~/venv_erpwms` | `~/venv_homenet` | `~/venv_swedpos` |
-> | Port | 63278 | 63250 | 63180 | **63190** (any free number, not these) |
+> | Port | 63278 | 63250 | 63180 | **63503** (given by the panel) |
 > | Init script | `~/init/indref` | `~/init/erpwms` | `~/init/homenet` | `~/init/swedpos` |
 > | PID file | `~/run/gunicorn.pid` | `~/run/gunicorn_erpwms.pid` | `~/run/gunicorn_homenet.pid` | `~/run/gunicorn_swedpos.pid` |
 > | Database | `fastfreezing_indref` | `fastfreezing_erpwms` | `fastfreezing_homenet` | `fastfreezing_swedpos` |
@@ -32,7 +32,7 @@ All sites on the account share the database user `fastfreezing`, so they share i
 
 ## 2. [panel] Reserve a port
 
-**Ports → Add**: IP `127.0.0.1`, local port `63190`, remote port empty, description `swedpos gunicorn`.
+**Ports → Add**: IP `127.0.0.1`, local port `63503`, remote port empty, description `swedpos gunicorn`.
 
 ## 3. [panel] Subdomain
 
@@ -92,17 +92,17 @@ Translations ship as compiled `.mo` files (the host has no gettext). There is no
 
 ```bash
 $ cp ~/swedpos/deploy/gunicorn-init.sh ~/init/swedpos
-$ sed -i 's/^PORT=.*/PORT=63190/' ~/init/swedpos
+$ sed -i 's/^PORT=.*/PORT=63503/' ~/init/swedpos
 $ chmod +x ~/init/swedpos
 $ ~/init/swedpos start
-$ curl -s http://127.0.0.1:63190/api/ping                # expect {"service": "SwedPos Cloud", "protocol": 1}
+$ curl -s http://127.0.0.1:63503/api/ping                # expect {"service": "SwedPos Cloud", "protocol": 1}
 ```
 The script loads `gunicorn.conf.py` (trusts only `X-Forwarded-Proto`); without it the host answers "Contradictory scheme headers".
 It also sets `TZ=Asia/Samarkand`, so days and hours in the reports are counted in the restaurant's time.
 
 ## 8. [panel] Point the domain at the port
 
-**Websites** → `swedpos.django.group` → proxy to `127.0.0.1:63190`. WhiteNoise serves `/static/`, no other mapping is needed.
+**Websites** → `swedpos.django.group` → proxy to `127.0.0.1:63503`. WhiteNoise serves `/static/`, no other mapping is needed.
 
 ## 9. Check the live site
 
@@ -174,4 +174,4 @@ The restaurant's own PC also keeps all data, so the site is a copy, not the only
 | Start / stop / restart | `~/init/swedpos start`, `stop`, `restart` |
 | Secrets | `~/swedpos/.env` (never committed) |
 | Site / admin | `https://swedpos.django.group/` and `/admin/` |
-| Port / pid file | `127.0.0.1:63190` · `~/run/gunicorn_swedpos.pid` |
+| Port / pid file | `127.0.0.1:63503` · `~/run/gunicorn_swedpos.pid` |
