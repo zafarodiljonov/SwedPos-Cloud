@@ -95,7 +95,9 @@ $ cp ~/swedpos/deploy/gunicorn-init.sh ~/init/swedpos
 $ sed -i 's/^PORT=.*/PORT=63503/' ~/init/swedpos
 $ chmod +x ~/init/swedpos
 $ ~/init/swedpos start
-$ curl -s http://127.0.0.1:63503/api/ping                # expect {"service": "SwedPos Cloud", "protocol": 1}
+$ curl -s -H "Host: swedpos.django.group" -H "X-Forwarded-Proto: https" http://127.0.0.1:63503/api/ping
+# expect {"service": "SwedPos Cloud", "protocol": 1}. The two headers are what the panel's proxy adds: without them
+# Django answers "Bad Request (400)" (127.0.0.1 is not in ALLOWED_HOSTS) or redirects to https.
 ```
 The script loads `gunicorn.conf.py` (trusts only `X-Forwarded-Proto`); without it the host answers "Contradictory scheme headers".
 It also sets `TZ=Asia/Samarkand`, so days and hours in the reports are counted in the restaurant's time.
