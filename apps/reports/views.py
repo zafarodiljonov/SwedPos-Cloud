@@ -2,7 +2,6 @@ from datetime import date, timedelta
 from urllib.parse import urlencode
 
 from django.conf import settings
-from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -12,7 +11,6 @@ from django.utils.translation import get_language
 from django.utils.translation import gettext as T
 from django.views.decorators.http import require_GET
 
-from apps.accounts.models import User
 from apps.analytics.services import Filter
 from apps.restaurants.models import Restaurant
 from apps.sync import models as m
@@ -21,7 +19,6 @@ from . import excel
 from .builder import ICONS, PAGES, Builder
 
 TYPES = {"dinein": m.OrderType.DINE_IN, "takeaway": m.OrderType.TAKEAWAY, "delivery": m.OrderType.DELIVERY}
-DEMO_PHONE, DEMO_PASSWORD = "998900000000", "demo12345"
 
 
 def _presets(today: date):
@@ -148,14 +145,3 @@ def language(request, code):
         response.set_cookie(settings.LANGUAGE_COOKIE_NAME, code, max_age=365 * 24 * 3600, samesite="Lax")
     return response
 
-
-@require_GET
-def demo(request):
-    """One click into the demo restaurant (only exists after `manage.py seed_demo`)."""
-    restaurant = Restaurant.objects.filter(is_demo=True, is_active=True).first()
-    user = User.objects.filter(phone=DEMO_PHONE, is_active=True).first()
-    if restaurant is None or user is None:
-        raise Http404
-    login(request, user, backend="django.contrib.auth.backends.ModelBackend")
-    page_name = request.GET.get("page") if request.GET.get("page") in PAGES else "overview"
-    return redirect("reports:page", rid=restaurant.pk, page=page_name)

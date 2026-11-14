@@ -562,6 +562,42 @@ msgstr "O'chirishni tasdiqlaysizmi?"
 msgid "confirm_pay"
 msgstr "To'lovni tasdiqlaysizmi?"
 
+msgid "connect_admin"
+msgstr "PostgreSQL administratori (postgres) paroli — faqat mutaxassis uchun"
+
+msgid "connect_copy"
+msgstr "Nusxa"
+
+msgid "connect_hint"
+msgstr "Ofitsiant, oshxona va boshqa kompyuterlarda SwedPos birinchi ochilganda «Terminal» ni tanlang va shularni yozing."
+
+msgid "connect_ip"
+msgstr "Server IP manzili"
+
+msgid "connect_no_ip"
+msgstr "Tarmoq topilmadi: kabelni tekshiring"
+
+msgid "connect_password"
+msgstr "Baza paroli"
+
+msgid "connect_port"
+msgstr "Port"
+
+msgid "connect_show"
+msgstr "Ko'rsatish"
+
+msgid "connect_title"
+msgstr "Boshqa kompyuterlarni ulash"
+
+msgid "db_no_database"
+msgstr "Serverda SwedPos bazasi topilmadi. Server kompyuterda SwedPos'ni bir marta ochib, sozlashni tugating."
+
+msgid "db_no_server"
+msgstr "Bu manzil va portda baza javob bermayapti. Server kompyuter yoqilganmi, IP manzil va port to'g'rimi (odatda 5440), ikkalasi bitta tarmoqdami?"
+
+msgid "db_wrong_password"
+msgstr "Parol noto'g'ri. Server kompyuterda: Sozlamalar → Boshqa kompyuterlarni ulash — u yerdagi parolni yozing."
+
 msgid "delivery_assign"
 msgstr "Kuryer tayinlash"
 
@@ -784,6 +820,42 @@ msgstr "Taomlar tayyor"
 msgid "hall_seats"
 msgstr "o'rin"
 
+msgid "help_contact_empty"
+msgstr "Aloqa ma'lumotlari hali kiritilmagan."
+
+msgid "help_contact_text"
+msgstr "Savol yoki muammo bo'lsa, bog'laning. Qo'ng'iroq qilishdan oldin xato matnini va dastur versiyasini yozib oling."
+
+msgid "help_contact_title"
+msgstr "Yordam kerakmi?"
+
+msgid "help_hint"
+msgstr "Qadamma-qadam qo'llanmalar, misollar, so'zlar izohi va aloqa"
+
+msgid "help_tab_contact"
+msgstr "Aloqa"
+
+msgid "help_tab_guides"
+msgstr "Qo'llanma"
+
+msgid "help_tab_terms"
+msgstr "So'zlar"
+
+msgid "help_terms_text"
+msgstr "Hisobotlardagi so'z yoki raqam tushunarsiz bo'lsa, uni chapdan tanlang — qisqa izoh chiqadi."
+
+msgid "help_terms_title"
+msgstr "So'zlar izohi"
+
+msgid "help_title"
+msgstr "Yordam markazi"
+
+msgid "help_welcome_text"
+msgstr "Chapdagi ro'yxatdan mavzuni tanlang yoki yuqoridagi qidiruvga so'z yozing: masalan, «smena», «printer», «foiz»."
+
+msgid "help_welcome_title"
+msgstr "Nimani bilmoqchisiz?"
+
 msgid "kitchen_all_ready"
 msgstr "Hammasi tayyor"
 
@@ -924,6 +996,9 @@ msgstr "Yetkazib berish"
 
 msgid "nav_fiscal"
 msgstr "Fiskal cheklar"
+
+msgid "nav_help"
+msgstr "Yordam markazi"
 
 msgid "nav_kitchen"
 msgstr "Oshxona"
@@ -1219,6 +1294,9 @@ msgstr "Fiskal"
 msgid "rail_hall"
 msgstr "Zal"
 
+msgid "rail_help"
+msgstr "Yordam"
+
 msgid "rail_kitchen"
 msgstr "Oshxona"
 
@@ -1324,6 +1402,63 @@ msgstr "Buyurtma turlari"
 msgid "report_yesterday"
 msgstr "Kecha"
 
+msgid "reset_all"
+msgstr "Hammasi"
+
+msgid "reset_all_explain"
+msgstr "O'chiriladi: barcha savdolar, menyu, retseptlar, xomashyo, mijozlar va egasidan boshqa barcha xodimlar. Qoladi: egasi, zallar va stollar, rollar, printerlar, sozlamalar."
+
+msgid "reset_button"
+msgstr "Zaxira olib, o'chirish"
+
+msgid "reset_confirm_all"
+msgstr "Savdolar, menyu, xomashyo, mijozlar va xodimlar o'chiriladi:"
+
+msgid "reset_confirm_backup"
+msgstr "Avval zaxira nusxa olinadi (\"before-reset\" papkasi): undan hammasini qaytarish mumkin. Boshqa kompyuterlarda ochiq buyurtma bo'lmasin. SwedPos Cloud saytidagi nusxa ham tozalanadi. Davom etilsinmi?"
+
+msgid "reset_confirm_sales"
+msgstr "Barcha savdolar o'chiriladi:"
+
+msgid "reset_count_customers"
+msgstr "Mijozlar"
+
+msgid "reset_count_dishes"
+msgstr "Taomlar"
+
+msgid "reset_count_ingredients"
+msgstr "Xomashyo"
+
+msgid "reset_count_orders"
+msgstr "Buyurtmalar"
+
+msgid "reset_count_shifts"
+msgstr "Smenalar"
+
+msgid "reset_count_staff"
+msgstr "Xodimlar (egasidan tashqari)"
+
+msgid "reset_done"
+msgstr "Tayyor. Eski ma'lumotlarning zaxira nusxasi: "
+
+msgid "reset_failed"
+msgstr "Hech narsa o'chirilmadi: "
+
+msgid "reset_owner_pin"
+msgstr "Egasining PIN-kodi"
+
+msgid "reset_sales"
+msgstr "Faqat savdolar"
+
+msgid "reset_sales_explain"
+msgstr "O'chiriladi: buyurtmalar, to'lovlar, smenalar, kassa va ombor tarixi, oshxona xabarlari. Qoladi: menyu, retseptlar, xomashyo va uning qoldig'i, xodimlar, stollar, mijozlar, printerlar, sozlamalar."
+
+msgid "reset_title"
+msgstr "Noldan boshlash"
+
+msgid "reset_type_word"
+msgstr "Tasdiqlash uchun TOZALASH so'zini yozing"
+
 msgid "role_Accountant"
 msgstr "Buxgalter"
 
@@ -1413,6 +1548,12 @@ msgstr "STIR (soliq to'lovchi raqami, 9 raqam)"
 
 msgid "setup_choose"
 msgstr "Bu kompyuter qanday ishlaydi?"
+
+msgid "setup_existing_data"
+msgstr "Bu bazada avvalgi ma'lumotlar va xodimlar bor (qayta o'rnatish). Ular saqlandi: avvalgi PIN-kodlar bilan kiring. Yangi egasi qo'shilmadi."
+
+msgid "setup_private_db"
+msgstr "SwedPos ma'lumotlar bazasi shu kompyuterga o'rnatuvchi tomonidan o'rnatildi (port {0}). PostgreSQL haqida hech narsa yozish shart emas: restoran nomini va egasini kiriting."
 
 msgid "setup_title"
 msgstr "Birinchi sozlash"
@@ -1753,6 +1894,12 @@ msgstr "Miqdor noto'g'ri."
 msgid "v_reason_required"
 msgstr "Sababni kiriting."
 
+msgid "v_reset_owner_pin"
+msgstr "Bu Egasining PIN-kodi emas."
+
+msgid "v_reset_word"
+msgstr "Tasdiqlash so'zi noto'g'ri: TOZALASH (yoki ОЧИСТИТЬ) deb yozing."
+
 msgid "v_role_duplicate"
 msgstr "Bunday rol bor."
 
@@ -1845,9 +1992,6 @@ msgstr "Restoraningiz savdosi va hisobotlari — istalgan joydan."
 
 msgid "web_title"
 msgstr "SwedPos Cloud"
-
-msgid "web_try_demo"
-msgstr "Demoni ochish"
 
 msgid "working"
 msgstr "Bajarilmoqda..."

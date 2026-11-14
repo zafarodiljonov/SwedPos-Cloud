@@ -22,7 +22,6 @@ class Restaurant(models.Model):
     users = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name="restaurants",
                                    help_text="Owners and managers who may see this restaurant")
     is_active = models.BooleanField(default=True)
-    is_demo = models.BooleanField(default=False, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
     last_sync_at = models.DateTimeField(null=True, blank=True, editable=False)
     last_app_version = models.CharField(max_length=20, blank=True, editable=False)

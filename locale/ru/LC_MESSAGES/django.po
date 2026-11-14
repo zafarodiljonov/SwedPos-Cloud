@@ -562,6 +562,42 @@ msgstr "Удалить?"
 msgid "confirm_pay"
 msgstr "Подтвердить оплату?"
 
+msgid "connect_admin"
+msgstr "Пароль администратора PostgreSQL (postgres) — только для специалиста"
+
+msgid "connect_copy"
+msgstr "Копировать"
+
+msgid "connect_hint"
+msgstr "На компьютерах официантов, кухни и других при первом запуске SwedPos выберите «Терминал» и введите эти данные."
+
+msgid "connect_ip"
+msgstr "IP-адрес сервера"
+
+msgid "connect_no_ip"
+msgstr "Сеть не найдена: проверьте кабель"
+
+msgid "connect_password"
+msgstr "Пароль базы"
+
+msgid "connect_port"
+msgstr "Порт"
+
+msgid "connect_show"
+msgstr "Показать"
+
+msgid "connect_title"
+msgstr "Подключение других компьютеров"
+
+msgid "db_no_database"
+msgstr "На сервере нет базы SwedPos. Откройте SwedPos на сервере и завершите настройку."
+
+msgid "db_no_server"
+msgstr "По этому адресу и порту база не отвечает. Включён ли сервер, верны ли IP-адрес и порт (обычно 5440), в одной ли сети компьютеры?"
+
+msgid "db_wrong_password"
+msgstr "Неверный пароль. На сервере: Настройки → Подключение других компьютеров — введите пароль оттуда."
+
 msgid "delivery_assign"
 msgstr "Назначить курьера"
 
@@ -784,6 +820,42 @@ msgstr "Блюда готовы"
 msgid "hall_seats"
 msgstr "мест"
 
+msgid "help_contact_empty"
+msgstr "Контактные данные пока не указаны."
+
+msgid "help_contact_text"
+msgstr "Если есть вопрос или проблема, свяжитесь с нами. Перед звонком запишите текст ошибки и версию программы."
+
+msgid "help_contact_title"
+msgstr "Нужна помощь?"
+
+msgid "help_hint"
+msgstr "Пошаговые руководства, примеры, значения слов и контакты"
+
+msgid "help_tab_contact"
+msgstr "Связь"
+
+msgid "help_tab_guides"
+msgstr "Руководства"
+
+msgid "help_tab_terms"
+msgstr "Слова"
+
+msgid "help_terms_text"
+msgstr "Если слово или цифра в отчётах непонятны, выберите их слева — появится короткое объяснение."
+
+msgid "help_terms_title"
+msgstr "Значения слов"
+
+msgid "help_title"
+msgstr "Центр помощи"
+
+msgid "help_welcome_text"
+msgstr "Выберите тему слева или введите слово в поиск: например, «смена», «принтер», «процент»."
+
+msgid "help_welcome_title"
+msgstr "Что вы хотите узнать?"
+
 msgid "kitchen_all_ready"
 msgstr "Всё готово"
 
@@ -924,6 +996,9 @@ msgstr "Доставка"
 
 msgid "nav_fiscal"
 msgstr "Фискальные чеки"
+
+msgid "nav_help"
+msgstr "Центр помощи"
 
 msgid "nav_kitchen"
 msgstr "Кухня"
@@ -1219,6 +1294,9 @@ msgstr "Фискал"
 msgid "rail_hall"
 msgstr "Зал"
 
+msgid "rail_help"
+msgstr "Помощь"
+
 msgid "rail_kitchen"
 msgstr "Кухня"
 
@@ -1324,6 +1402,63 @@ msgstr "Типы заказов"
 msgid "report_yesterday"
 msgstr "Вчера"
 
+msgid "reset_all"
+msgstr "Всё"
+
+msgid "reset_all_explain"
+msgstr "Удаляются: все продажи, меню, рецепты, сырьё, клиенты и все сотрудники, кроме владельца. Остаются: владелец, залы и столы, роли, принтеры, настройки."
+
+msgid "reset_button"
+msgstr "Сделать копию и удалить"
+
+msgid "reset_confirm_all"
+msgstr "Будут удалены продажи, меню, сырьё, клиенты и сотрудники:"
+
+msgid "reset_confirm_backup"
+msgstr "Сначала будет сделана резервная копия (папка \"before-reset\"): из неё можно всё вернуть. На других компьютерах не должно быть открытых заказов. Копия на сайте SwedPos Cloud тоже очистится. Продолжить?"
+
+msgid "reset_confirm_sales"
+msgstr "Будут удалены все продажи:"
+
+msgid "reset_count_customers"
+msgstr "Клиенты"
+
+msgid "reset_count_dishes"
+msgstr "Блюда"
+
+msgid "reset_count_ingredients"
+msgstr "Сырьё"
+
+msgid "reset_count_orders"
+msgstr "Заказы"
+
+msgid "reset_count_shifts"
+msgstr "Смены"
+
+msgid "reset_count_staff"
+msgstr "Сотрудники (кроме владельца)"
+
+msgid "reset_done"
+msgstr "Готово. Резервная копия старых данных: "
+
+msgid "reset_failed"
+msgstr "Ничего не удалено: "
+
+msgid "reset_owner_pin"
+msgstr "PIN-код владельца"
+
+msgid "reset_sales"
+msgstr "Только продажи"
+
+msgid "reset_sales_explain"
+msgstr "Удаляются: заказы, оплаты, смены, история кассы и склада, сообщения кухни. Остаются: меню, рецепты, сырьё и его остатки, сотрудники, столы, клиенты, принтеры, настройки."
+
+msgid "reset_title"
+msgstr "Начать с нуля"
+
+msgid "reset_type_word"
+msgstr "Для подтверждения напишите слово ОЧИСТИТЬ"
+
 msgid "role_Accountant"
 msgstr "Бухгалтер"
 
@@ -1413,6 +1548,12 @@ msgstr "ИНН / СТИР (9 цифр)"
 
 msgid "setup_choose"
 msgstr "Как будет работать этот компьютер?"
+
+msgid "setup_existing_data"
+msgstr "В этой базе уже есть прежние данные и сотрудники (переустановка). Они сохранены: входите прежними PIN-кодами. Новый владелец не добавлен."
+
+msgid "setup_private_db"
+msgstr "База данных SwedPos уже установлена на этот компьютер установщиком (порт {0}). Про PostgreSQL ничего вводить не нужно: укажите название ресторана и владельца."
 
 msgid "setup_title"
 msgstr "Первоначальная настройка"
@@ -1753,6 +1894,12 @@ msgstr "Неверное количество."
 msgid "v_reason_required"
 msgstr "Укажите причину."
 
+msgid "v_reset_owner_pin"
+msgstr "Это не PIN-код владельца."
+
+msgid "v_reset_word"
+msgstr "Неверное слово подтверждения: напишите ОЧИСТИТЬ (или TOZALASH)."
+
 msgid "v_role_duplicate"
 msgstr "Такая роль уже есть."
 
@@ -1845,9 +1992,6 @@ msgstr "Продажи и отчёты вашего ресторана — из 
 
 msgid "web_title"
 msgstr "SwedPos Cloud"
-
-msgid "web_try_demo"
-msgstr "Открыть демо"
 
 msgid "working"
 msgstr "Выполняется..."

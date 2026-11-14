@@ -18,7 +18,6 @@
       <a class="{% if LANGUAGE_CODE == 'uz' %}on{% endif %}" href="{% url 'reports:language' 'uz' %}?next={{ request.get_full_path|urlencode }}">UZ</a><a class="{% if LANGUAGE_CODE == 'ru' %}on{% endif %}" href="{% url 'reports:language' 'ru' %}?next={{ request.get_full_path|urlencode }}">RU</a>
     </div>
     <h2>{% translate "web_login_title" %}</h2>
-    {% if demo_available %}<p class="msg"><a class="link" href="{% url 'reports:demo' %}">{% translate "web_try_demo" %} →</a></p>{% endif %}
     <form method="post">
       {% csrf_token %}
       <label for="id_username">{{ form.username.label }}</label>

@@ -5,7 +5,7 @@ from .models import Restaurant
 
 @admin.register(Restaurant)
 class RestaurantAdmin(admin.ModelAdmin):
-    list_display = ("name", "key_prefix", "last_sync_at", "last_app_version", "is_active", "is_demo")
+    list_display = ("name", "key_prefix", "last_sync_at", "last_app_version", "is_active")
     readonly_fields = ("key_prefix", "created_at", "last_sync_at", "last_app_version")
     filter_horizontal = ("users",)
     actions = ["renew_keys"]
