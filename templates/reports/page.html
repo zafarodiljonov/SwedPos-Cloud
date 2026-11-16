@@ -6,12 +6,24 @@
   <header class="topbar">
     <a class="brand" href="{% url 'reports:home' %}"><span class="brand-mark"></span>SWEDPOS <b>CLOUD</b></a>
     <div class="restaurant">
-      {% if restaurants|length > 1 %}
-        <select onchange="location.href='/r/' + this.value + '/{{ page }}/'">
-          {% for r in restaurants %}<option value="{{ r.pk }}" {% if r.pk == restaurant.pk %}selected{% endif %}>{{ r.name }}</option>{% endfor %}
-        </select>
+      {% if branches|length > 1 %}
+        <details class="branches">
+          <summary>
+            <span class="label">{% translate "web_branches" %}</span>
+            <span class="cur"><b>{{ restaurant.name }}</b>{% if restaurant.address %} <i>{{ restaurant.address }}</i>{% endif %}</span>
+            <span class="caret">▾</span>
+          </summary>
+          <div class="menu">
+            {% for b in branches %}
+              <a class="{% if b.current %}on{% endif %}" href="{{ b.url }}">
+                <span class="t"><b>{{ b.restaurant.name }}</b>{% if b.restaurant.address %}<i>{{ b.restaurant.address }}</i>{% endif %}</span>
+                <span class="s {% if b.fresh %}ok{% endif %}">● {% if b.restaurant.last_sync_at %}{{ b.restaurant.last_sync_at|date:"d.m H:i" }}{% else %}—{% endif %}</span>
+              </a>
+            {% endfor %}
+          </div>
+        </details>
       {% else %}
-        <span class="name">{{ restaurant.name }}</span>
+        <span class="name">{{ restaurant.name }}{% if restaurant.address %} <i class="dim">{{ restaurant.address }}</i>{% endif %}</span>
       {% endif %}
       <span class="sync {% if sync_fresh %}ok{% else %}stale{% endif %}" title="{% translate 'web_live_note' %}">●
         {% if restaurant.last_sync_at %}{% translate "web_last_sync" %}: {{ restaurant.last_sync_at|date:"d.m.Y H:i" }}{% else %}{% translate "web_never_synced" %}{% endif %}

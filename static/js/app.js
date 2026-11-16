@@ -29,6 +29,11 @@
     rows.forEach(function (r) { body.appendChild(r); });
   }
 
+  // The branch switcher closes when something else is tapped.
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll("details.branches[open]").forEach(function (d) { if (!d.contains(e.target)) d.removeAttribute("open"); });
+  });
+
   function openDetail(row) {
     var blocks = row.closest(".blocks");
     var table = row.closest("table");

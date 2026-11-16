@@ -5,10 +5,20 @@ from .models import Restaurant
 
 @admin.register(Restaurant)
 class RestaurantAdmin(admin.ModelAdmin):
-    list_display = ("name", "key_prefix", "last_sync_at", "last_app_version", "is_active")
+    list_display = ("name", "address", "owners", "key_prefix", "last_sync_at", "last_app_version", "is_active")
+    search_fields = ("name", "address", "users__phone", "users__full_name")
+    list_filter = ("is_active",)
+    fields = ("name", "address", "users", "is_active", "key_prefix", "created_at", "last_sync_at", "last_app_version")
     readonly_fields = ("key_prefix", "created_at", "last_sync_at", "last_app_version")
     filter_horizontal = ("users",)
     actions = ["renew_keys"]
+
+    @admin.display(description="Owners")
+    def owners(self, obj):
+        return ", ".join(u.full_name or u.phone for u in obj.users.all())
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related("users")
 
     def save_model(self, request, obj, form, change):
         key = None

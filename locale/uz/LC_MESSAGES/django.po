@@ -445,6 +445,9 @@ msgstr "sotuvi bor"
 msgid "an_year"
 msgstr "Shu yil"
 
+msgid "app_already_running"
+msgstr "SwedPos allaqachon ochilmoqda. Bir necha soniya kuting. Oyna umuman chiqmasa, kompyuterni qayta yoqing."
+
 msgid "app_name"
 msgstr "SwedPos"
 
@@ -611,7 +614,7 @@ msgid "delivery_fee"
 msgstr "Yetkazib berish"
 
 msgid "delivery_hint"
-msgstr "To'lanmagan yetkazish va olib ketish buyurtmalari."
+msgstr "To'lanmagan yetkazib berish buyurtmalari (olib ketish: \"Olib ketish\" bo'limida)."
 
 msgid "delivery_mark_delivered"
 msgstr "Yetkazildi"
@@ -640,8 +643,26 @@ msgstr "Taom buyurtmalarda ishlatilgan, shuning uchun yashirildi."
 msgid "dish_ikpu"
 msgstr "IKPU kodi (17 raqam)"
 
+msgid "dish_no_printers_exist"
+msgstr "Oshxona printeri yo'q. Avval Sozlamalar → Oshxona printerlari bo'limida qo'shing."
+
 msgid "dish_package"
 msgstr "Qadoq kodi"
+
+msgid "dish_photo"
+msgstr "Taom rasmi"
+
+msgid "dish_photo_hint"
+msgstr "Rasm avtomatik kichraytiriladi (taxminan 20 KB), shuning uchun tez ishlaydi. Buyurtma ekranida taom kartasida ko'rinadi."
+
+msgid "dish_printer_none"
+msgstr "Printer tanlanmagan: bu taom oshxonada chiqmaydi."
+
+msgid "dish_printers"
+msgstr "Qaysi oshxona printerida chiqadi"
+
+msgid "dish_printers_hint"
+msgstr "Taom faqat tanlangan printer(lar)da chop etiladi. Hech biri tanlanmasa, taom oshxona printerlarida chiqmaydi (oshxona ekranida ko'rinadi)."
 
 msgid "dish_vat"
 msgstr "QQS, %"
@@ -862,6 +883,9 @@ msgstr "Hammasi tayyor"
 msgid "kitchen_cancelled"
 msgstr "BEKOR QILINDI — tayyorlamang"
 
+msgid "kitchen_dish_no_printer"
+msgstr "Oshxona printeri tanlanmagan, chiqmadi: "
+
 msgid "kitchen_empty"
 msgstr "Hozircha tayyorlanadigan taom yo'q."
 
@@ -1015,6 +1039,9 @@ msgstr "To'lov"
 msgid "nav_phone"
 msgstr "Call-markaz"
 
+msgid "nav_receipt"
+msgstr "Chek dizayni"
+
 msgid "nav_reports"
 msgstr "Hisobotlar"
 
@@ -1029,6 +1056,9 @@ msgstr "Ombor"
 
 msgid "nav_tables"
 msgstr "Stollar"
+
+msgid "nav_takeaway"
+msgstr "Olib ketish"
 
 msgid "nav_users"
 msgstr "Xodimlar"
@@ -1062,6 +1092,9 @@ msgstr "Chegirma, %"
 
 msgid "order_dish"
 msgstr "Taom"
+
+msgid "order_eat_here"
+msgstr "Zalga"
 
 msgid "order_empty_hint"
 msgstr "Buyurtma bo'sh. O'ngdagi menyudan taom tanlang yoki shtrix-kodni skanerlang."
@@ -1098,6 +1131,12 @@ msgstr "Summa"
 
 msgid "order_table"
 msgstr "Stol"
+
+msgid "order_to_go"
+msgstr "Olib ketishga"
+
+msgid "order_to_go_toggle"
+msgstr "Olib ketish uchun qo'shish (qadoqlanadi)"
 
 msgid "order_total"
 msgstr "Jami"
@@ -1261,6 +1300,15 @@ msgstr "Ulanish turi"
 msgid "printer_kitchen"
 msgstr "Oshxona printeri"
 
+msgid "printer_mode"
+msgstr "Chop etish usuli"
+
+msgid "printer_mode_graphic"
+msgstr "Rasm sifatida: logotip, katta shrift (tavsiya)"
+
+msgid "printer_mode_text"
+msgstr "Printer shrifti (eski usul)"
+
 msgid "printer_name"
 msgstr "Printer nomi"
 
@@ -1306,6 +1354,9 @@ msgstr "Menyu"
 msgid "rail_phone"
 msgstr "Telefon"
 
+msgid "rail_receipt"
+msgstr "Chek"
+
 msgid "rail_reports"
 msgstr "Hisobot"
 
@@ -1321,8 +1372,155 @@ msgstr "Ombor"
 msgid "rail_tables"
 msgstr "Stollar"
 
+msgid "rail_takeaway"
+msgstr "Olib ketish"
+
 msgid "rail_users"
 msgstr "Xodimlar"
+
+msgid "rd_bold"
+msgstr "Qalin"
+
+msgid "rd_dotted"
+msgstr "Taomlar orasida nuqtali chiziq"
+
+msgid "rd_footer"
+msgstr "Pastdagi matn (masalan: yetkazish telefoni, \"Xush kelibsiz!\")"
+
+msgid "rd_header"
+msgstr "Yuqoridagi matn"
+
+msgid "rd_hint"
+msgstr "Mijoz cheki va oshxona cheki qanday chiqishini sozlang. O'ngda printerdan aynan shunday chiqadi. Barcha kompyuterlar uchun bir xil."
+
+msgid "rd_info_size"
+msgstr "Stol, sana, ofitsiant"
+
+msgid "rd_item_bold"
+msgstr "Taomlar qalin"
+
+msgid "rd_item_size"
+msgstr "Taomlar"
+
+msgid "rd_logo"
+msgstr "Logotip"
+
+msgid "rd_logo_bottom"
+msgstr "Pastdagi logotip"
+
+msgid "rd_logo_choose"
+msgstr "Rasm tanlash…"
+
+msgid "rd_logo_failed"
+msgstr "Rasmni ochib bo'lmadi: "
+
+msgid "rd_logo_hint"
+msgstr "Rasm barcha cheklar uchun bitta. PNG yoki JPG; oq fondagi qora logotip eng aniq chiqadi."
+
+msgid "rd_logo_none"
+msgstr "Rasm yo'q"
+
+msgid "rd_logo_remove"
+msgstr "O'chirish"
+
+msgid "rd_logo_top"
+msgstr "Yuqoridagi logotip"
+
+msgid "rd_no_kitchen_printer"
+msgstr "Oshxona printeri qo'shilmagan (Sozlamalar → Oshxona printerlari)."
+
+msgid "rd_number_items"
+msgstr "Taomlarni raqamlash (1., 2., 3.)"
+
+msgid "rd_preview"
+msgstr "Ko'rinishi"
+
+msgid "rd_preview_hint"
+msgstr "Namuna buyurtma, qog'oz {0} mm"
+
+msgid "rd_reset"
+msgstr "Standartga qaytarish"
+
+msgid "rd_saved"
+msgstr "Saqlandi. Barcha kompyuterlar shu dizayn bilan chop etadi."
+
+msgid "rd_show_columns"
+msgstr "Ustun nomlari (Taomlar, Soni, Narxi, Summa)"
+
+msgid "rd_show_contacts"
+msgstr "Manzil va telefon"
+
+msgid "rd_show_date"
+msgstr "Sana va vaqt"
+
+msgid "rd_show_logo"
+msgstr "Chekda ko'rsatish"
+
+msgid "rd_show_name"
+msgstr "Restoran nomi (logotip bo'lmasa)"
+
+msgid "rd_show_number"
+msgstr "Chek raqami"
+
+msgid "rd_show_order_no"
+msgstr "Buyurtma raqami (N# 17)"
+
+msgid "rd_show_payment"
+msgstr "To'lov turi (naqd / karta)"
+
+msgid "rd_show_title"
+msgstr "Nimani ko'rsatish"
+
+msgid "rd_show_waiter"
+msgstr "Ofitsiant ismi"
+
+msgid "rd_size"
+msgstr "O'lchami"
+
+msgid "rd_sizes"
+msgstr "Shrift o'lchamlari"
+
+msgid "rd_spacing"
+msgstr "Taomlar orasidagi masofa"
+
+msgid "rd_split_takeaway"
+msgstr "Olib ketish taomlarini alohida guruhda (Zalda / Olib ketish)"
+
+msgid "rd_tab_delivery"
+msgstr "Yetkazish"
+
+msgid "rd_tab_dinein"
+msgstr "Zal (stol)"
+
+msgid "rd_tab_kitchen"
+msgstr "Oshxona"
+
+msgid "rd_tab_takeaway"
+msgstr "Olib ketish"
+
+msgid "rd_test"
+msgstr "Test chop etish"
+
+msgid "rd_text_mode_note"
+msgstr "Bu kompyuter printeri \"Printer shrifti\" usulida: logotip va o'lchamlar chiqmaydi. Sozlamalar → Chek printeri → Chop etish usuli."
+
+msgid "rd_texts"
+msgstr "Matnlar"
+
+msgid "rd_title_size"
+msgstr "Stol nomi (sarlavha)"
+
+msgid "rd_total_bold"
+msgstr "Jami summa qalin"
+
+msgid "rd_total_size"
+msgstr "Jami summa"
+
+msgid "rd_unsaved"
+msgstr "Saqlanmagan o'zgarishlar bor."
+
+msgid "rd_width"
+msgstr "Kengligi, %"
 
 msgid "ready_banner"
 msgstr "Taomlar tayyor:"
@@ -1678,6 +1876,21 @@ msgstr "Retseptlar"
 msgid "stock_unit"
 msgstr "O'lchov birligi"
 
+msgid "tk_cooking"
+msgstr "Tayyorlanmoqda"
+
+msgid "tk_hint"
+msgstr "Kassadagi olib ketish buyurtmalari: stol kabi, telefon raqamisiz. Yangi buyurtma: \"+\" kartasi."
+
+msgid "tk_new"
+msgstr "Yangi buyurtma"
+
+msgid "tk_new_hint"
+msgstr "Birinchi taom qo'shilganda buyurtma ochiladi"
+
+msgid "tk_not_sent"
+msgstr "Oshxonaga yuborilmagan"
+
 msgid "unit_gram"
 msgstr "Og'irlik (g/kg)"
 
@@ -1807,6 +2020,9 @@ msgstr "Oxirgi Egani o'chirib yoki pasaytirib bo'lmaydi."
 msgid "v_line_sent"
 msgstr "Oshxonaga yuborilgan, o'zgartirish uchun ruxsat kerak."
 
+msgid "v_logo_too_big"
+msgstr "Rasm juda katta. Kichikroq rasm tanlang."
+
 msgid "v_name_required"
 msgstr "Nomini kiriting."
 
@@ -1864,6 +2080,12 @@ msgstr "PostgreSQL dasturlari (pg_dump) topilmadi. PostgreSQL shu kompyuterda o'
 msgid "v_phone_invalid"
 msgstr "Telefon raqami noto'g'ri."
 
+msgid "v_photo_source_big"
+msgstr "Rasm fayli juda katta (25 MB gacha)."
+
+msgid "v_photo_too_big"
+msgstr "Rasm juda katta."
+
 msgid "v_pin_duplicate"
 msgstr "Bu PIN boshqa xodimda bor."
 
@@ -1893,6 +2115,9 @@ msgstr "Miqdor noto'g'ri."
 
 msgid "v_reason_required"
 msgstr "Sababni kiriting."
+
+msgid "v_receipt_text_long"
+msgstr "Matn juda uzun (500 belgigacha)."
 
 msgid "v_reset_owner_pin"
 msgstr "Bu Egasining PIN-kodi emas."
@@ -1947,6 +2172,9 @@ msgstr "Ko'rsatish"
 
 msgid "web_bad_login"
 msgstr "Telefon raqami yoki parol noto'g'ri."
+
+msgid "web_branches"
+msgstr "Filial"
 
 msgid "web_close"
 msgstr "Yopish"

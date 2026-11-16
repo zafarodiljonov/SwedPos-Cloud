@@ -21,6 +21,7 @@ WEB_TEXTS = {
     "web_logout": ("Chiqish", "Выйти"),
     "web_bad_login": ("Telefon raqami yoki parol noto'g'ri.", "Неверный номер телефона или пароль."),
     "web_no_restaurants": ("Bu hisobga hali restoran biriktirilmagan. SwedPos bilan bog'laning.", "К этому аккаунту ещё не привязан ресторан. Свяжитесь с SwedPos."),
+    "web_branches": ("Filial", "Филиал"),
     "web_last_sync": ("Oxirgi ma'lumot", "Последние данные"),
     "web_never_synced": ("Restorandan hali ma'lumot kelmagan", "Данные из ресторана ещё не поступали"),
     "web_live_note": ("Ma'lumotlar restoran server kompyuteridan har daqiqada keladi.", "Данные приходят с серверного компьютера ресторана каждую минуту."),

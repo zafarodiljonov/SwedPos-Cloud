@@ -445,6 +445,9 @@ msgstr "с продажами"
 msgid "an_year"
 msgstr "Этот год"
 
+msgid "app_already_running"
+msgstr "SwedPos уже запускается. Подождите несколько секунд. Если окно так и не появится, перезагрузите компьютер."
+
 msgid "app_name"
 msgstr "SwedPos"
 
@@ -611,7 +614,7 @@ msgid "delivery_fee"
 msgstr "Доставка"
 
 msgid "delivery_hint"
-msgstr "Неоплаченные заказы доставки и с собой."
+msgstr "Неоплаченные заказы доставки (с собой — в разделе «С собой»)."
 
 msgid "delivery_mark_delivered"
 msgstr "Доставлен"
@@ -640,8 +643,26 @@ msgstr "Блюдо есть в заказах, поэтому оно скрыт�
 msgid "dish_ikpu"
 msgstr "Код ИКПУ (17 цифр)"
 
+msgid "dish_no_printers_exist"
+msgstr "Нет кухонных принтеров. Сначала добавьте в Настройки → Кухонные принтеры."
+
 msgid "dish_package"
 msgstr "Код упаковки"
+
+msgid "dish_photo"
+msgstr "Фото блюда"
+
+msgid "dish_photo_hint"
+msgstr "Фото автоматически уменьшается (около 20 КБ), поэтому всё работает быстро. Показывается на карточке блюда в заказе."
+
+msgid "dish_printer_none"
+msgstr "Принтер не выбран: это блюдо на кухне не печатается."
+
+msgid "dish_printers"
+msgstr "На каком кухонном принтере печатается"
+
+msgid "dish_printers_hint"
+msgstr "Блюдо печатается только на выбранных принтерах. Если не выбран ни один, блюдо не печатается на кухне (на экране кухни видно)."
 
 msgid "dish_vat"
 msgstr "НДС, %"
@@ -862,6 +883,9 @@ msgstr "Всё готово"
 msgid "kitchen_cancelled"
 msgstr "ОТМЕНА — не готовить"
 
+msgid "kitchen_dish_no_printer"
+msgstr "Не выбран кухонный принтер, не напечатано: "
+
 msgid "kitchen_empty"
 msgstr "Сейчас нет блюд в работе."
 
@@ -1015,6 +1039,9 @@ msgstr "Касса"
 msgid "nav_phone"
 msgstr "Колл-центр"
 
+msgid "nav_receipt"
+msgstr "Дизайн чека"
+
 msgid "nav_reports"
 msgstr "Отчёты"
 
@@ -1029,6 +1056,9 @@ msgstr "Склад"
 
 msgid "nav_tables"
 msgstr "Столы"
+
+msgid "nav_takeaway"
+msgstr "С собой"
 
 msgid "nav_users"
 msgstr "Сотрудники"
@@ -1062,6 +1092,9 @@ msgstr "Скидка, %"
 
 msgid "order_dish"
 msgstr "Блюдо"
+
+msgid "order_eat_here"
+msgstr "В зал"
 
 msgid "order_empty_hint"
 msgstr "Заказ пуст. Выберите блюдо в меню справа или отсканируйте штрих-код."
@@ -1098,6 +1131,12 @@ msgstr "Сумма"
 
 msgid "order_table"
 msgstr "Стол"
+
+msgid "order_to_go"
+msgstr "С собой"
+
+msgid "order_to_go_toggle"
+msgstr "Добавлять «с собой» (упаковать)"
 
 msgid "order_total"
 msgstr "Итого"
@@ -1261,6 +1300,15 @@ msgstr "Тип подключения"
 msgid "printer_kitchen"
 msgstr "Кухонный принтер"
 
+msgid "printer_mode"
+msgstr "Способ печати"
+
+msgid "printer_mode_graphic"
+msgstr "Как картинка: логотип, крупный шрифт (рекомендуется)"
+
+msgid "printer_mode_text"
+msgstr "Шрифт принтера (старый способ)"
+
 msgid "printer_name"
 msgstr "Имя принтера"
 
@@ -1306,6 +1354,9 @@ msgstr "Меню"
 msgid "rail_phone"
 msgstr "Телефон"
 
+msgid "rail_receipt"
+msgstr "Чек"
+
 msgid "rail_reports"
 msgstr "Отчёты"
 
@@ -1321,8 +1372,155 @@ msgstr "Склад"
 msgid "rail_tables"
 msgstr "Столы"
 
+msgid "rail_takeaway"
+msgstr "С собой"
+
 msgid "rail_users"
 msgstr "Персонал"
+
+msgid "rd_bold"
+msgstr "Жирный"
+
+msgid "rd_dotted"
+msgstr "Пунктир между блюдами"
+
+msgid "rd_footer"
+msgstr "Текст снизу (например: телефон доставки, «Добро пожаловать!»)"
+
+msgid "rd_header"
+msgstr "Текст сверху"
+
+msgid "rd_hint"
+msgstr "Настройте, как печатаются чек клиента и кухонный чек. Справа — ровно так напечатает принтер. Одинаково для всех компьютеров."
+
+msgid "rd_info_size"
+msgstr "Стол, дата, официант"
+
+msgid "rd_item_bold"
+msgstr "Блюда жирным"
+
+msgid "rd_item_size"
+msgstr "Блюда"
+
+msgid "rd_logo"
+msgstr "Логотип"
+
+msgid "rd_logo_bottom"
+msgstr "Логотип снизу"
+
+msgid "rd_logo_choose"
+msgstr "Выбрать фото…"
+
+msgid "rd_logo_failed"
+msgstr "Не удалось открыть фото: "
+
+msgid "rd_logo_hint"
+msgstr "Одна картинка для всех чеков. PNG или JPG; чёрный логотип на белом фоне печатается чётче всего."
+
+msgid "rd_logo_none"
+msgstr "Нет фото"
+
+msgid "rd_logo_remove"
+msgstr "Удалить"
+
+msgid "rd_logo_top"
+msgstr "Логотип сверху"
+
+msgid "rd_no_kitchen_printer"
+msgstr "Кухонный принтер не добавлен (Настройки → Кухонные принтеры)."
+
+msgid "rd_number_items"
+msgstr "Нумеровать блюда (1., 2., 3.)"
+
+msgid "rd_preview"
+msgstr "Предпросмотр"
+
+msgid "rd_preview_hint"
+msgstr "Пример заказа, бумага {0} мм"
+
+msgid "rd_reset"
+msgstr "Сбросить"
+
+msgid "rd_saved"
+msgstr "Сохранено. Все компьютеры печатают с этим дизайном."
+
+msgid "rd_show_columns"
+msgstr "Заголовки столбцов (Блюда, Кол., Цена, Итого)"
+
+msgid "rd_show_contacts"
+msgstr "Адрес и телефон"
+
+msgid "rd_show_date"
+msgstr "Дата и время"
+
+msgid "rd_show_logo"
+msgstr "Показывать на чеке"
+
+msgid "rd_show_name"
+msgstr "Название ресторана (если нет логотипа)"
+
+msgid "rd_show_number"
+msgstr "Номер чека"
+
+msgid "rd_show_order_no"
+msgstr "Номер заказа (N# 17)"
+
+msgid "rd_show_payment"
+msgstr "Способ оплаты (наличные / карта)"
+
+msgid "rd_show_title"
+msgstr "Что показывать"
+
+msgid "rd_show_waiter"
+msgstr "Имя официанта"
+
+msgid "rd_size"
+msgstr "Размер"
+
+msgid "rd_sizes"
+msgstr "Размеры шрифта"
+
+msgid "rd_spacing"
+msgstr "Отступ между блюдами"
+
+msgid "rd_split_takeaway"
+msgstr "Блюда с собой отдельной группой (В зале / С собой)"
+
+msgid "rd_tab_delivery"
+msgstr "Доставка"
+
+msgid "rd_tab_dinein"
+msgstr "Зал (стол)"
+
+msgid "rd_tab_kitchen"
+msgstr "Кухня"
+
+msgid "rd_tab_takeaway"
+msgstr "С собой"
+
+msgid "rd_test"
+msgstr "Тестовая печать"
+
+msgid "rd_text_mode_note"
+msgstr "Принтер этого компьютера в режиме «Шрифт принтера»: логотип и размеры не печатаются. Настройки → Принтер чеков → Способ печати."
+
+msgid "rd_texts"
+msgstr "Тексты"
+
+msgid "rd_title_size"
+msgstr "Название стола (заголовок)"
+
+msgid "rd_total_bold"
+msgstr "Итог жирным"
+
+msgid "rd_total_size"
+msgstr "Итоговая сумма"
+
+msgid "rd_unsaved"
+msgstr "Есть несохранённые изменения."
+
+msgid "rd_width"
+msgstr "Ширина, %"
 
 msgid "ready_banner"
 msgstr "Блюда готовы:"
@@ -1678,6 +1876,21 @@ msgstr "Рецептуры"
 msgid "stock_unit"
 msgstr "Единица"
 
+msgid "tk_cooking"
+msgstr "Готовится"
+
+msgid "tk_hint"
+msgstr "Заказы с собой на кассе: как стол, без номера телефона. Новый заказ — карточка «+»."
+
+msgid "tk_new"
+msgstr "Новый заказ"
+
+msgid "tk_new_hint"
+msgstr "Заказ откроется, когда добавите первое блюдо"
+
+msgid "tk_not_sent"
+msgstr "Не отправлен на кухню"
+
 msgid "unit_gram"
 msgstr "Вес (г/кг)"
 
@@ -1807,6 +2020,9 @@ msgstr "Нельзя отключить или понизить последне
 msgid "v_line_sent"
 msgstr "Уже отправлено на кухню, нужно разрешение для изменения."
 
+msgid "v_logo_too_big"
+msgstr "Фото слишком большое. Выберите поменьше."
+
 msgid "v_name_required"
 msgstr "Введите название."
 
@@ -1864,6 +2080,12 @@ msgstr "Не найдены программы PostgreSQL (pg_dump). Прове�
 msgid "v_phone_invalid"
 msgstr "Неверный номер телефона."
 
+msgid "v_photo_source_big"
+msgstr "Файл фото слишком большой (до 25 МБ)."
+
+msgid "v_photo_too_big"
+msgstr "Фото слишком большое."
+
 msgid "v_pin_duplicate"
 msgstr "Этот PIN уже у другого сотрудника."
 
@@ -1893,6 +2115,9 @@ msgstr "Неверное количество."
 
 msgid "v_reason_required"
 msgstr "Укажите причину."
+
+msgid "v_receipt_text_long"
+msgstr "Текст слишком длинный (до 500 символов)."
 
 msgid "v_reset_owner_pin"
 msgstr "Это не PIN-код владельца."
@@ -1947,6 +2172,9 @@ msgstr "Показать"
 
 msgid "web_bad_login"
 msgstr "Неверный номер телефона или пароль."
+
+msgid "web_branches"
+msgstr "Филиал"
 
 msgid "web_close"
 msgstr "Закрыть"

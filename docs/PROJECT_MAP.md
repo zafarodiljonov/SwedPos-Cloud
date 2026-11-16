@@ -23,6 +23,7 @@ The owner website for SwedPos restaurants (Python Django + PostgreSQL). Read-onl
 |---|---|
 | Login with phone + password | `apps/accounts/models.py`, `forms.py`, `config/urls.py`, `templates/registration/login.html` |
 | Add a restaurant, get its sync key | `apps/restaurants/admin.py` (Admin > Restaurants > Add), `models.py` |
+| Several restaurants (branches) for one owner, the Filial switcher | `apps/restaurants/models.py` (`users`, `address`), `admin.py`, `apps/reports/views.py` (`_branches`, `home`), `templates/reports/page.html`, `static/css/app.css` (`.branches`) |
 | Receiving data from the desktop | `apps/sync/views.py` > `receiver.py` > `models.py` |
 | Revenue, profit, waiters, payroll, payments, tables, dishes (ABC), customers, control, stock | `apps/analytics/services.py` (methods `overview`, `sales`, `payments`, `waiters`, `payroll`, `tables`, `products`, `customers`, `control`, `stock`) |
 | What each page shows (tiles, charts, tables) | `apps/reports/builder.py` |

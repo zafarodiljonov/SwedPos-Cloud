@@ -71,10 +71,22 @@ def _restaurant(request, rid):
 
 @login_required
 def home(request):
-    first = Restaurant.visible_to(request.user).first()
+    visible = Restaurant.visible_to(request.user)
+    # The branch the owner looked at last time, else the first one.
+    first = visible.filter(pk=request.session.get("rid")).first() or visible.first()
     if first is None:
         return render(request, "reports/no_restaurant.html")
     return redirect("reports:page", rid=first.pk, page="overview")
+
+
+def _branches(request, current, page, state):
+    """Every restaurant (branch) of this owner with the link that shows the same page and period for it.
+    Hall and waiter are left out: their numbers belong to one restaurant."""
+    now = timezone.now()
+    query = _query(state, hall="", waiter="")
+    return [{"restaurant": r, "current": r.pk == current.pk, "url": f"/r/{r.pk}/{page}/?{query}",
+             "fresh": r.last_sync_at is not None and now - r.last_sync_at < timedelta(minutes=10)}
+            for r in Restaurant.visible_to(request.user)]
 
 
 @login_required
@@ -82,6 +94,7 @@ def page(request, rid, page="overview"):
     if page not in PAGES:
         raise Http404
     restaurant = _restaurant(request, rid)
+    request.session["rid"] = restaurant.pk
     state = _state(request)
     f = state["filter"]
     builder = Builder(restaurant, get_language())
@@ -95,7 +108,7 @@ def page(request, rid, page="overview"):
         f"{f.from_.strftime('%d.%m.%Y')} — {f.to.strftime('%d.%m.%Y')}  ({f.days} {T('an_days')})")
     sync_fresh = restaurant.last_sync_at is not None and timezone.now() - restaurant.last_sync_at < timedelta(minutes=10)
     return render(request, "reports/page.html", {
-        "restaurant": restaurant, "restaurants": Restaurant.visible_to(request.user), "page": page,
+        "restaurant": restaurant, "branches": _branches(request, restaurant, page, state), "page": page,
         "pages": [(p, T("an_page_" + p), ICONS[p]) for p in PAGES], "blocks": blocks,
         "title": T("an_page_" + page), "hint": T("an_hint_" + page), "period": period, "sync_fresh": sync_fresh,
         "presets": [(key, T(label), f"?{_query(state, **{'from': s.isoformat(), 'to': e.isoformat()})}&p={key}") for key, label, s, e in state["presets"]],

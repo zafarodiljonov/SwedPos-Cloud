@@ -16,6 +16,8 @@ def hash_key(key: str) -> str:
 
 class Restaurant(models.Model):
     name = models.CharField(max_length=120)
+    # Optional: which branch it is ("Registon ko'chasi 5"). Shown next to the name where an owner switches between branches.
+    address = models.CharField(max_length=200, blank=True)
     # The key itself is shown once (when created or renewed) and never stored.
     key_hash = models.CharField(max_length=64, unique=True, editable=False)
     key_prefix = models.CharField(max_length=12, editable=False, help_text="First characters of the key, to recognise it")

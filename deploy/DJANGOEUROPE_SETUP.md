@@ -122,6 +122,19 @@ It also sets `TZ=Asia/Samarkand`, so days and hours in the reports are counted i
    The status line in Settings shows the last send; the site shows the time of the last data. If the internet is down, the PC keeps the rest and sends it later.
 5. The owner opens `https://swedpos.django.group`, logs in with the phone and password, and sees the analytics.
 
+## 10b. More restaurants for the same owner (branches)
+
+An owner can have any number of restaurants on one login. For each new branch, repeat step 10 with the **same owner**:
+
+1. `/admin/` → **Restaurants → Add restaurant**: name (for example `Maroqand 2`), **Address** (shown in the switcher, for example `Amir Temur 12`),
+   and move the **same owner** to the right-hand *Users* list. Save: a new **sync key** appears once.
+2. On that branch's **server PC**: SwedPos → Sozlama → SwedPos Cloud: the same address `https://swedpos.django.group` and **its own key**.
+3. The owner logs in once (same phone and password). Above the reports a **Filial** button shows the restaurants; tapping one opens the same page and
+   period for it. The branch looked at last is opened at the next login. Every branch has its own data and its own key; nothing is mixed.
+
+Changing an existing owner's branches: `/admin/` → Restaurants → the restaurant → move the owner in or out of *Users*. The list also shows the owners
+and can be searched by name, address or phone.
+
 ## 11. A real domain later
 
 1. Panel → **Domains**: add it, point its DNS at Django Europe; Panel → **SSL**: Let's Encrypt for it.
@@ -143,7 +156,7 @@ $ ~/venv_swedpos/bin/python manage.py migrate --settings=config.settings.prod
 $ ~/venv_swedpos/bin/python manage.py collectstatic --noinput --settings=config.settings.prod
 $ ~/init/swedpos restart
 ```
-This release (1.4.0) adds two migrations (`restaurants 0002` and `0003`): `migrate` applies them.
+The branch switcher adds one migration (`restaurants 0004_restaurant_address`, the address of a branch): `migrate` applies it. Nothing changes in the desktop app.
 
 ## 13. Backups (do this before the first real restaurant)
 

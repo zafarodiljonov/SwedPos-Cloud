@@ -53,6 +53,24 @@ form { margin: 0; }
 .topbar { grid-column: 1 / -1; display: flex; align-items: center; gap: 24px; padding: 10px 20px; background: var(--panel); border-bottom: 1px solid var(--line); }
 .topbar .restaurant { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
 .topbar .restaurant .name { font-weight: 600; font-size: 15px; }
+/* branch switcher (an owner with several restaurants) */
+.branches { position: relative; }
+.branches summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; padding: 7px 12px; background: var(--raised); border: 1px solid var(--line); border-left: 3px solid var(--accent); min-height: 40px; }
+.branches summary::-webkit-details-marker { display: none; }
+.branches summary:hover, .branches[open] summary { border-color: var(--accent); }
+.branches .label { color: var(--dim); font-size: 11px; text-transform: uppercase; letter-spacing: .6px; }
+.branches .cur { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+.branches .cur b { font-size: 14px; }
+.branches i { font-style: normal; color: var(--dim); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.branches .caret { color: var(--accent); margin-left: 4px; }
+.branches .menu { position: absolute; z-index: 20; top: calc(100% + 4px); left: 0; min-width: 300px; max-width: 92vw; background: var(--panel); border: 1px solid var(--accent); box-shadow: 0 8px 24px rgba(0,0,0,.45); }
+.branches .menu a { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 12px 14px; border-left: 3px solid transparent; border-bottom: 1px solid var(--line); min-height: 52px; }
+.branches .menu a:last-child { border-bottom: 0; }
+.branches .menu a:hover { background: var(--raised); }
+.branches .menu a.on { border-left-color: var(--accent); background: var(--raised); }
+.branches .menu .t { display: flex; flex-direction: column; min-width: 0; }
+.branches .menu .s { font-size: 12px; color: var(--dim); white-space: nowrap; }
+.branches .menu .s.ok { color: var(--ok); }
 .topbar .sync { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .topbar .sync.ok { color: var(--ok); }
 .topbar .sync.stale { color: var(--dim); }
