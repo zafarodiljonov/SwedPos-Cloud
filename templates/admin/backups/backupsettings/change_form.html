@@ -1,0 +1,29 @@
+{% extends "admin/change_form.html" %}
+{% block after_field_sets %}
+<fieldset class="module aligned">
+  <h2>Status</h2>
+  <div class="form-row"><div><label>Last backup</label>
+    <div class="readonly">{% if cfg.last_success_at %}{{ cfg.last_success_at|date:"d.m.Y H:i" }}{% else %}never{% endif %}</div></div></div>
+  <div class="form-row"><div><label>Last result</label>
+    <div class="readonly">{{ cfg.last_message|default:"-" }}</div></div></div>
+  <div class="form-row"><div><label>Next backup</label>
+    <div class="readonly">{% if cfg.frequency == "off" %}only when you press Back up now{% elif due %}tonight (the daily check finds it due){% else %}not due yet{% endif %}</div></div></div>
+  <div class="form-row"><div><label>Folder on the server</label><div class="readonly">{{ folder }}</div></div></div>
+  <div class="form-row"><div><label>&nbsp;</label>
+    <button type="submit" formaction="{{ run_url }}" formmethod="post" formnovalidate class="button default">Back up now</button>
+    <p class="help">Makes a backup right now (a few seconds). It does not save the settings above.</p></div></div>
+</fieldset>
+
+<fieldset class="module aligned">
+  <h2>Backups on the server ({{ files|length }})</h2>
+  {% for name, size, time in files %}
+    <div class="form-row"><div>
+      <a href="{% url 'admin:backups_backupsettings_download' name %}">{{ name }}</a>
+      &nbsp; {{ size|filesizeformat }} &nbsp; {{ time|date:"d.m.Y H:i" }}
+    </div></div>
+  {% empty %}
+    <div class="form-row"><div class="readonly">No backup yet.</div></div>
+  {% endfor %}
+  <p class="help" style="padding:0 10px">Download a copy to your own PC now and then: a backup on the same server does not survive a dead server.</p>
+</fieldset>
+{% endblock %}

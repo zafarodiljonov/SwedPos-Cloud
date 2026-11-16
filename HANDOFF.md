@@ -23,10 +23,11 @@ I'm continuing work on **SwedPos Cloud**, the owner website for my restaurant PO
 Login with phone + password (owners/managers; SwedPos staff = superusers in `/admin/`), restaurants with sync keys, `/api/sync` receiver (idempotent), 10 report pages (overview, sales, payments, waiters, payroll, tables, dishes/ABC, customers, control, stock) with SVG charts, sortable tables, waiter drill-down, Excel export, UZ/RU, no demo content, Django Europe deploy guide. 22 tests (`apps/restaurants/tests/test_admin_flow.py` walks the new-restaurant steps).
 **Live** at `https://swedpos.django.group` since 2026-11-14 (server `fastfreezing@s20.wservices.ch`: code `~/swedpos`, venv `~/venv_swedpos`, port 63503, start/stop `~/init/swedpos`, secrets `~/swedpos/.env`). Update: `deploy/DJANGOEUROPE_SETUP.md` step 12.
 **Branches (2026-11-17):** one owner login can have several restaurants (`Restaurant.users`, `Restaurant.address`): the page shows a **Filial** switcher (`details.branches` in `templates/reports/page.html`, links built by `_branches` in `apps/reports/views.py` keep the period and drop hall/waiter; the last branch is remembered in the session). Add a branch in `/admin/` exactly like the first restaurant, same owner, own key. 27 tests.
+**Backups (2026-11-17):** `apps/backups`: /admin/ > Backups > Database backup = frequency (off/daily/weekly/monthly/yearly, default weekly), how many to keep (default 8), **Back up now**, list + download. A daily cron (`manage.py backup_db --if-due`) makes the backup only when due; pg_dump to `~/backups`. 39 tests. Cron line is in the deploy guide, step 13.
 Restaurants on the site: the owner's test PC (rename to "TEST - Zafar PC"); the real Maroqand is created at the restaurant (desktop repo `SwedPos_USB` guide, section 11). Never paste old terminal output back into the SSH window: it re-runs the commands (it emptied `.env` once).
 
 ### Next
-1. Daily database backup on the server (`deploy/DJANGOEUROPE_SETUP.md` step 13, panel Cron). Connect the real Maroqand restaurant at the opening.
+1. Set the daily check in the panel Cron (step 13), then Back up now once. Connect the real Maroqand restaurant at the opening.
 2. Admin page for restaurants/accounts instead of Django admin; password reset (SMS via Eskiz.uz).
 3. Version 2: change settings online (menu prices, waiter percent) through a command queue the desktop pulls.
 4. Owner mobile view/notifications (shift closed), multi-restaurant comparison.

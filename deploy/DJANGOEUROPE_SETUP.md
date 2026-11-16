@@ -156,17 +156,28 @@ $ ~/venv_swedpos/bin/python manage.py migrate --settings=config.settings.prod
 $ ~/venv_swedpos/bin/python manage.py collectstatic --noinput --settings=config.settings.prod
 $ ~/init/swedpos restart
 ```
-The branch switcher adds one migration (`restaurants 0004_restaurant_address`, the address of a branch): `migrate` applies it. Nothing changes in the desktop app.
+The backups page adds one more migration (`backups 0001`) and the cron line of step 13. The branch switcher adds one migration (`restaurants 0004_restaurant_address`, the address of a branch): `migrate` applies it. Nothing changes in the desktop app.
 
 ## 13. Backups (do this before the first real restaurant)
 
-```bash
-$ mkdir -p ~/backups
-$ PGPASSWORD="$(grep '^DATABASE_URL' ~/swedpos/.env | sed -E 's#.*://[^:]+:([^@]+)@.*#\1#')" \
-    pg_dump -h 127.0.0.1 -U fastfreezing fastfreezing_swedpos | gzip > ~/backups/swedpos-$(date +%F).sql.gz
+The site makes its own backups; **you choose how often** in `/admin/` → **Backups → Database backup**:
+*Every day / week / month / year / Off*, and how many of the newest backups to keep (default: **every week**, keep **8**).
+The same page has **Back up now** (a few seconds) and the list of backup files with a download link for each.
+Backups are written to `~/backups` on the server (`swedpos-YYYYMMDD-HHMMSS.sql.gz`).
+
+The schedule needs one **daily check**, set once in the panel → **Cron** (every day, 03:00). The check only makes a backup when your schedule says it is due,
+so changing "weekly" to "monthly" in the admin needs no change in the panel:
+
 ```
-Add the same to panel → **Cron** (daily) and download a copy off the server from time to time.
+/home/fastfreezing/venv_swedpos/bin/python /home/fastfreezing/swedpos/manage.py backup_db --if-due --settings=config.settings.prod
+```
+Test it once in Git Bash on the server (it prints "Not due yet" or "Backup written"):
+```bash
+$ ~/venv_swedpos/bin/python ~/swedpos/manage.py backup_db --if-due --settings=config.settings.prod
+```
+Download a copy to your own PC now and then (a link in the admin): a backup on the same server does not survive a dead server.
 The restaurant's own PC also keeps all data, so the site is a copy, not the only place.
+Restore (only if ever needed): `gunzip -c ~/backups/<file>.sql.gz | psql -h 127.0.0.1 -U fastfreezing fastfreezing_swedpos` on an empty database; ask Claude first.
 
 ## Troubleshooting
 

@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "apps.accounts",
     "apps.restaurants",
     "apps.sync",
+    "apps.backups",
     "apps.analytics",
     "apps.reports",
     "apps.help",
@@ -100,6 +101,9 @@ LANGUAGES = [("uz", _("O'zbekcha")), ("ru", _("Русский"))]
 LOCALE_PATHS = [BASE_DIR / "locale"]
 
 # The restaurants are in Uzbekistan: days and hours are counted in this time zone.
+# Where /admin/ > Database backup writes the backup files (the server user's ~/backups unless BACKUP_DIR is set in .env).
+BACKUP_DIR = Path(env("BACKUP_DIR", default=str(Path.home() / "backups")))
+
 TIME_ZONE = "Asia/Samarkand"
 USE_I18N = True
 USE_TZ = True
